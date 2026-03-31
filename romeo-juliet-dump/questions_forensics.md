@@ -1,6 +1,6 @@
 # Romeo and Juliet - Forensics Questions
 
-This file contains 58 question-and-answer entries formatted for easier reading in rendered Markdown.
+This file contains 60 question-and-answer entries formatted for easier reading in rendered Markdown.
 
 ## Question #1
 
