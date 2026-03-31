@@ -239,11 +239,19 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 **Answer:** She tells him that Paris wants Juliet, but Juliet would rather look at a toad than at Paris and turns pale when Paris is praised over Romeo.
 
 **Observations:** Validate at dump.md L2672-L2680. The Nurse gives Romeo private evidence of Juliet's emotional preference and resistance to Paris.
-- Question #21: Which concealed kinship causes Romeo to de-escalate Tybalt's challenge, and when is that kinship later made explicit?
-- Classification #21: medium
-- Answer #21: Tybalt has become Romeo's kinsman through Romeo's secret marriage to Juliet, though Tybalt does not know it.
-- Observations #21: Validate at dump.md L3072-L3088 and L3187-L3193. Romeo's refusal to fight only makes full sense once he later explains that Tybalt has become his kinsman.
 
+
+---
+
+## Question #21
+
+**Classification:** medium
+
+**Question:** Which concealed kinship causes Romeo to de-escalate Tybalt's challenge, and when is that kinship later made explicit?
+
+**Answer:** Tybalt has become Romeo's kinsman through Romeo's secret marriage to Juliet, though Tybalt does not know it.
+
+**Observations:** Validate at dump.md L3072-L3088 and L3187-L3193. Romeo's refusal to fight only makes full sense once he later explains that Tybalt has become his kinsman.
 ---
 
 ## Question #22
@@ -471,11 +479,19 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 **Answer:** He says every wedding item turns into its funeral opposite: instruments become bells, feast becomes burial meal, hymns become dirges, and bridal flowers serve a corpse.
 
 **Observations:** Validate at dump.md L5149-L5155. Capulet explicitly lists the symbolic reversals from celebration to mourning.
-- Question #41: Who delivers the first report that shapes Romeo's understanding of Juliet's condition in Act V, and what corrective document is missing?
-- Classification #41: easy
-- Answer #41: Balthasar tells Romeo Juliet has been laid in the Capulet monument, but he has no letter from Friar Laurence.
-- Observations #41: Validate at dump.md L5319-L5333 and L5349-L5355. Balthasar reports the burial, and Romeo immediately discovers that the Friar has sent no corrective explanation.
 
+
+---
+
+## Question #41
+
+**Classification:** easy
+
+**Question:** Who delivers the first report that shapes Romeo's understanding of Juliet's condition in Act V, and what corrective document is missing?
+
+**Answer:** Balthasar tells Romeo Juliet has been laid in the Capulet monument, but he has no letter from Friar Laurence.
+
+**Observations:** Validate at dump.md L5319-L5333 and L5349-L5355. Balthasar reports the burial, and Romeo immediately discovers that the Friar has sent no corrective explanation.
 ---
 
 ## Question #42
