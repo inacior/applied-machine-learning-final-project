@@ -1,4 +1,4 @@
-# Romeo and Juliet - Forensics Questions
+# Romeo and Juliet - Literature Questions
 
 This file contains 58 question-and-answer entries formatted for easier reading in rendered Markdown.
 
@@ -6,7 +6,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Which gesture does Sampson intentionally direct at the Montague servants, and what denial does he immediately use to limit legal exposure?
+**Question:** What specific insult turns Sampson's taunt into a legally risky quarrel, and how does he try to dodge responsibility for it?
 
 **Answer:** He bites his thumb at the Montague servants, then tries to evade blame by saying he is biting his thumb, but not at them.
 
@@ -18,7 +18,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** What prior pattern of street violence does Prince Escalus cite when escalating the next penalty to death?
+**Question:** Why does Prince Escalus threaten death if the Montagues and Capulets disturb the streets again?
 
 **Answer:** Because their feud has already caused repeated civil brawls and endangered Verona's public peace.
 
@@ -30,7 +30,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** Based on Benvolio's and Montague's observations before Romeo confesses anything, what symptoms are already documented, and what cause remains unresolved?
+**Question:** Before Romeo explains himself, what do Benvolio and Montague already know about his condition, and what crucial thing do they still not know?
 
 **Answer:** They know he wanders alone at dawn, weeps, sighs, avoids company, and shuts himself in darkness, but they still do not know the cause of his sorrow.
 
@@ -42,7 +42,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** Which declared status of Rosaline explains why Romeo classifies her as unattainable?
+**Question:** Why does Romeo say Rosaline cannot be won?
 
 **Answer:** Because she has sworn chastity and refuses love, courtship, and seduction.
 
@@ -54,7 +54,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** When Paris seeks permission to marry Juliet, what age, waiting-period, and consent conditions does Capulet put on the request?
+**Question:** What terms does Capulet set when Paris asks to marry Juliet?
 
 **Answer:** Juliet is still too young, Paris should wait, and he must win Juliet's own consent because Capulet's approval is only part of the decision.
 
@@ -66,7 +66,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What information chain links Romeo to the Capulet feast: who cannot read the guest list, who reads it, what name is found, and who uses that fact to influence Romeo?
+**Question:** How does Romeo, despite being a Montague, end up going to Capulet's feast?
 
 **Answer:** Capulet's illiterate servant asks him to read the guest list, Romeo learns Rosaline will be there, and Benvolio uses that to persuade him to attend.
 
@@ -78,7 +78,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What level of commitment does Juliet give Lady Capulet regarding Paris, and what explicit limit does she place on her response?
+**Question:** How does Juliet respond to her mother's proposal that she consider Paris?
 
 **Answer:** She says she will look to like him if looking leads to liking, but she will not let herself go further than her mother's consent allows.
 
@@ -90,7 +90,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Before entering the feast, what risk forecast does Romeo make, and what principle leads him to proceed anyway?
+**Question:** What foreboding does Romeo voice before entering the Capulet feast, and why does he go anyway?
 
 **Answer:** He fears the night will begin a star-governed chain that ends in untimely death, but he submits himself to providence and goes in.
 
@@ -102,7 +102,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** By what identifying signal does Tybalt detect Romeo at the feast, and whose intervention prevents an immediate assault?
+**Question:** How does Tybalt recognize Romeo at the feast, and what exactly prevents Tybalt from attacking him then?
 
 **Answer:** Tybalt recognizes Romeo by his voice, but Capulet forbids violence because Romeo is reputed virtuous and a fight would disgrace the feast and disrupt the guests.
 
@@ -114,7 +114,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What hostile-family identity does Romeo learn about Juliet only after physical contact has already occurred?
+**Question:** What does Romeo discover about Juliet only after their kiss?
 
 **Answer:** He discovers that she is a Capulet, so the woman he loves belongs to his enemy's house.
 
@@ -126,7 +126,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** What identity data does Juliet obtain from the Nurse about Romeo, and what conflict does that information immediately create?
+**Question:** What does Juliet discover about Romeo only after asking the Nurse?
 
 **Answer:** She learns that he is Romeo, a Montague, and the only son of her family's great enemy.
 
@@ -138,7 +138,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** In Juliet's balcony speech, which element of Romeo's identity does she explicitly identify as the obstacle to their relationship?
+**Question:** In the balcony scene, what does Juliet mean by wherefore art thou Romeo?
 
 **Answer:** She means why must you be Romeo, meaning why must he belong to the enemy name Montague, not where are you.
 
@@ -150,7 +150,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** Before Romeo reveals his presence, what contingency does Juliet state regarding Romeo's name and her own status as a Capulet?
+**Question:** Before Romeo reveals himself, what private commitment has Juliet already voiced?
 
 **Answer:** She has already said that either Romeo should renounce his name or she herself will cease to be a Capulet, because only his name, not his person, is her enemy.
 
@@ -162,7 +162,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What threat assessment does Juliet make about Romeo's presence in the orchard, and how does Romeo compare that threat with romantic rejection?
+**Question:** What danger does Juliet say Romeo is in inside the orchard, and how does Romeo rank that danger against losing her love?
 
 **Answer:** She says her kinsmen will kill him if they find him there, and Romeo says her displeasure is more dangerous than their swords and that he would rather die than live without her love.
 
@@ -174,7 +174,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** Which type of oath does Juliet reject as unreliable evidence of constancy, and why?
+**Question:** Why does Juliet stop Romeo from swearing by the moon?
 
 **Answer:** Because the moon is changeable, and she does not want his love to seem equally variable.
 
@@ -186,7 +186,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What next-day verification process does Juliet require before treating Romeo's intentions as honorable?
+**Question:** What proof of serious intent does Juliet ask Romeo to provide the next day?
 
 **Answer:** She asks him to send word through a messenger she will send, stating where and when they will be married, and if he is not honorable he should stop courting her.
 
@@ -198,7 +198,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** What conflict-resolution objective does Friar Laurence explicitly cite when deciding to assist the marriage?
+**Question:** Why does Friar Laurence agree to help marry Romeo and Juliet even after scolding Romeo's sudden switch from Rosaline?
 
 **Answer:** He agrees because he hopes their marriage can reconcile the two hostile households.
 
@@ -210,7 +210,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** Before Romeo returns in Act II, Scene IV, what outdated model of his emotional state do Mercutio and Benvolio still use?
+**Question:** What mistaken picture of Romeo do Mercutio and Benvolio still have before he returns in Act II, Scene IV?
 
 **Answer:** They still think Rosaline has made him love-sick, and Mercutio doubts that such a wounded Romeo can handle Tybalt's challenge.
 
@@ -222,7 +222,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** What warning does the Nurse issue about Romeo's intent, and what operational plan does Romeo return through her?
+**Question:** What warning does the Nurse give Romeo before helping him, and what plan does he give her in return?
 
 **Answer:** She warns him not to deceive Juliet or lead her into a fool's paradise, and he tells her to bring Juliet to Friar Laurence's cell that afternoon for shrift and marriage and then wait behind the abbey wall for ladder-cords.
 
@@ -234,12 +234,12 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What secondhand evidence does the Nurse give Romeo about Juliet's attitude toward Paris?
+**Question:** What does the Nurse unexpectedly tell Romeo about Juliet's view of Paris?
 
 **Answer:** She tells him that Paris wants Juliet, but Juliet would rather look at a toad than at Paris and turns pale when Paris is praised over Romeo.
 
 **Observations:** Validate at dump.md L2672-L2680. The Nurse gives Romeo private evidence of Juliet's emotional preference and resistance to Paris.
-- Question #21: Which concealed kinship causes Romeo to de-escalate Tybalt's challenge, and when is that kinship later made explicit?
+- Question #21: What hidden relationship makes Romeo answer Tybalt gently instead of fighting?
 - Classification #21: medium
 - Answer #21: Tybalt has become Romeo's kinsman through Romeo's secret marriage to Juliet, though Tybalt does not know it.
 - Observations #21: Validate at dump.md L3072-L3088 and L3187-L3193. Romeo's refusal to fight only makes full sense once he later explains that Tybalt has become his kinsman.
@@ -250,7 +250,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What intervention by Romeo inadvertently creates the opening for Mercutio's fatal wound?
+**Question:** What specific move by Romeo allows Tybalt to wound Mercutio?
 
 **Answer:** Romeo rushes between the fighters to stop them, and Tybalt stabs under Romeo's arm.
 
@@ -262,7 +262,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** Which witness account does Lady Capulet challenge as biased, and what relationship does she cite as grounds for distrust?
+**Question:** Who dismisses Benvolio's version of the fight as biased, and why?
 
 **Answer:** Lady Capulet does, because Benvolio is related to the Montagues.
 
@@ -274,7 +274,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What causal factor leads the Prince to commute Romeo's expected death sentence to banishment?
+**Question:** Why does the Prince punish Romeo with exile instead of death?
 
 **Answer:** Because Tybalt had killed Mercutio first, so Romeo's killing of Tybalt is treated as retaliatory and softened from death to exile.
 
@@ -286,7 +286,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Which reported development affects Juliet more severely than Tybalt's death?
+**Question:** What does Juliet judge more devastating than Tybalt's death?
 
 **Answer:** Romeo's banishment.
 
@@ -298,7 +298,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What newly processed fact causes Juliet to reverse her first verbal attack on Romeo?
+**Question:** Why does Juliet stop condemning Romeo and defend him instead?
 
 **Answer:** She realizes Tybalt would have killed Romeo, so Tybalt's death means her husband lives.
 
@@ -310,7 +310,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What evidence does Romeo cite to argue that banishment is functionally worse than death?
+**Question:** Why does Romeo insist that banishment is worse than death?
 
 **Answer:** Because exile means separation from Juliet and Verona, and even the lowest creatures may look on Juliet there while he cannot.
 
@@ -322,7 +322,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Which three surviving advantages does Friar Laurence list when trying to counter Romeo's despair?
+**Question:** What three blessings does Friar Laurence list to prove Romeo is fortunate?
 
 **Answer:** Juliet is alive, Tybalt is dead instead of Romeo, and the law has changed Romeo's sentence from death to exile.
 
@@ -334,7 +334,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** Following the banishment ruling, what immediate movement plan and longer-term reconciliation plan does Friar Laurence assign to Romeo?
+**Question:** What plan does Friar Laurence give Romeo for the immediate future after the banishment sentence?
 
 **Answer:** Romeo should go to Juliet that night, leave before the watch, hide in Mantua, and wait while Friar Laurence works to reveal the marriage, reconcile the families, and seek a pardon.
 
@@ -346,7 +346,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Which incorrect diagnosis of Juliet's emotional state is shared by Lady Capulet and Paris, and how is it used to justify the marriage schedule?
+**Question:** What do Lady Capulet and Paris both think is driving Juliet's behavior, and how is that used to justify the Paris match?
 
 **Answer:** They think she is consumed by grief for Tybalt, and Paris says the wedding is being hurried to interrupt that grief.
 
@@ -358,7 +358,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** Which ambiguous statement allows Lady Capulet to infer that Juliet wants Romeo dead, and what does Juliet actually mean by it?
+**Question:** How does Juliet make Lady Capulet think she wants revenge on Romeo while preserving a different meaning for herself?
 
 **Answer:** She uses ambiguous phrasing so Lady Capulet hears a wish for Romeo's death, while Juliet means that her own heart is dead until she sees him.
 
@@ -370,7 +370,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** What enforcement measures does Capulet threaten if Juliet refuses the marriage order?
+**Question:** What does Capulet threaten if Juliet refuses to marry Paris?
 
 **Answer:** He threatens to drag her to church and, if she still refuses, cast her off to beg, starve, and die in the streets.
 
@@ -382,7 +382,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Which recommendation from the Nurse causes Juliet to treat her as no longer trustworthy?
+**Question:** What advice from the Nurse makes Juliet finally reject her as a confidante?
 
 **Answer:** The Nurse tells Juliet to marry Paris because Romeo is banished and effectively useless to her, even belittling Romeo beside Paris.
 
@@ -394,7 +394,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** In the Friar's cell, which responses by Juliet sound compliant to Paris but avoid actual acceptance?
+**Question:** How does Juliet avoid truly accepting Paris in their Act IV meeting?
 
 **Answer:** She answers in equivocations: she says she may be a wife only when she may be one, says she loves him without naming Paris, and says even her face is not her own.
 
@@ -406,7 +406,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What demonstration by Juliet convinces Friar Laurence she can endure a deathlike deception?
+**Question:** What convinces Friar Laurence that Juliet can attempt a remedy like death?
 
 **Answer:** Her willingness to kill herself rather than marry Paris convinces him she has the nerve for a desperate deathlike stratagem.
 
@@ -418,7 +418,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** What are the required steps, actors, and timing constraints in Friar Laurence's potion operation?
+**Question:** What are the core steps of Friar Laurence's potion plan for Juliet?
 
 **Answer:** She must appear cheerful and consent, sleep alone, drink the vial in bed, seem dead for forty-two hours, be laid in the Capulet vault, and then be recovered by Romeo and the Friar for flight to Mantua.
 
@@ -430,7 +430,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What room-access condition does Juliet create before taking the vial, and why is that condition necessary?
+**Question:** Why does Juliet insist on being left alone the night before the wedding?
 
 **Answer:** She is following Friar Laurence's instructions so she can secretly take the vial without the Nurse in her chamber.
 
@@ -442,7 +442,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** What failure scenarios does Juliet model before consuming the potion?
+**Question:** What fears almost stop Juliet from drinking the vial?
 
 **Answer:** She fears it may fail, may actually be poison from the Friar, may wake her too early in the vault to suffocate, or may leave her mad among corpses, bones, and Tybalt's ghost.
 
@@ -454,7 +454,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** When the Capulet household finds Juliet apparently dead, how does Friar Laurence attempt to reinterpret the event for them?
+**Question:** How does Friar Laurence try to reframe Juliet's apparent death for the family?
 
 **Answer:** He says heaven had a share in Juliet and now has her wholly, so she has been advanced to eternal life rather than merely lost.
 
@@ -466,12 +466,12 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** Which wedding items does Capulet explicitly relabel as funeral items after Juliet is found dead?
+**Question:** How does Capulet describe the wedding's transformation after Juliet is found dead?
 
 **Answer:** He says every wedding item turns into its funeral opposite: instruments become bells, feast becomes burial meal, hymns become dirges, and bridal flowers serve a corpse.
 
 **Observations:** Validate at dump.md L5149-L5155. Capulet explicitly lists the symbolic reversals from celebration to mourning.
-- Question #41: Who delivers the first report that shapes Romeo's understanding of Juliet's condition in Act V, and what corrective document is missing?
+- Question #41: Who brings Romeo the first report of Juliet in Act V, and what expected message does that messenger lack?
 - Classification #41: easy
 - Answer #41: Balthasar tells Romeo Juliet has been laid in the Capulet monument, but he has no letter from Friar Laurence.
 - Observations #41: Validate at dump.md L5319-L5333 and L5349-L5355. Balthasar reports the burial, and Romeo immediately discovers that the Friar has sent no corrective explanation.
@@ -482,7 +482,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** Which broken communication link causes Romeo to act on a false death report?
+**Question:** What specific communication failure makes Romeo fatally misread Juliet's condition?
 
 **Answer:** Friar Laurence's letter explaining the potion never reaches Romeo because Friar John is quarantined, so Balthasar's report of Juliet's burial goes uncorrected.
 
@@ -494,7 +494,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Which prior legal ruling and follow-up instruction explain Romeo's presence in Mantua at the start of Act V?
+**Question:** Why is Romeo in Mantua when Act V begins?
 
 **Answer:** He is there because he was banished after Tybalt's death, and Friar Laurence told him to stay in Mantua until the marriage could be revealed and reconciliation attempted.
 
@@ -506,7 +506,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** What economic vulnerability allows Romeo to obtain poison from the Apothecary despite the law?
+**Question:** Why does the Apothecary sell Romeo poison even though Mantua's law forbids it?
 
 **Answer:** His poverty overrules his will, and Romeo exploits that desperation by paying him.
 
@@ -518,7 +518,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** What cover story does Romeo give Balthasar for entering the tomb, and what later evidence shows it is not his full motive?
+**Question:** What explanation does Romeo give Balthasar for entering the tomb, and what later evidence shows it is not his true purpose?
 
 **Answer:** He says he mainly needs a ring from Juliet's finger, but later evidence shows he came to die beside Juliet.
 
@@ -530,7 +530,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** What observed behavior causes Balthasar to remain nearby instead of fully leaving?
+**Question:** Why does Balthasar stay near the tomb after Romeo dismisses him?
 
 **Answer:** He hides nearby because Romeo looks dangerous and Balthasar distrusts his intentions.
 
@@ -542,7 +542,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** At the tomb, what role does Paris assign to himself and what support role does the Page perform?
+**Question:** Why is Paris at Juliet's tomb, and what does his Page do for him?
 
 **Answer:** Paris comes to strew Juliet's grave with flowers and mourn her, while the Page stands watch, signals if anyone approaches, and later summons the watch.
 
@@ -554,7 +554,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Which assumptions lead Paris to classify Romeo as a criminal intruder at the tomb?
+**Question:** What mistaken beliefs lead Paris to treat Romeo as a criminal at the tomb?
 
 **Answer:** Paris thinks Romeo is the banished Montague who killed Tybalt, helped cause Juliet's death, and has now come to dishonor the dead.
 
@@ -566,7 +566,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Before the duel with Paris, what does Romeo disclose about his mental state and self-directed intent?
+**Question:** Before fighting Paris, what does Romeo reveal about his own condition and intent?
 
 **Answer:** He says he is desperate, warns Paris not to provoke him, and admits he came armed against himself.
 
@@ -578,7 +578,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** After Paris is wounded, what new identity links does Romeo recognize, and how does that affect his treatment of Paris's body?
+**Question:** After Paris is mortally wounded, how does Romeo reinterpret who Paris is and what does he do for him?
 
 **Answer:** Romeo recognizes Paris as Mercutio's kinsman and Juliet's would-be bridegroom, then grants Paris's wish to be laid in the tomb with Juliet.
 
@@ -590,7 +590,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Which physical observations cause Romeo to doubt that Juliet has fully succumbed to death?
+**Question:** What visible signs make Romeo doubt that Juliet has been fully conquered by death?
 
 **Answer:** Her lips and cheeks are still crimson rather than pale, so he thinks death has not yet erased her beauty.
 
@@ -602,7 +602,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** What exact quarantine conditions prevent Friar John from completing delivery of Friar Laurence's letter?
+**Question:** Why exactly does Friar John fail to deliver Friar Laurence's letter to Romeo?
 
 **Answer:** He is quarantined with another friar in a suspected plague house, and no messenger will carry the letter for fear of infection.
 
@@ -614,7 +614,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** What end-to-end recovery plan did Friar Laurence originally design for Juliet's waking, and which failure point prevents execution?
+**Question:** What was Friar Laurence's original plan for Romeo and Juliet once Juliet took the potion, and what in Act V prevents it from happening?
 
 **Answer:** Romeo was supposed to learn the plan by letter, come to the vault when Juliet awoke, and take her to Mantua, but the undelivered letter leaves him ignorant and the reunion never happens.
 
@@ -626,7 +626,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Which earlier family actions create the coercive environment that pushes Juliet toward the potion plan?
+**Question:** What earlier family pressure pushed Juliet toward the desperate potion plan?
 
 **Answer:** Lady Capulet announces a Thursday marriage to Paris, and Capulet then forces the issue by threatening to drag Juliet to church or reject her if she refuses.
 
@@ -638,7 +638,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** Besides Friar Laurence, which named person is explicitly identified as knowing about the secret marriage?
+**Question:** Who, besides Friar Laurence, is explicitly said to know about Romeo and Juliet's secret marriage?
 
 **Answer:** The Nurse.
 
@@ -650,7 +650,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** medium
 
-**Question:** When Juliet regains consciousness in the tomb, what facts does she immediately know and what crucial deaths has she not yet learned?
+**Question:** When Juliet wakes in the tomb, what does she remember, and what crucial fact does she still not know?
 
 **Answer:** She remembers where she should be and immediately asks for Romeo, but she does not yet know that Romeo and Paris are dead.
 
@@ -662,7 +662,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** What two factors cause Friar Laurence's extraction attempt to fail after Juliet wakes?
+**Question:** Why does Friar Laurence try to remove Juliet from the tomb immediately, and why does he fail?
 
 **Answer:** He hears the watch coming and says their plan has been thwarted, and although he offers to hide Juliet in a nunnery, she refuses and he loses nerve at the approaching noise.
 
@@ -674,7 +674,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** easy
 
-**Question:** What physical evidence leads Juliet to infer poison, and why does she switch to the dagger?
+**Question:** How does Juliet determine Romeo died by poison, and why does she end by using the dagger?
 
 **Answer:** She sees the cup in Romeo's hand and concludes poison killed him, and when kissing him yields no poison for her, she takes his dagger and stabs herself.
 
@@ -686,7 +686,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** In his formal explanation, how does Friar Laurence reconstruct the causal chain from the secret marriage to the final deaths?
+**Question:** In his public explanation, what causal chain does Friar Laurence draw from the secret marriage to the final deaths?
 
 **Answer:** He says the secret marriage was followed by Tybalt's death and Romeo's banishment, Juliet then pined and was pushed toward Paris, she threatened suicide and took the sleeping potion, the letter failed, Romeo and Paris died before she awoke, and Juliet then killed herself.
 
@@ -698,7 +698,7 @@ This file contains 58 question-and-answer entries formatted for easier reading i
 
 **Classification:** hard
 
-**Question:** After Romeo's letter is read, what findings does the Prince make, and what remedial action do Capulet and Montague take?
+**Question:** Once the Prince reads Romeo's letter, what does he conclude, and how do Capulet and Montague respond?
 
 **Answer:** He concludes the letter confirms Friar Laurence's account and that the feud has brought this scourge, while he too is punished for tolerating it, and Capulet and Montague reconcile and promise gold statues for Juliet and Romeo.
 
