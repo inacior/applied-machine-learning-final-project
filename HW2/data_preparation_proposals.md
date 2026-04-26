@@ -88,7 +88,270 @@ The `raw_dump.md` file contains formatting artifacts that must be cleaned before
 
 ---
 
-## 4. Proposed Preprocessing Pipeline
+## 4. Common Data Problems in Literary NER and QA — Field Survey & Application
+
+This section maps data problems documented in related work to concrete instances in our Romeo & Juliet dataset, with applied techniques for each.
+
+### 4.1 Domain Shift: News-Trained NER Fails on Literature
+
+**Documented in:** Bamman et al. (2019) — LitBank; Brooke et al. (2016) — LitNER
+
+**What the papers found:**
+- NER trained on ACE 2005 (news) achieves 68.8 F1 on news, but drops 23 points to 45.7 F1 on literary text (Bamman et al., Table 2)
+- Stanford CoreNLP (news-trained) achieves only 0.751 F-measure on fiction vs. LitNER's 0.792 (Brooke et al., Table 2)
+- Literature has proportionally more PER and FAC entities, far fewer ORG and GPE than news (Bamman et al., Figure 1)
+
+**Concrete instance in our data:**
+```
+Romeo and Juliet has:
+- 35+ character entities (PER dominant)  
+- ~5 locations (Verona, Mantua, etc.) — few GPE compared to news
+- 0 organizations in the ACE sense
+- Characters referenced by common nouns: "the Nurse", "the Friar" ← news NER often misses these
+```
+
+**Technique applied — Domain-specific NER training:**
+```python
+# Train on LitBank (literary) instead of CoNLL/ACE (news)
+# LitBank has same entity distribution as our data
+from transformers import AutoTokenizer, AutoModelForTokenClassification
+
+model = AutoModelForTokenClassification.from_pretrained(
+    "dbmdz/bert-large-cased-finetuned-conll03-english"  # baseline news model
+)
+# Fine-tune on LitBank (available at huggingface.co/datasets/coref-data/litbank_raw)
+# Expected gain: +20 F1 points on PER and FAC entities (Bamman et al., Figure 2)
+```
+
+---
+
+### 4.2 Multi-Word Names and Title/Honorific Handling
+
+**Documented in:** Vala et al. (2015); Brooke et al. (2016) — LitNER; Bamman et al. (2019) — LitBank
+
+**What the papers found:**
+- Off-the-shelf NER often fails to include titles in names: "Mr. Smith" → only "Smith" tagged (Brooke et al., §4)
+- ACE 2005 has 47 instances of "Mr." but **zero** mentions of "Mrs." or "Miss" — causes 11.6 point recall gap for female entities (Bamman et al., Table 3)
+- Characters frequently referred to by alias/titles: "the Doctor", "Sir", "the Nurse" — not recognized as PER by standard NER (Vala et al.)
+
+**Concrete instances in our data:**
+
+| Problem | Our Data Example | NER Failure |
+|---|---|---|
+| Title+name | "Lord Capulet", "Lady Montague" | Standard NER often tags only "Capulet"/"Montague" |
+| Honorific only | "the Nurse" (named character, no proper name) | Standard NER misses entirely — "nurse" = O |
+| Title as name | "Friar Laurence", "Prince Escalus" | "Friar" / "Prince" often dropped from span |
+| Female honorific | "Lady Capulet" | 11.6 point recall gap for female PER entities |
+
+**Technique applied — Honorific-aware entity extraction:**
+```python
+# Prepend honorifics/titles to character name dictionary
+HONORIFIC_PATTERNS = {
+    'Lord': 'PER', 'Lady': 'PER', 'Friar': 'PER', 'Prince': 'PER',
+    'Nurse': 'PER', 'Count': 'PER', 'Countess': 'PER', 'Sir': 'PER',
+    'Signior': 'PER', 'County': 'PER',  # County Paris
+}
+
+def extract_character_with_title(text: str) -> str | None:
+    """Extract full character name including honorific."""
+    for title in HONORIFIC_PATTERNS:
+        match = re.match(rf'{title}\s+\w+', text)
+        if match:
+            return match.group(0)  # "Friar Laurence" not just "Laurence"
+    return None
+```
+
+---
+
+### 4.3 Nested and Non-Named Entity Mentions
+
+**Documented in:** Bamman et al. (2019) — LitBank
+
+**What the papers found:**
+- 13.8% of literary entities contain nested structure: "[[the cook]'s sister]" = 3 PER entities
+- Entities need not be named: "the boy", "the kitchen", "her daughter" are valid PER/FAC
+- Traditional flat NER cannot capture "the elder brother of Isabella's husband"
+
+**Concrete instances in our data:**
+
+| Type | Our Data Example | Nested Structure |
+|---|---|---|
+| Nested PER | "the only son of your great enemy" (referring to Romeo) | Outer: PER(Romeo) / Inner: PER(Montague) |
+| Non-named PER | "my cousin" (Benvolio, referring to Romeo) | "cousin" = PER but no proper name |
+| Non-named LOC | "the orchard wall", "the abbey wall" | Descriptive locations |
+| Pronoun reference | "he", "she", "thee", "thy" | Coreference needed to resolve to named entity |
+
+**Technique applied — Context window expansion for pronoun resolution:**
+```python
+def resolve_pronoun(pronoun: str, utterance_index: int, utterances: list[dict]) -> str | None:
+    """Resolve 'he'/'she' to the last named speaker in context."""
+    for i in range(utterance_index - 1, max(-1, utterance_index - 10), -1):
+        prev = utterances[i]
+        if prev.get('speaker') and not prev.get('is_stage_direction'):
+            return prev['speaker']
+    return None
+
+# Example: "he" in Act I Scene I line 116 → resolves to "ROMEO"
+```
+
+---
+
+### 4.4 Figurative Language and Metonymy in Literary Text
+
+**Documented in:** Bamman et al. (2019) — LitBank, §3.2
+
+**What the papers found:**
+- Metaphor: "the young man was not really a poet; but surely he was a poem" — only "a poet" tagged as PER
+- Personification: Animals/objects with dialogue → tagged as PER
+- Metonymy: "the kitchen" → tagged as PER when referring to cooks (evoked entity), not FAC (literal)
+- "the outraged sentiment of the kitchen was avenged" → "kitchen" = PER (set of cooks)
+
+**Concrete instances in our data:**
+
+| Type | Our Data Example | Challenge |
+|---|---|---|
+| Personification | "Death is my son-in-law" (Capulet, Act IV) | "Death" = figurative PER, not literal |
+| Metonymy | "My house and welcome on their pleasure stay" (Capulet) | "house" = household/family (PER), not FAC |
+| Metaphor | "It is the east, and Juliet is the sun" | "sun" ≠ LOC entity despite being a celestial body |
+
+**Technique applied — Context-dependent entity disambiguation:**
+```python
+# Rule: if a FAC term appears with verbs of emotion/agency, treat as PER (metonymy)
+METONYMY_PATTERNS = {
+    'house': ['say', 'welcome', 'bid', 'invite', 'pleasure'],
+    'kitchen': ['cook', 'prepare', 'dinner', 'outraged'],
+}
+
+def disambiguate_metonymy(word: str, context_verbs: list[str]) -> str:
+    if word in METONYMY_PATTERNS:
+        if any(v in context_verbs for v in METONYMY_PATTERNS[word]):
+            return 'PER'  # metonymic use
+        return 'FAC'      # literal use
+    return 'O'
+```
+
+---
+
+### 4.5 Quotation Attribution and Implicit Speaker Ambiguity
+
+**Documented in:** Michel et al. (2024) — Quotation Attribution with Character Embeddings; BookNLP pipeline
+
+**What the papers found:**
+- Anaphoric quotes: "he said" → must resolve "he" to character via coreference
+- Implicit quotes: dialogue without explicit speaker attribution — hardest case
+- BookNLP's 4-step pipeline: NER → name clustering → coreference → quote-to-mention linking
+- Character embeddings (stylometric UAR) improve attribution for anaphoric/implicit quotes
+
+**Concrete instances in our data:**
+
+| Type | Our Data Example | Ambiguity |
+|---|---|---|
+| Explicit speaker | `[**ROMEO**]` `> [Gregory, o' my word...]` | Speaker explicit — easy |
+| Implicit speaker | Quick back-and-forth exchanges without speaker tags between lines | Who said "No, marry; I fear thee!" — Gregory? Sampson? |
+| Pronoun reference | "Speak, nephew, were you by when it began?" (Montague to Benvolio) | "you" context-dependent |
+| Stage direction | `*Enter CAPULET in his gown, and LADY CAPULET*` | Entities appear but don't speak yet |
+
+**Technique applied — Speaker persistence for implicit attribution:**
+```python
+# After a speaker is established, persist until next explicit speaker change
+def attribute_implicit_quotes(utterances: list[dict]) -> list[dict]:
+    current_speaker = None
+    for u in utterances:
+        if u.get('speaker'):
+            current_speaker = u['speaker']
+        elif not u.get('is_stage_direction'):
+            u['speaker'] = current_speaker  # inherit from context
+    return utterances
+```
+
+---
+
+### 4.6 Genre-Specific Structural Interference
+
+**Documented in:** Brooke et al. (2016) — LitNER (§3.1); DramaAnalysis pipeline (quadrama.github.io)
+
+**What the papers found:**
+- Plays have "very different properties in terms of the distribution of names" vs. novels (Brooke et al., §3.1)
+- Drama texts have act/scene boundaries, stage directions, speaker tags, and utterances — all intermixed
+- BERT fine-tuned on GerDraCor can predict structural elements (act/scene/speaker/direction/utterance) as a 5-way classification task (DramaNLP)
+
+**Concrete instances in our data:**
+```
+Mixed structural elements in raw_dump.md:
+  ### ACT I           ← structural header
+  ### SCENE I          ← structural header  
+  > *Enter SAMPSON... ← stage direction
+  [**SAMPSON**]        ← speaker tag
+  > [Gregory, ...]     ← utterance (dialogue)
+  > *They fight*       ← stage direction inline
+```
+
+**Technique applied — Structural classification for clean parsing:**
+```python
+def classify_line(line: str) -> str:
+    """5-way classification: act, scene, speaker, direction, utterance."""
+    if line.startswith('### ACT'):   return 'act_boundary'
+    if line.startswith('### SCENE'): return 'scene_boundary'
+    if line.startswith('[**') and '**]' in line: return 'speaker_tag'
+    if line.strip().startswith('*') and line.strip().endswith('*'): return 'stage_direction'
+    if line.startswith('> ['): return 'utterance'
+    return 'unknown'
+```
+
+---
+
+### 4.7 Name Ambiguity and One-Sense-Per-Text Resolution
+
+**Documented in:** Brooke et al. (2016) — LitNER; Gale et al. (1992)
+
+**What the papers found:**
+- "Florence" can be both a city (LOC) and a person name (PER) — but not within the same text
+- LitNER assumes **one-sense-per-document**: a name is classified for the entire text based on all its occurrences
+- This assumption works for fiction (5.9 occurrences per distinct name per text) but not for short texts (1.6 in Gigaword)
+
+**Concrete instance in our data:**
+
+| Name | Possible Ambiguity | Resolution |
+|---|---|---|
+| "Paris" | Count Paris (PER) vs. Paris, France (GPE) | Only appears as character name → PER |
+| "Verona" | City (GPE) | Only appears as city → GPE |
+| "Mantua" | City (GPE) | Only used as location → GPE |
+
+**Technique applied — Text-level entity disambiguation:**
+```python
+def text_level_classify(name: str, all_contexts: list[str]) -> str:
+    """Classify entity type based on all contexts in the play."""
+    per_indicators = ['said', 'speak', 'lord', 'count', 'cousin', 'husband', 'wife']
+    loc_indicators = ['in', 'from', 'to', 'city', 'street', 'wall', 'gate']
+
+    per_score = sum(1 for ctx in all_contexts if any(w in ctx.lower() for w in per_indicators))
+    loc_score = sum(1 for ctx in all_contexts if any(w in ctx.lower() for w in loc_indicators))
+
+    if per_score > loc_score: return 'PER'
+    if loc_score > per_score: return 'LOC'
+    return 'AMBIGUOUS'
+# "Paris" across the play → per_score high (said, lord, count...) → PER
+```
+
+---
+
+### 4.8 Summary: Problem-to-Technique Mapping
+
+| # | Problem (from related work) | Occurrence in Our Data | Technique Applied |
+|---|---|---|---|
+| 1 | Domain shift (news→fiction) | 35+ PER, few ORG/GPE | Fine-tune NER on LitBank |
+| 2 | Title/honorific missed | "Lady Capulet", "Friar Laurence" | Honorific-aware extraction regex |
+| 3 | Nested/non-named entities | "son of your enemy", "my cousin" | Coreference resolution + span merging |
+| 4 | Figurative language | "Juliet is the sun", "Death is my son-in-law" | Context-dependent disambiguation rules |
+| 5 | Quotation attribution | Implicit speakers in exchanges | Speaker persistence heuristic |
+| 6 | Genre structure mixing | Acts, scenes, directions, tags interleaved | 5-way structural classifier |
+| 7 | Name ambiguity | "Paris" (PER vs GPE) | Text-level one-sense-per-document |
+| 8 | Gender bias in NER | Female honorifics (Lady, Nurse) | LitBank training (eliminates gender gap) |
+| 9 | Segmentation errors | Multi-word names split incorrectly | Brown clustering + phrase improvement (LitNER approach) |
+
+---
+
+## 5. Proposed Preprocessing Pipeline
 
 The pipeline has three stages: **cleaning → structuring → feature engineering**.
 
@@ -327,9 +590,9 @@ def get_context_window(question_difficulty: str) -> str:
 
 ---
 
-## 5. Visualization & Exploration Ideas
+## 6. Visualization & Exploration Ideas
 
-### 5.1 Speaker Distribution & Frequency
+### 6.1 Speaker Distribution & Frequency
 
 Plot how many lines each character has — reveals narrative centrality.
 
@@ -341,7 +604,7 @@ FRIAR LAURENCE: ██████████████ (51 speeches)
 ...
 ```
 
-### 5.2 Scene-Level Interaction Heatmap
+### 6.2 Scene-Level Interaction Heatmap
 
 Which character pairs share the most scenes?
 
@@ -353,11 +616,11 @@ NURSE         3   6   -   4   0   0   0   0   0
 ...
 ```
 
-### 5.3 Act-by-Act Entity Density
+### 6.3 Act-by-Act Entity Density
 
 NER entity mentions per act — shows where the plot is character-rich vs. action-heavy.
 
-### 5.4 Question Difficulty Distribution
+### 6.4 Question Difficulty Distribution
 
 ```python
 easy:    20 questions (33%) — mostly identity lookup
@@ -367,9 +630,9 @@ hard:    15 questions (25%) — multi-hop inference
 
 ---
 
-## 6. Data Augmentation (Optional Enhancement)
+## 7. Data Augmentation (Optional Enhancement)
 
-### 6.1 Domain Adaptation via Name Substitution
+### 7.1 Domain Adaptation via Name Substitution
 
 For improving NER performance on literary texts, we can augment the training data:
 
@@ -390,13 +653,13 @@ for sentence in conll_corpus:
 
 This yields a model that better recognizes literary character names and locations, reducing false negatives in the downstream NER pass.
 
-### 6.2 Preprocessing + Augmentation Pipeline for QA Benchmark
+### 7.2 Preprocessing + Augmentation Pipeline for QA Benchmark
 
 > From [Duong & Nguyen-Thi (2021)](https://doi.org/10.1186/s40649-020-00080-x): Preprocessing before augmentation consistently outperforms either technique alone — clean data yields higher-quality synthetic examples.
 
 Our QA benchmark has only 60 questions, which is a very small dataset. The paper shows that combining preprocessing with data augmentation significantly boosts classifier accuracy when training data is limited.
 
-#### 6.2.1 EDA for Question Augmentation
+#### 7.2.1 EDA for Question Augmentation
 
 Easy Data Augmentation (EDA) from Wei & Zou (2019), validated by Duong & Nguyen-Thi, generates synthetic QA pairs from existing ones:
 
@@ -440,7 +703,7 @@ Random Delete:   "Which gesture Sampson intentionally at the Montague servants?"
 
 **Why this matters:** A single QA pair can generate 4–5 variants that test the same knowledge with different phrasing. This evaluates whether the SLM truly understands the question or is pattern-matching on surface forms. With 60 original → ~240 augmented questions, we can measure robustness.
 
-#### 6.2.2 Back Translation for Question Paraphrasing
+#### 7.2.2 Back Translation for Question Paraphrasing
 
 Translate questions to an intermediate language (e.g., Portuguese — since this is a Brazilian university project) and back to English to get natural paraphrases:
 
@@ -458,7 +721,7 @@ back_to_english = GoogleTranslator(source='pt', target='en').translate_batch(que
 
 **Benefit:** Tests whether the SLM can answer the same knowledge question when phrased with different vocabulary, measuring generalization rather than memorization. Duong & Nguyen-Thi found that preprocessing before back-translation yields higher quality paraphrases.
 
-#### 6.2.3 Preprocessing Hierarchy
+#### 7.2.3 Preprocessing Hierarchy
 
 The paper establishes a clear order of operations that we adopt:
 
@@ -475,7 +738,7 @@ The key finding: running augmentation on preprocessed data (steps 1–3 first) p
 
 ---
 
-## 7. Implementation Roadmap
+## 8. Implementation Roadmap
 
 | Step | Description | Output |
 |---|---|---|---|
@@ -490,7 +753,7 @@ The key finding: running augmentation on preprocessed data (steps 1–3 first) p
 
 ---
 
-## 8. References
+## 9. References
 
 - Bamman, D. et al. (2019). *An Annotated Dataset of Literary Entities.* ACL.
 - Brooke, J. et al. (2016). *Bootstrapped Text-level Named Entity Recognition for Literature.* ACL.
