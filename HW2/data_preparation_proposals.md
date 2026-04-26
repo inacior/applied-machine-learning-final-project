@@ -755,16 +755,16 @@ The key finding: running augmentation on preprocessed data (steps 1–3 first) p
 
 ## 9. References
 
-- Bamman, D. et al. (2019). *An Annotated Dataset of Literary Entities.* ACL.
-- Brooke, J. et al. (2016). *Bootstrapped Text-level Named Entity Recognition for Literature.* ACL.
-- Vala, H. et al. (2015). *Mr. Bennet, his coachman, and the Archbishop walk into a bar but only one of them gets recognized: On the difficulty of detecting characters in literary texts.* EMNLP.
-- Gale, W. et al. (1992). *One sense per discourse.* DARPA Speech and Natural Language Workshop.
-- Dufour, R. et al. (2022). *BERT meets d'Artagnan: Data Augmentation for Robust Character Detection in Novels.* LREC.
-- Michel, G. et al. (2024). *Improving Quotation Attribution with Fictional Character Embeddings.* EMNLP Findings.
-- Yang, F. et al. (2022). *Character Identification in Literary Texts.* AAAI.
-- Duong, H.T. & Nguyen-Thi, T.A. (2021). *A review: preprocessing techniques and data augmentation for sentiment analysis.* Computational Social Networks 8, 1. DOI: 10.1186/s40649-020-00080-x.
-- Wei, J. & Zou, K. (2019). *EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks.* ICLR.
-- Angelidis, S. et al. (2019). *Book QA: Stories of Challenges and Opportunities.* MRQA Workshop.
-- Bonomo, T. et al. (2025). *LiteraryQA: Towards Effective Evaluation of Long-document Narrative QA.* EMNLP.
-- Salad Technologies. (2025). *Fiction-NER-750M.* HuggingFace.
+- Bamman, D. et al. (2019). *An Annotated Dataset of Literary Entities.* NAACL. https://aclanthology.org/N19-1220/
+- Brooke, J. et al. (2016). *Bootstrapped Text-level Named Entity Recognition for Literature.* ACL. https://aclanthology.org/P16-2056/
+- Vala, H. et al. (2015). *Mr. Bennet, his coachman, and the Archbishop walk into a bar but only one of them gets recognized: On the difficulty of detecting characters in literary texts.* EMNLP. https://aclanthology.org/D15-1093/
+- Gale, W. et al. (1992). *One sense per discourse.* DARPA Speech and Natural Language Workshop. https://aclanthology.org/H92-1045/
+- Dufour, R. et al. (2022). *BERT meets d'Artagnan: Data Augmentation for Robust Character Detection in Novels.* LREC. https://hal.univ-lorraine.fr/EC-NANTES/hal-03617722v1
+- Michel, G. et al. (2024). *Improving Quotation Attribution with Fictional Character Embeddings.* EMNLP Findings. https://aclanthology.org/2024.findings-emnlp.744/
+- Yang, F. et al. (2022). *Character Identification in Literary Texts.* AAAI. https://cdn.aaai.org/ojs/21709/21709-13-25722-1-2-20220628.pdf
+- Duong, H.T. & Nguyen-Thi, T.A. (2021). *A review: preprocessing techniques and data augmentation for sentiment analysis.* Computational Social Networks 8, 1. https://doi.org/10.1186/s40649-020-00080-x
+- Wei, J. & Zou, K. (2019). *EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks.* ICLR. https://arxiv.org/abs/1901.11196
+- Angelidis, S. et al. (2019). *Book QA: Stories of Challenges and Opportunities.* MRQA Workshop. https://aclanthology.org/D19-5819/
+- Bonomo, T. et al. (2025). *LiteraryQA: Towards Effective Evaluation of Long-document Narrative QA.* EMNLP. https://aclanthology.org/2025.emnlp-main.1729/
+- Salad Technologies. (2025). *Fiction-NER-750M.* HuggingFace. https://huggingface.co/datasets/SaladTechnologies/fiction-ner-750m
 - Group 5 (2024.1). *Data Preparation — INE410154 AML.* (reference pipeline: standardization, data augmentation, feature selection, filtering)
