@@ -757,6 +757,8 @@ The key finding: running augmentation on preprocessed data (steps 1–3 first) p
 
 - Bamman, D. et al. (2019). *An Annotated Dataset of Literary Entities.* ACL.
 - Brooke, J. et al. (2016). *Bootstrapped Text-level Named Entity Recognition for Literature.* ACL.
+- Vala, H. et al. (2015). *Mr. Bennet, his coachman, and the Archbishop walk into a bar but only one of them gets recognized: On the difficulty of detecting characters in literary texts.* EMNLP.
+- Gale, W. et al. (1992). *One sense per discourse.* DARPA Speech and Natural Language Workshop.
 - Dufour, R. et al. (2022). *BERT meets d'Artagnan: Data Augmentation for Robust Character Detection in Novels.* LREC.
 - Michel, G. et al. (2024). *Improving Quotation Attribution with Fictional Character Embeddings.* EMNLP Findings.
 - Yang, F. et al. (2022). *Character Identification in Literary Texts.* AAAI.
