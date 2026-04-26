@@ -757,7 +757,7 @@ The key finding: running augmentation on preprocessed data (steps 1–3 first) p
 
 - Bamman, D. et al. (2019). *An Annotated Dataset of Literary Entities.* NAACL. https://aclanthology.org/N19-1220/
 - Brooke, J. et al. (2016). *Bootstrapped Text-level Named Entity Recognition for Literature.* ACL. https://aclanthology.org/P16-2056/
-- Vala, H. et al. (2015). *Mr. Bennet, his coachman, and the Archbishop walk into a bar but only one of them gets recognized: On the difficulty of detecting characters in literary texts.* EMNLP. https://aclanthology.org/D15-1093/
+- Vala, H. et al. (2015). *Mr. Bennet, his coachman, and the Archbishop walk into a bar but only one of them gets recognized: On the difficulty of detecting characters in literary texts.* EMNLP. https://aclanthology.org/D15-1088/
 - Gale, W. et al. (1992). *One sense per discourse.* DARPA Speech and Natural Language Workshop. https://aclanthology.org/H92-1045/
 - Dufour, R. et al. (2022). *BERT meets d'Artagnan: Data Augmentation for Robust Character Detection in Novels.* LREC. https://hal.univ-lorraine.fr/EC-NANTES/hal-03617722v1
 - Michel, G. et al. (2024). *Improving Quotation Attribution with Fictional Character Embeddings.* EMNLP Findings. https://aclanthology.org/2024.findings-emnlp.744/
