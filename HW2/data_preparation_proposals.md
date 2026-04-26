@@ -2,7 +2,45 @@
 
 > Homework 2 — INE410154 Applied Machine Learning — Group: Renan
 
-## 1. Dataset Summary
+## 1. External Dataset Options (from Kaggle, HuggingFace, ACL)
+
+The assignment requires using a dataset related to the research project. Below are the best-matching external datasets for literary NER and narrative QA. The Romeo & Juliet dataset is our primary data; any of these can be used in parallel for comparison, training, or benchmarking.
+
+### 1.1 Literary NER Datasets
+
+| Dataset | Source | Size | Entity Types | License | Best For |
+|---|---|---|---|---|---|
+| **LitBank** | [GitHub](https://github.com/dbamman/litbank) / [HuggingFace](https://huggingface.co/datasets/coref-data/litbank_raw) | 100 novels, 210K tokens | PER, LOC, FAC, GPE, ORG, VEH (ACE 2005 style, nested) | CC-BY 4.0 | Training/fine-tuning a literary NER model; closest to our domain |
+| **Fiction-NER-750M** | [HuggingFace](https://huggingface.co/datasets/SaladTechnologies/fiction-ner-750m) | 750M tokens from Gutenberg/AO3 | Character, location, etc. | Open | Large-scale pretraining for fiction NER |
+| **ACE 2005** | [LDC](https://catalog.ldc.upenn.edu/LDC2006T06) | ~300K words English (news) | PER, ORG, LOC, GPE, FAC, VEH, WEA | LDC license ($) | Baseline comparison: news-trained NER vs. literary |
+
+**Recommendation:** **LitBank** is the best fit — same domain (fiction), same ACE annotation schema, freely available, and Bamman et al. show that training on LitBank gives +20 F1 points over news-trained models on literary texts.
+
+### 1.2 Narrative QA Datasets
+
+| Dataset | Source | Size | QA Format | Context Length | Best For |
+|---|---|---|---|---|---|
+| **LiteraryQA** | [HuggingFace](https://huggingface.co/datasets/sapienzanlp/LiteraryQA) / [GitHub](https://github.com/SapienzaNLP/LiteraryQA) | ~10K QA pairs, literary works only | Free-text answer | Full book (~60K words) | Rigorous QA benchmark; cleaned & validated subset of NarrativeQA |
+| **NarrativeQA** | [HuggingFace](https://huggingface.co/datasets/deepmind/narrativeqa_manual) | ~46K QA pairs, 1,567 stories | Free-text answer | Full book summaries | Largest narrative QA resource |
+| **BookQA** | [GitHub](https://github.com/stangelid/bookqa-who) | 3,427 QA pairs, 614 books | Character identification (classification) | Full book | Character-only QA; directly comparable to our entity-focused pipeline |
+| **NovelQA** | [HuggingFace](https://huggingface.co/datasets/NovelQA/NovelQA) | 89 novels, 2,305 QA pairs | Free-text, with difficulty/type labels | 200K+ tokens (ultra-long) | Stress-testing long-context QA |
+| **GANDALF** | [ACL Anthology](https://aclanthology.org/2021.mrqa-1.13/) | 20K questions, 177 books | 10-way multiple choice | Full book (~150K words) | Character description matching |
+
+**Recommendation:** **LiteraryQA** is the best QA benchmark to use alongside our 60-question set — it's pre-cleaned, same domain, and uses LLM-as-judge evaluation which aligns with our SLM approach. **BookQA** is also valuable since it specifically targets character identification.
+
+### 1.3 Shakespeare-Specific Datasets (Kaggle)
+
+| Dataset | Source | Size | Format |
+|---|---|---|---|
+| **Shakespeare Plays Dataset** | [Kaggle](https://www.kaggle.com/datasets/guslovesmath/shakespeare-plays-dataset) | All 36 plays | CSV with speaker, line, act, scene |
+| **Shakespeare Plays (Full Text)** | [Kaggle](https://www.kaggle.com/datasets/kingburrito666/shakespeare-plays) | Complete works | Raw text by play |
+| **Shakespeare Plays — Dialogues & Characters** | [Kaggle (romeo_juliet.csv)](https://www.kaggle.com/datasets/umerhaddii/shakespeare-plays-dialogues?select=romeo_juliet.csv) | 38 plays | CSV with play, speaker, dialogue, act, scene |
+
+**Recommendation:** The **Shakespeare Plays — Dialogues & Characters** dataset is structurally identical to our parsed output (speaker-attributed utterances with act/scene metadata). It can serve as a direct comparison — run the same NER pipeline on another play (e.g., *Hamlet*, *Macbeth*) to validate generalizability.
+
+---
+
+## 2. Primary Dataset (Romeo & Juliet) Summary
 
 | Property | Value |
 |---|---|
@@ -15,9 +53,9 @@
 
 ---
 
-## 2. Identified Data Quality Problems
+## 3. Identified Data Quality Problems
 
-### 2.1 Markup Artifacts in Raw Text
+### 3.1 Markup Artifacts in Raw Text
 
 The `raw_dump.md` file contains formatting artifacts that must be cleaned before any NLP processing:
 
@@ -30,7 +68,7 @@ The `raw_dump.md` file contains formatting artifacts that must be cleaned before
 | Escape sequences | `o\'`, `\'Tis`, `Ne\'er` | Produces inconsistent tokens; breaks lemmatization |
 | HTML-style anchors | `<a id="speech1"/>` (if present) | Purely structural; zero semantic value |
 
-### 2.2 Structural Ambiguities
+### 3.2 Structural Ambiguities
 
 | Problem | Description |
 |---|---|
@@ -39,7 +77,7 @@ The `raw_dump.md` file contains formatting artifacts that must be cleaned before
 | Nested stage directions | Some directions span multiple lines and are incorrectly segmented |
 | Abbreviated character names | `[**First Citizen**]`, `[**Second Servant**]` — inconsistent naming conventions |
 
-### 2.3 Entity-Level Challenges
+### 3.3 Entity-Level Challenges
 
 | Problem | Example |
 |---|---|
@@ -50,7 +88,7 @@ The `raw_dump.md` file contains formatting artifacts that must be cleaned before
 
 ---
 
-## 3. Proposed Preprocessing Pipeline
+## 4. Proposed Preprocessing Pipeline
 
 The pipeline has three stages: **cleaning → structuring → feature engineering**.
 
@@ -289,9 +327,9 @@ def get_context_window(question_difficulty: str) -> str:
 
 ---
 
-## 4. Visualization & Exploration Ideas
+## 5. Visualization & Exploration Ideas
 
-### 4.1 Speaker Distribution & Frequency
+### 5.1 Speaker Distribution & Frequency
 
 Plot how many lines each character has — reveals narrative centrality.
 
@@ -303,7 +341,7 @@ FRIAR LAURENCE: ██████████████ (51 speeches)
 ...
 ```
 
-### 4.2 Scene-Level Interaction Heatmap
+### 5.2 Scene-Level Interaction Heatmap
 
 Which character pairs share the most scenes?
 
@@ -315,11 +353,11 @@ NURSE         3   6   -   4   0   0   0   0   0
 ...
 ```
 
-### 4.3 Act-by-Act Entity Density
+### 5.3 Act-by-Act Entity Density
 
 NER entity mentions per act — shows where the plot is character-rich vs. action-heavy.
 
-### 4.4 Question Difficulty Distribution
+### 5.4 Question Difficulty Distribution
 
 ```python
 easy:    20 questions (33%) — mostly identity lookup
@@ -329,11 +367,13 @@ hard:    15 questions (25%) — multi-hop inference
 
 ---
 
-## 5. Data Augmentation (Optional Enhancement)
+## 6. Data Augmentation (Optional Enhancement)
+
+### 6.1 Domain Adaptation via Name Substitution
 
 For improving NER performance on literary texts, we can augment the training data:
 
-**Technique: Domain adaptation via name substitution**
+**Technique:**
 
 > From [Bert meets d'Artagnan, Dufour et al. 2022](https://hal.univ-lorraine.fr/EC-NANTES/hal-03617722v1):
 > Replace modern entity names in CoNLL-2003 with literary-style character names from the target domain corpus, then fine-tune a BERT-based NER model on the augmented set.
@@ -350,13 +390,13 @@ for sentence in conll_corpus:
 
 This yields a model that better recognizes literary character names and locations, reducing false negatives in the downstream NER pass.
 
-### 5.2 Preprocessing + Augmentation Pipeline for QA Benchmark
+### 6.2 Preprocessing + Augmentation Pipeline for QA Benchmark
 
 > From [Duong & Nguyen-Thi (2021)](https://doi.org/10.1186/s40649-020-00080-x): Preprocessing before augmentation consistently outperforms either technique alone — clean data yields higher-quality synthetic examples.
 
 Our QA benchmark has only 60 questions, which is a very small dataset. The paper shows that combining preprocessing with data augmentation significantly boosts classifier accuracy when training data is limited.
 
-#### 5.2.1 EDA for Question Augmentation
+#### 6.2.1 EDA for Question Augmentation
 
 Easy Data Augmentation (EDA) from Wei & Zou (2019), validated by Duong & Nguyen-Thi, generates synthetic QA pairs from existing ones:
 
@@ -400,7 +440,7 @@ Random Delete:   "Which gesture Sampson intentionally at the Montague servants?"
 
 **Why this matters:** A single QA pair can generate 4–5 variants that test the same knowledge with different phrasing. This evaluates whether the SLM truly understands the question or is pattern-matching on surface forms. With 60 original → ~240 augmented questions, we can measure robustness.
 
-#### 5.2.2 Back Translation for Question Paraphrasing
+#### 6.2.2 Back Translation for Question Paraphrasing
 
 Translate questions to an intermediate language (e.g., Portuguese — since this is a Brazilian university project) and back to English to get natural paraphrases:
 
@@ -418,7 +458,7 @@ back_to_english = GoogleTranslator(source='pt', target='en').translate_batch(que
 
 **Benefit:** Tests whether the SLM can answer the same knowledge question when phrased with different vocabulary, measuring generalization rather than memorization. Duong & Nguyen-Thi found that preprocessing before back-translation yields higher quality paraphrases.
 
-#### 5.2.3 Preprocessing Hierarchy
+#### 6.2.3 Preprocessing Hierarchy
 
 The paper establishes a clear order of operations that we adopt:
 
@@ -435,21 +475,22 @@ The key finding: running augmentation on preprocessed data (steps 1–3 first) p
 
 ---
 
-## 6. Implementation Roadmap
+## 7. Implementation Roadmap
 
 | Step | Description | Output |
-|---|---|---|
+|---|---|---|---|
 | 1 | Clean markup & normalize text | Clean `.txt` file |
 | 2 | Parse into structured CSV | `utterances.csv` with speaker, scene, act columns |
 | 3 | Build co-occurrence graph | JSON graph of character relationships |
 | 4 | Extract entity profiles | Per-character metadata with relationships |
-| 5 | Generate augmented QA prompts | 60 prompts in two variants (raw vs. entity-augmented) |
+| 5 | Generate augmented QA prompts | 60 original + ~240 augmented prompts (raw vs. entity-augmented) |
 | 6 | Exploratory visualizations | Distribution plots, heatmaps, entity density |
-| 7 | Run SLM benchmarking via OpenRouter | Accuracy comparison raw vs. augmented |
+| 7 | Run NER on LitBank comparison | NER F1 scores on LitBank vs. Romeo & Juliet |
+| 8 | Run SLM benchmarking via OpenRouter | Accuracy comparison raw vs. augmented, plus LiteraryQA comparison |
 
 ---
 
-## 7. References
+## 8. References
 
 - Bamman, D. et al. (2019). *An Annotated Dataset of Literary Entities.* ACL.
 - Brooke, J. et al. (2016). *Bootstrapped Text-level Named Entity Recognition for Literature.* ACL.
@@ -458,4 +499,7 @@ The key finding: running augmentation on preprocessed data (steps 1–3 first) p
 - Yang, F. et al. (2022). *Character Identification in Literary Texts.* AAAI.
 - Duong, H.T. & Nguyen-Thi, T.A. (2021). *A review: preprocessing techniques and data augmentation for sentiment analysis.* Computational Social Networks 8, 1. DOI: 10.1186/s40649-020-00080-x.
 - Wei, J. & Zou, K. (2019). *EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks.* ICLR.
+- Angelidis, S. et al. (2019). *Book QA: Stories of Challenges and Opportunities.* MRQA Workshop.
+- Bonomo, T. et al. (2025). *LiteraryQA: Towards Effective Evaluation of Long-document Narrative QA.* EMNLP.
+- Salad Technologies. (2025). *Fiction-NER-750M.* HuggingFace.
 - Group 5 (2024.1). *Data Preparation — INE410154 AML.* (reference pipeline: standardization, data augmentation, feature selection, filtering)
