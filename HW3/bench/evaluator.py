@@ -22,13 +22,13 @@ class LLMEvaluator:
         ground_truth: str,
         observations: str,
         model_answer: str,
-        csv_row_indices: str = "",
+        evidence: str = "",
     ) -> dict:
         user_message = VERIFY_USER_TEMPLATE.format(
             question=question,
             ground_truth=ground_truth,
             observations=observations,
-            csv_row_indices=csv_row_indices,
+            evidence=evidence,
             model_answer=model_answer,
         )
 

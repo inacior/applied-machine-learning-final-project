@@ -3,14 +3,13 @@
 
 import argparse
 import sys
+import ast
 from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 from bench.openrouter import OpenRouterClient
 from bench.evaluator import LLMEvaluator
 from bench.config import VERIFIER_MODEL, OPENROUTER_API_KEY, SMALL_MODELS
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Evaluate benchmark answers using a verifier LLM"
@@ -103,6 +102,11 @@ def main() -> None:
     client = OpenRouterClient(api_key=api_key)
     evaluator = LLMEvaluator(client, model=model_id)
 
+    dataset_df = None
+    dataset_path = df.iloc[0].get("dataset_path", "")
+    if dataset_path and Path(dataset_path).exists():
+        dataset_df = pd.read_csv(dataset_path)
+
     for i, row in tqdm(df.iterrows(), total=len(df), desc="Evaluating"):
         if row.get("evaluation") and str(row["evaluation"]) not in ("", "nan", "ERROR"):
             continue
@@ -117,12 +121,18 @@ def main() -> None:
         if pd.isna(observations):
             observations = ""
 
+        csv_indices_str = row.get("csv_row_indices", "")
+        evidence_text = ""
+        if dataset_df is not None and csv_indices_str:
+            evidence_text = _build_evidence(dataset_df, csv_indices_str)
+
         try:
             result = evaluator.evaluate(
                 question=str(row["question"]),
                 ground_truth=str(row["ground_truth"]),
                 observations=str(observations),
                 model_answer=model_answer,
+                evidence=evidence_text,
             )
             df.at[i, "evaluation"] = result["classification"]
             df.at[i, "evaluation_explanation"] = result["explanation"]
@@ -162,6 +172,36 @@ def _resolve_verifier(model_arg: str) -> str:
         **SMALL_MODELS,
     }
     return shortcuts.get(model_arg, model_arg)
+
+
+def _build_evidence(dataset_df: pd.DataFrame, csv_indices_str: str) -> str:
+    try:
+        indices = ast.literal_eval(csv_indices_str)
+    except (ValueError, SyntaxError):
+        return ""
+    if not indices:
+        return ""
+
+    rows = dataset_df.iloc[indices]
+    lines: list[str] = []
+    for _, row in rows.iterrows():
+        line_num = row.get("line_number", "")
+        character = str(row.get("character", ""))
+        dialogue = str(row.get("dialogue", ""))
+        participants = str(row.get("participants", ""))
+        normalized = str(row.get("normalized_name", ""))
+
+        parts = [f"Line {line_num}"]
+        if character:
+            parts.append(f"character={character}")
+        if normalized and normalized != character:
+            parts.append(f"name={normalized}")
+        if participants and participants != "[]":
+            parts.append(f"on_stage={participants}")
+        parts.append(f'"{dialogue}"')
+        lines.append(" | ".join(parts))
+
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":

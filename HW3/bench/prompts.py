@@ -52,13 +52,13 @@ VERIFY_USER_TEMPLATE = """\
 
 {ground_truth}
 
-## Supporting Evidence
+## Observations
 
 {observations}
 
-## Data Row Indices (lines in the dataset where the answer can be verified)
+## Dataset Evidence (rows from the source data)
 
-{csv_row_indices}
+{evidence}
 
 ## Answer to Evaluate
 
