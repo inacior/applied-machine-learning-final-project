@@ -23,7 +23,7 @@ def main() -> None:
         "--model", "-m",
         type=str,
         default="baseline",
-        choices=["baseline", "llama-3b", "mistral-7b", "ministral-3b", "mistral-saba", "gemma-3-4b", "qwen-2.5-7b"],
+        choices=["baseline", "llama-3b", "mistral-7b", "ministral-3b", "mistral-saba", "gemma-3-4b", "qwen-2.5-7b", "deepseek/deepseek-v4-flash:free"],
         help="Model to query (default: baseline = GPT-4o)",
     )
 

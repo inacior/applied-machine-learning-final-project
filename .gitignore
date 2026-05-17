@@ -1,3 +1,11 @@
 .DS_Store
 .env
 .sisyphus
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
