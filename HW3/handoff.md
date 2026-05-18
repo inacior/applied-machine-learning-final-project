@@ -89,9 +89,17 @@ HW3/
 
 ---
 
+## Step Implemented
+1. **NER Pipeline** — Extract named entities (characters, families, locations) from the preprocessed CSV to build entity profiles and a relationship graph.
+
+# pip install -r requirements.txt
+# python -m spacy download en_core_web_sm
+# pip install pyvis==0.1.9`
+# python ner_graph_extract.py
+
 ## Next Steps (Not Yet Implemented)
 
-1. **NER Pipeline** — Extract named entities (characters, families, locations) from the preprocessed CSV to build entity profiles and a relationship graph.
+
 2. **Entity-Augmented Context** — For each question, prepend structured entity annotations to the source text before sending to the LLM.
 3. **OpenRouter Integration** — Query 2B and 7B models in raw and entity-augmented modes.
 4. **Evaluation** — Compute exact-match and semantic-match accuracy, stratified by difficulty and question type.
