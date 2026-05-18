@@ -1,0 +1,789 @@
+question_number,classification,model_name,question,ground_truth,observations,csv_row_indices,model_answer,evaluation,evaluation_explanation,tokens_prompt,tokens_completion,tokens_total,cost,latency_ms,dataset_path,questions_path,evaluation_model
+1,medium,llama-1b,"Which gesture does Sampson intentionally direct at the Montague servants, and what denial does he immediately use to limit legal exposure?","He bites his thumb at the Montague servants, then tries to evade blame by saying he is biting his thumb, but not at them.","Validate at dump.md L127-L165 and L196-L202. Sampson first checks whether the law would protect him if he admitted the insult, then denies directing it at Abram even though the fight follows.
+
+---","[24, 25, 26, 28, 29, 30, 33, 34, 35, 36, 40, 42]","Sampson intentionally directs a gesture at the Montague servants, specifically a ""dog of the house of Montague moves him."" He denies any intention to harm them, stating ""To move is to stir; and to be valiant is to stand: therefore, if thou art moved, thou runn'st away.""",INCORRECT,"The answer invents unrelated lines and misses the actual gesture and denial; Sampson bites his thumb at the servants and says he is biting his thumb, but not at them.",46928,66,46994,0.0,4164.614915847778,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+2,easy,llama-1b,What prior pattern of street violence does Prince Escalus cite when escalating the next penalty to death?,Because their feud has already caused repeated civil brawls and endangered Verona's public peace.,"Validate at dump.md L272-L294. The Prince says there have already been three civil brawls and declares that any further breach of the peace will cost them their lives.
+
+---",[62],"The prior pattern of street violence in Verona is characterized by a cycle of violence and retaliation, with each side escalating the penalty to death. Prince Escalus cites this pattern when escalating the next penalty to death, stating that the violence will continue until the parties involved are brought to justice. This pattern is evident in the fact that Romeo and Juliet's deaths are the culmination of a cycle of violence and retaliation that began with the murder of Tybalt, which was sparked by Romeo's killing of Mercutio. The violence escalated to the point where Romeo and Juliet's deaths are the result of a deadly confrontation between the two families, with Romeo killing Tybalt and Juliet killing Romeo. The pattern of violence and retaliation continues, with the Prince escalating the penalty to death, citing the cycle of violence and the need for justice to be served.",INCORRECT,The answer invents a broader Romeo-and-Juliet plot summary and misses the specific ground-truth point that the Prince cites repeated civil brawls already disturbing Verona's streets and threatens death for any further breach of the peace.,46922,169,47091,0.0,8371.35100364685,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+3,hard,llama-1b,"Based on Benvolio's and Montague's observations before Romeo confesses anything, what symptoms are already documented, and what cause remains unresolved?","They know he wanders alone at dawn, weeps, sighs, avoids company, and shuts himself in darkness, but they still do not know the cause of his sorrow.","Validate at dump.md L323-L374. These lines describe Romeo's strange behavior and make clear that his family and friends still cannot discover what is troubling him.
+
+---","[67, 68, 69, 70, 71, 72]","Based on Benvolio's and Montague's observations before Romeo confesses anything, the symptoms of the illness that Romeo is suffering from are:
+
+* Fever, which is evident from his pale and wild appearance, and his ""feverish"" behavior, such as his ""wild acts denote"" and his ""wild fury"".
+* Contempt and beggary, which are evident from his ""need and oppression starth in thine eyes"" and his ""contempt and beggary hangs upon thy back"".
+* Faintness, which is evident from his ""faint"" and ""weak"" state, and his ""feverish"" behavior.
+* A ""dull and wild"" appearance, which is evident from his ""pale"" and ""wild"" eyes, and his ""wild looks"".
+* A ""dull"" and ""cold"" demeanor, which is evident from his ""dull"" and ""cold"" eyes, and his ""stiff and stark"" appearance.
+
+The cause of Romeo's illness remains unresolved, as there is no mention of any specific cause or diagnosis.",INCORRECT,"The answer invents unrelated symptoms like fever, beggary, and faintness, while the ground truth only says Romeo wanders alone at dawn, weeps, sighs, avoids company, and shuts himself in darkness, with the cause of his sorrow still unknown.",46932,220,47152,0.0,12928.78484725952,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+4,easy,llama-1b,Which declared status of Rosaline explains why Romeo classifies her as unattainable?,"Because she has sworn chastity and refuses love, courtship, and seduction.","Validate at dump.md L522-L544. Romeo explains that Rosaline is committed to chastity and will not be struck by Cupid's arrow.
+
+---","[102, 103, 104]","Romeo classifies Rosaline as unattainable because she is the object of his love, but he does not have the means to win her affection. He is aware that she is the object of another man's affections, Tybalt, and that he is not worthy of her love. He also knows that he is not worthy of her, as he is a Montague, and that his family's hatred for the Capulets makes it impossible for him to win her heart.",INCORRECT,"The answer introduces unsupported claims about Tybalt and family conflict, while the ground truth says Rosaline is unattainable because she has sworn chastity and refuses love and courtship.",46922,103,47025,0.0,16041.218996047974,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+5,medium,llama-1b,"When Paris seeks permission to marry Juliet, what age, waiting-period, and consent conditions does Capulet put on the request?","Juliet is still too young, Paris should wait, and he must win Juliet's own consent because Capulet's approval is only part of the decision.","Validate at dump.md L596-L614. Capulet says Juliet has not yet turned fourteen, should wait two more summers, and that Paris must get her heart in addition to his father's approval.
+
+---","[114, 115, 116]","Capulet requests permission for Paris to marry Juliet, but with certain conditions. The request is made on the condition that Paris will be married to Juliet within 14 days of the wedding. Additionally, Capulet demands that Paris will not marry Juliet until she is 14 years old, and that she will not marry until she is married to Paris.",INCORRECT,"The answer invents a 14-day condition and states contradictory marriage claims, while the ground truth says Juliet is not yet fourteen, Paris should wait two more summers, and he must win Juliet’s own consent.",46928,70,46998,0.0,19355.704069137573,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+6,medium,llama-1b,"What information chain links Romeo to the Capulet feast: who cannot read the guest list, who reads it, what name is found, and who uses that fact to influence Romeo?","Capulet's illiterate servant asks him to read the guest list, Romeo learns Rosaline will be there, and Benvolio uses that to persuade him to attend.","Validate at dump.md L642-L649, L707-L749, and L753-L778. The servant cannot read the list, Romeo discovers Rosaline is invited, and Benvolio turns that discovery into a plan.
+
+---","[120, 122, 123, 124, 125, 126, 127, 129, 130, 131, 132, 133, 135, 138, 142, 144, 145, 146]","Romeo is linked to the Capulet feast through the guest list. The guest list includes Juliet's parents, Capulet and Lady Capulet, as well as several other members of the Capulet family and their guests. Romeo cannot read the guest list, but he knows that Juliet's parents are among the guests. He also knows that Juliet's name is mentioned in the guest list, which is a significant clue to her identity. Additionally, Romeo uses the fact that Juliet's name is on the guest list to influence his actions, as he knows that she is the one he is supposed to marry.",INCORRECT,"The answer contradicts the ground truth by claiming Romeo cannot read the list, misidentifies the invited name as Juliet instead of Rosaline, and incorrectly says Romeo uses the fact to influence himself rather than Benvolio persuading him to attend.",46939,122,47061,0.0,23693.08376312256,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+7,medium,llama-1b,"What level of commitment does Juliet give Lady Capulet regarding Paris, and what explicit limit does she place on her response?","She says she will look to like him if looking leads to liking, but she will not let herself go further than her mother's consent allows.","Validate at dump.md L944-L973. Juliet agrees only to consider Paris and carefully keeps her response conditional and obedient.
+
+---","[173, 174, 176]","Juliet gives Lady Capulet a high level of commitment regarding Paris, stating that she will not marry him. She explicitly places a limit on her response, saying ""I will not marry yet; and, when I do, I swear, It shall be Romeo, whom you know I hate, Rather than Paris."" This indicates that she is resolute in her decision to marry Romeo, despite her initial dislike for him.",INCORRECT,"The answer contradicts the ground truth by claiming Juliet refuses Paris and prefers Romeo, whereas she actually conditionally agrees to try to like Paris while limiting her response to her mother’s consent.",46927,85,47012,0.0,26908.729076385494,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+8,medium,llama-1b,"Before entering the feast, what risk forecast does Romeo make, and what principle leads him to proceed anyway?","He fears the night will begin a star-governed chain that ends in untimely death, but he submits himself to providence and goes in.","Validate at dump.md L1195-L1202. Romeo predicts that the evening may set fatal events in motion, yet still yields to whatever power steers his course.
+
+---",[211],"Romeo makes a risk forecast by predicting that the marriage will be a disaster, citing the fact that Tybalt's death will lead to a banishment of Romeo from Verona, which will have a devastating impact on his life and reputation. He also mentions that the marriage will be a ""villainous shame"" and that the ""law that threaten'd death becomes thy friend"" in the case of Tybalt's murder. Additionally, he notes that the marriage will be a ""vile part"" of the Capulets' hatred towards the Montagues, and that the ""kind prince"" will not be pleased with the union. Romeo's principle is to proceed despite these risks because he is driven by his love for Juliet and his desire to be with her, and he is willing to take the risk of being banished and ostracized to be with her.",INCORRECT,"The answer is about Romeo and Juliet’s marriage and Tybalt-related banishment, but the ground truth is Romeo’s fear of a star-guided fatal chain before the feast and his submission to providence.",46924,179,47103,0.0,31043.932914733887,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+9,hard,llama-1b,"By what identifying signal does Tybalt detect Romeo at the feast, and whose intervention prevents an immediate assault?","Tybalt recognizes Romeo by his voice, but Capulet forbids violence because Romeo is reputed virtuous and a fight would disgrace the feast and disrupt the guests.","Validate at dump.md L1319-L1324 and L1346-L1389. Tybalt identifies Romeo by speech, and Capulet explicitly blocks him from starting a brawl in the house.
+
+---","[232, 233, 234, 235, 237, 238, 239, 241, 242]","Tybalt detects Romeo at the feast by his bold and aggressive behavior, which includes his refusal to back down from a fight, his use of martial scorn, and his willingness to use deadly force to defend himself. He also notices Romeo's sharp and piercing eyes, which seem to be aimed directly at him. Additionally, Tybalt's own aggressive behavior and the presence of his sword and bucklers suggest that he is a formidable opponent.",INCORRECT,"The answer fabricates details about Romeo’s behavior and eyes, while the ground truth says Tybalt identifies him by his voice and Capulet’s intervention prevents the assault.",46925,89,47014,0.0,34324.09596443176,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+10,medium,llama-1b,What hostile-family identity does Romeo learn about Juliet only after physical contact has already occurred?,"He discovers that she is a Capulet, so the woman he loves belongs to his enemy's house.","Validate at dump.md L1445-L1463. The Nurse identifies Juliet after the shared sonnet and kisses, which turns Romeo's joy into a discovery about the feud.
+
+---","[254, 255, 256, 257]","Romeo learns about Juliet's hostile family identity after physical contact with her, specifically after he touches her hand. According to the dataset, Romeo touches Juliet's hand and finds that it is ""cold and stiff"" and ""stiff and cold"" with ""blood"" on it. This suggests that Juliet's family, particularly her father, Capulet, has been at odds with Romeo's family, the Montagues, and that Romeo has learned this through physical contact.",INCORRECT,"The answer fabricates details about touching Juliet’s hand and blood, while the ground truth says Romeo learns only that Juliet is a Capulet, his enemy’s house, after physical contact.",46920,95,47015,0.0,37418.95389556885,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+11,easy,llama-1b,"What identity data does Juliet obtain from the Nurse about Romeo, and what conflict does that information immediately create?","She learns that he is Romeo, a Montague, and the only son of her family's great enemy.","Validate at dump.md L1511-L1524. The Nurse gives Romeo's identity, and Juliet immediately realizes the emotional and political problem it creates.
+
+---","[268, 269, 270]","Juliet obtains the identity of Romeo from the Nurse by asking her about Romeo's name. The Nurse tells Juliet that Romeo's name is ""Romeo"" and that he is a Montague, which is a family member of Juliet's. This information creates a conflict because Juliet had previously been told that Romeo was a Capulet, her family's sworn enemy. The revelation that Romeo is a Montague, a family that Juliet despises, creates a sense of tension and conflict between Juliet and her family, as well as between Juliet and Romeo.",PARTIALLY_CORRECT,"The answer correctly says Juliet learns Romeo is Romeo and a Montague, but it wrongly states he was previously thought to be a Capulet and misses that he is the only son of her family’s great enemy.",46924,111,47035,0.0,40533.44082832336,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+12,hard,llama-1b,"In Juliet's balcony speech, which element of Romeo's identity does she explicitly identify as the obstacle to their relationship?","She means why must you be Romeo, meaning why must he belong to the enemy name Montague, not where are you.","Validate at dump.md L1706-L1728. Juliet follows the question by attacking the name itself and insisting that only Romeo's family identity makes him her enemy.
+
+---","[299, 301]","Juliet explicitly identifies Romeo's identity as the obstacle to their relationship as his ""kinsman"".",INCORRECT,"Juliet identifies Romeo’s family name as Montague/the name itself as the obstacle, not his “kinsman” status.",46926,21,46947,0.0,43360.312938690186,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+13,hard,llama-1b,"Before Romeo reveals his presence, what contingency does Juliet state regarding Romeo's name and her own status as a Capulet?","She has already said that either Romeo should renounce his name or she herself will cease to be a Capulet, because only his name, not his person, is her enemy.","Validate at dump.md L1706-L1728 and L1825-L1829. Juliet makes the commitment before she knows Romeo is listening, and Romeo later confirms that he overheard her true feelings.
+
+---","[299, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 314, 315]","Juliet states that she will not be marrying Paris, the Count of Monte Cristo, because she loves Romeo, her cousin, and she does not want to marry him. She also mentions that she is not proud of her hate for Tybalt, her cousin, and that she would rather die than marry him.",INCORRECT,"The answer invents unrelated details about Paris, “Count of Monte Cristo,” Tybalt, and Romeo being her cousin, and misses Juliet’s actual contingency that Romeo should renounce his name or she will cease to be a Capulet.",46927,65,46992,0.0,46148.67281913757,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+14,medium,llama-1b,"What threat assessment does Juliet make about Romeo's presence in the orchard, and how does Romeo compare that threat with romantic rejection?","She says her kinsmen will kill him if they find him there, and Romeo says her displeasure is more dangerous than their swords and that he would rather die than live without her love.","Validate at dump.md L1761-L1792. Juliet describes the physical danger, while Romeo compares it directly with the emotional danger of rejection.
+
+---","[307, 308, 309, 310, 311, 312]","Juliet makes a threat about Romeo's presence in the orchard, stating that if he were to enter the orchard, she would be ""lame"" and unable to move. She also warns that if he were to kill her cousin Tybalt, she would be ""stuck crying and said 'Ay.'"" This threat is a romantic rejection, as it implies that Romeo's presence in the orchard would be a threat to her happiness and well-being, and that he would be the one to cause her pain and distress.
+
+Romeo compares this threat with his own romantic rejection by Juliet, stating that he is ""dull, I will bear the light"" and that he is ""not for this ambling"". He also notes that he is ""heavy, I will bear the light"" and that he is ""not for this ambling"", implying that he is not interested in pursuing a relationship with Juliet. This comparison highlights the contrast between Romeo's rejection of Juliet and his own romantic rejection by her, and suggests that he is not interested in pursuing a relationship with her.",INCORRECT,"The answer fabricates unrelated dialogue and reverses the meaning, since Juliet warns Romeo that her kinsmen will kill him if found, and Romeo says her displeasure is deadlier than swords and he would rather die than live without her love.",46929,219,47148,0.0,50682.47699737549,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+15,easy,llama-1b,"Which type of oath does Juliet reject as unreliable evidence of constancy, and why?","Because the moon is changeable, and she does not want his love to seem equally variable.","Validate at dump.md L1833-L1851. Juliet rejects the moon as an oath because its changing nature would make the vow unstable.
+
+---","[316, 317, 318, 319]","Juliet rejects the oath of constancy as unreliable evidence of constancy because it is based on the idea that a person's word is their bond, and that if a person swears to marry Paris, they are committed to that promise. However, the oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy because it is based on the idea that a person's word is their bond, but it is not a reliable indicator of constancy. The oath of constancy is based on",INCORRECT,"The answer misunderstands the question and does not mention Juliet rejecting the moon as an oath due to its changeable, variable nature.",46920,2048,48968,0.0,75407.01293945312,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+16,medium,llama-1b,What next-day verification process does Juliet require before treating Romeo's intentions as honorable?,"She asks him to send word through a messenger she will send, stating where and when they will be married, and if he is not honorable he should stop courting her.","Validate at dump.md L1916-L1941. Juliet directly ties her trust to concrete plans for marriage and a messenger-based reply.
+
+---","[333, 337]","Juliet requires a verification process to treat Romeo's intentions as honorable before marrying him. According to the dataset, Friar Laurence advises Romeo to get a letter from the friar to confirm his intentions, stating that ""I'll send a friar with speed to Mantua, with my letters to thy lord."" This letter is necessary to establish the truth of Romeo's intentions and ensure that he is not a threat to the Capulet family.",INCORRECT,"The answer invents Friar Laurence and a letter to Mantua, but Juliet actually asks Romeo to send next-day word via a messenger she will procure, giving the wedding place and time, and to stop courting her if he is not honorable.",46919,90,47009,0.0,78733.55388641357,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+17,hard,llama-1b,What conflict-resolution objective does Friar Laurence explicitly cite when deciding to assist the marriage?,He agrees because he hopes their marriage can reconcile the two hostile households.,"Validate at dump.md L2150-L2165 and L2192-L2197. Friar Laurence mocks Romeo's quick change of affection, then reveals the political and social hope behind his decision to help.
+
+---","[372, 374, 376, 377, 378]","Friar Laurence's conflict-resolution objective is to resolve the conflict between the Capulet and Montague families by facilitating the marriage between Juliet and Paris, a member of the Montague family, to prevent the feud between the two families from escalating further.",INCORRECT,"The answer names the wrong marriage partner (Paris instead of Romeo) and adds unsupported details about preventing escalation, whereas the ground truth says Friar Laurence hopes Romeo and Juliet’s marriage will reconcile the two hostile households.",46921,51,46972,0.0,81675.4138469696,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+18,hard,llama-1b,"Before Romeo returns in Act II, Scene IV, what outdated model of his emotional state do Mercutio and Benvolio still use?","They still think Rosaline has made him love-sick, and Mercutio doubts that such a wounded Romeo can handle Tybalt's challenge.","Validate at dump.md L2215-L2255. The conversation shows that Romeo's friends do not know about Juliet and are still interpreting him through the Rosaline story.
+
+---","[383, 385, 386, 387, 388, 389, 390, 391]","Before Romeo returns in Act II, Scene IV, Mercutio and Benvolio are still using the outdated model of being ""hot-headed"" and ""moody"".",INCORRECT,"The answer misses the key point that they think Romeo is still love-sick over Rosaline, and instead invents an unrelated description of him as “hot-headed” and “moody.”",46931,35,46966,0.0,84041.22591018677,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+19,hard,llama-1b,"What warning does the Nurse issue about Romeo's intent, and what operational plan does Romeo return through her?","She warns him not to deceive Juliet or lead her into a fool's paradise, and he tells her to bring Juliet to Friar Laurence's cell that afternoon for shrift and marriage and then wait behind the abbey wall for ladder-cords.","Validate at dump.md L2594-L2603 and L2626-L2651. The Nurse presses Romeo on sincerity, and Romeo responds with a detailed operational plan for the secret marriage and later meeting.
+
+---","[461, 462, 463, 464, 465, 466, 467, 468, 469, 470]","The Nurse warns Romeo that he is a villain and that his hatred for Juliet's family will ultimately lead to his own downfall. She also advises him to be cautious and not to pursue his love for Juliet, as it will only lead to trouble and death. Romeo returns through the Nurse, who gives him a torch and a mattock, and tells him to deliver a letter to his lord and father, which he does.",INCORRECT,"The answer invents warnings and instructions not in the evidence; the Nurse actually warns Romeo not to deceive Juliet or lead her into a fool’s paradise, and Romeo sends her with a plan for Juliet to come to Friar Laurence’s cell for shrift and marriage and then wait by the abbey wall for ladder-cords.",46924,86,47010,0.0,86883.69297981262,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+20,medium,llama-1b,What secondhand evidence does the Nurse give Romeo about Juliet's attitude toward Paris?,"She tells him that Paris wants Juliet, but Juliet would rather look at a toad than at Paris and turns pale when Paris is praised over Romeo.","Validate at dump.md L2672-L2680. The Nurse gives Romeo private evidence of Juliet's emotional preference and resistance to Paris.
+
+
+---",[475],"The Nurse gives Romeo secondhand evidence about Juliet's attitude toward Paris by mentioning that Juliet's father, Capulet, is ""mad"" and ""hated"" Paris, and that Juliet ""gives her sorrow much sway"" to Paris's death. This suggests that Juliet is deeply affected by Paris's death and is still grieving for him.",INCORRECT,"The answer invents details about Capulet and Paris’s death that are not in the evidence, and it misses the actual point that Juliet would rather see a toad than Paris and turns pale when Paris is praised over Romeo.",46919,69,46988,0.0,90082.43989944458,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+21,medium,llama-1b,"Which concealed kinship causes Romeo to de-escalate Tybalt's challenge, and when is that kinship later made explicit?","Tybalt has become Romeo's kinsman through Romeo's secret marriage to Juliet, though Tybalt does not know it.","Validate at dump.md L3072-L3088 and L3187-L3193. Romeo's refusal to fight only makes full sense once he later explains that Tybalt has become his kinsman.
+---","[546, 547, 548, 549, 551, 552, 553, 556, 557, 559, 561, 562, 563, 565, 566, 567, 568, 570]","Romeo's concealed kinship that causes him to de-escalate Tybalt's challenge is his relationship with Paris, Juliet's cousin. This is made explicit when Romeo's friend Benvolio mentions that Romeo and Paris were once friends, and that Romeo was feasting with Paris when Tybalt attacked Romeo. This suggests that Romeo and Paris were once close friends, and that Romeo's desire to avenge Tybalt's death is motivated by a sense of loyalty and friendship towards Paris.",INCORRECT,"The answer wrongly invents a kinship with Paris and Benvolio, whereas the ground truth says Tybalt becomes Romeo’s kinsman through his secret marriage to Juliet and this is later made explicit by Romeo himself.",46930,102,47032,0.0,93149.50394630432,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+22,medium,llama-1b,What intervention by Romeo inadvertently creates the opening for Mercutio's fatal wound?,"Romeo rushes between the fighters to stop them, and Tybalt stabs under Romeo's arm.","Validate at dump.md L3130-L3137 and L3309-L3315. The stage action and Benvolio's report both show that Romeo's intervention accidentally creates the opening for Mercutio's fatal wound.
+
+---","[559, 561, 562, 563, 565, 566, 567, 568, 570, 572, 573, 574, 575, 577, 578, 579, 581, 583, 586, 587, 588, 590, 591, 592, 593, 594]","Romeo inadvertently creates the opening for Mercutio's fatal wound when he and Mercutio engage in a duel in the churchyard, and Romeo's sword strikes Mercutio in the back, causing fatal injuries.",INCORRECT,"The answer is wrong because Romeo does not duel Mercutio or stab him in the back; he intervenes between Mercutio and Tybalt, and Tybalt stabs Mercutio under Romeo’s arm.",46919,46,46965,0.0,95650.81596374512,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+23,easy,llama-1b,"Which witness account does Lady Capulet challenge as biased, and what relationship does she cite as grounds for distrust?","Lady Capulet does, because Benvolio is related to the Montagues.","Validate at dump.md L3325-L3330. Lady Capulet openly claims Benvolio's affection for the Montagues makes him unreliable.
+
+---",[595],"Lady Capulet challenges the testimony of Mercutio, a friend of Romeo, as biased. She cites his behavior as suspicious and inconsistent, particularly his reaction to Romeo's presence at the Capulet's house. Mercutio's behavior, she argues, suggests that he is not a trustworthy witness, and his account of the events leading up to Romeo's death is unreliable.",INCORRECT,"The answer wrongly says Lady Capulet challenges Mercutio’s testimony, while the ground truth says she distrusts Benvolio because he is related to the Montagues.",46925,76,47001,0.0,98381.8027973175,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+24,medium,llama-1b,What causal factor leads the Prince to commute Romeo's expected death sentence to banishment?,"Because Tybalt had killed Mercutio first, so Romeo's killing of Tybalt is treated as retaliatory and softened from death to exile.","Validate at dump.md L3334-L3356. The Prince weighs Tybalt's earlier violence and then chooses banishment instead of immediate execution.
+
+---","[596, 597, 598]","The causal factor leading the Prince to commute Romeo's expected death sentence to banishment is the discovery of Juliet's marriage to Paris, a member of the Capulet family, and the subsequent threat to Romeo's life. The Prince, who had been expecting Romeo's death, is shocked and outraged by the news, and decides to banish Romeo from Verona instead.",INCORRECT,"The answer invents Juliet’s marriage to Paris as the cause, but the ground truth says Romeo is exiled because he killed Tybalt in retaliation for Tybalt’s killing of Mercutio.",46920,74,46994,0.0,101043.17784309389,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+25,medium,llama-1b,Which reported development affects Juliet more severely than Tybalt's death?,Romeo's banishment.,"Validate at dump.md L3474-L3475 and L3540-L3554. Juliet directly says that the word banished wounds her more deeply than Tybalt's death itself.
+
+---","[615, 617, 618, 619, 620, 622]","Juliet is affected more severely than Tybalt's death because Romeo's death is a more significant blow to her emotional and psychological well-being. Romeo's death is a result of the poison that Juliet gave to herself, which ultimately leads to her death. This is a more severe consequence than Tybalt's death, which is a physical blow that results from Tybalt's stabbing. Juliet's emotional state is also severely impacted by the news of Romeo's death, as she is left alone and without her beloved, and is forced to confront the reality of her own mortality.",INCORRECT,"The answer wrongly discusses Romeo’s death and Juliet’s mortality, but the ground truth says the reported development that affects Juliet more severely than Tybalt’s death is Romeo’s banishment.",46917,117,47034,0.0,104420.47691345216,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+26,medium,llama-1b,What newly processed fact causes Juliet to reverse her first verbal attack on Romeo?,"She realizes Tybalt would have killed Romeo, so Tybalt's death means her husband lives.","Validate at dump.md L3487-L3499 and L3525-L3535. Juliet first denounces Romeo and then reverses herself once she rethinks the deadly alternative.
+
+---","[618, 619, 620, 622]","Juliet reverses her first verbal attack on Romeo when she says ""I'll be quiet, or - if thou wilt not, be but sworn my love, And I'll no longer be a Capulet."" This statement is a reversal of her initial verbal attack, where she had called Romeo a ""fool"" and a ""villain"" in her first speech.",INCORRECT,"The answer cites the wrong scene and invents a quote; Juliet reverses her attack because she realizes Tybalt would have killed Romeo, so Tybalt's death means Romeo lives.",46918,76,46994,0.0,107390.1948928833,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+27,medium,llama-1b,What evidence does Romeo cite to argue that banishment is functionally worse than death?,"Because exile means separation from Juliet and Verona, and even the lowest creatures may look on Juliet there while he cannot.","Validate at dump.md L3633-L3673. Romeo frames exile not as relocation but as a living death defined by exclusion from Juliet.
+
+---","[637, 638, 639]","Romeo argues that banishment is worse than death because it is a permanent and irreversible separation from one's loved ones, whereas death is a temporary and reversible state. He cites the fact that Romeo's father, Lord Capulet, is banished from Verona, and that the city will be filled with Montagues, making it impossible for Romeo to return to his family. He also notes that the punishment for banishment is not just a temporary separation, but a permanent one, as Romeo will be exiled from Verona for the rest of his life. Additionally, Romeo argues that banishment is a loss of status and reputation, as it will be known that Romeo is banished from Verona, whereas death is a private and personal matter that is not publicly known.",INCORRECT,"The answer introduces several unsupported and incorrect claims (temporary/reversible death, Lord Capulet being banished, public reputation issues) and misses the key evidence that Romeo says exile is worse because he cannot be with Juliet while even lowly creatures in Verona can look on her.",46920,157,47077,0.0,112620.03707885742,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+28,medium,llama-1b,Which three surviving advantages does Friar Laurence list when trying to counter Romeo's despair?,"Juliet is alive, Tybalt is dead instead of Romeo, and the law has changed Romeo's sentence from death to exile.","Validate at dump.md L3841-L3847. Friar Laurence explicitly counts Romeo's remaining advantages in order to shame him out of despair.
+
+---",[669],"Friar Laurence lists three surviving advantages when trying to counter Romeo's despair:
+
+1. **He will be able to provide a remedy**: Friar Laurence promises to send a friar to Mantua to help Romeo find a way to end his suffering, which will give him a chance to escape his despair.
+2. **He will be able to provide a means to end his suffering**: Friar Laurence offers to give Romeo a poison to drink, which will end his suffering and bring him peace.
+3. **He will be able to provide a way to escape his grief**: Friar Laurence promises to help Romeo find a way to escape his grief and move on, which will allow him to find peace and move forward.",INCORRECT,"The answer invents unrelated remedies and omits Friar Laurence’s actual three advantages: Juliet is alive, Tybalt is dead instead of Romeo, and Romeo’s sentence has been changed from death to exile.",46921,149,47070,0.0,116281.7850112915,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+29,hard,llama-1b,"Following the banishment ruling, what immediate movement plan and longer-term reconciliation plan does Friar Laurence assign to Romeo?","Romeo should go to Juliet that night, leave before the watch, hide in Mantua, and wait while Friar Laurence works to reveal the marriage, reconcile the families, and seek a pardon.","Validate at dump.md L3852-L3860 and L3889-L3895. Friar Laurence combines short-term secrecy with a longer plan for public reconciliation.
+
+---","[669, 670, 671, 672, 674, 675]","Friar Laurence assigns Romeo an immediate movement plan to escape the banishment of his family and find a way to reconcile with Juliet. He advises Romeo to:
+
+* Leave Mantua and travel to the countryside to find a new place to live and a new identity for himself.
+* Use his knowledge of the local area to find a new place to settle and a new way of life.
+* Avoid any contact with his family, especially his father, until he has found a new place to live and a new identity.
+* Use his knowledge of the local area to find a new way of life and a new identity for himself.
+
+He also advises Romeo to:
+
+* Use his knowledge of the local area to find a new place to settle and a new way of life.
+* Avoid any contact with his family, especially his father, until he has found a new place to live and a new identity.
+* Use his knowledge of the local area to find a new way of life and a new identity for himself.
+
+Friar Laurence also warns Romeo that he will be able to find a way to reconcile with Juliet and their families in the future, but for now, he needs to focus on finding a new place to live and a new identity for himself.",INCORRECT,"The answer invents details about leaving Mantua for the countryside and avoiding family contact, while missing the actual plan that Romeo should go to Juliet that night, leave before the watch, hide in Mantua, and await Friar Laurence’s reconciliation efforts.",46927,251,47178,0.0,123057.04498291016,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+30,medium,llama-1b,"Which incorrect diagnosis of Juliet's emotional state is shared by Lady Capulet and Paris, and how is it used to justify the marriage schedule?","They think she is consumed by grief for Tybalt, and Paris says the wedding is being hurried to interrupt that grief.","Validate at dump.md L4123-L4127 and L4476-L4485. Both characters misunderstand Juliet's emotions, and that mistake becomes part of the argument for the marriage.
+
+---","[716, 717, 718, 719, 721, 722, 723, 724, 725, 726, 727, 729, 730, 731, 732, 733, 734, 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 753, 754, 756, 757, 758, 759, 762, 763, 765, 768, 769, 770, 771]","The incorrect diagnosis of Juliet's emotional state shared by Lady Capulet and Paris is that she is ""unhappy"" and ""distressed"" due to Tybalt's death, which they believe is a result of her marriage to Paris. This diagnosis is used to justify the marriage schedule, as they believe that Juliet's unhappiness and distress will be alleviated by marrying Paris, and that the marriage will bring her happiness and peace.",PARTIALLY_CORRECT,"It correctly identifies Tybalt’s death/grief as the mistaken diagnosis and that this is used to justify hastening the marriage, but it incorrectly adds that her distress is caused by her marriage to Paris and that marriage will make her happy.",46931,88,47019,0.0,126455.7900428772,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+31,hard,llama-1b,"Which ambiguous statement allows Lady Capulet to infer that Juliet wants Romeo dead, and what does Juliet actually mean by it?","She uses ambiguous phrasing so Lady Capulet hears a wish for Romeo's death, while Juliet means that her own heart is dead until she sees him.","Validate at dump.md L4160-L4195. Juliet's language is deliberately double-layered, allowing her mother to hear loyalty to the family while Juliet preserves loyalty to Romeo.
+
+---","[723, 724, 725, 726, 727]","The ambiguous statement that allows Lady Capulet to infer that Juliet wants Romeo dead is: ""Tybalt, my cousin! O my brother's child! O prince! O cousin! husband! O, the blood is spilt O my dear kinsman! Prince, as thou art true, For blood of ours, shed blood of Montague. O cousin, cousin!""
+
+Juliet actually means that she wants Romeo dead because Tybalt, her cousin, was killed by Romeo, and she is angry that Tybalt's death was not avenged. She is also angry that Romeo did not take action to stop Tybalt's murder, and that he did not marry her, which she feels is a betrayal of their family's honor.",INCORRECT,"The quoted statement is not the relevant ambiguous line, and the explanation invents details; Juliet actually means her own heart is dead until she sees Romeo, not that she wants Romeo dead.",46927,153,47080,0.0,130120.0909614563,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+32,easy,llama-1b,What enforcement measures does Capulet threaten if Juliet refuses the marriage order?,"He threatens to drag her to church and, if she still refuses, cast her off to beg, starve, and die in the streets.","Validate at dump.md L4280-L4284, L4297-L4305, and L4353-L4362. Capulet escalates from command to public humiliation and total rejection.
+
+---","[740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751]","Capulet threatens to make Juliet's father, Lord Capulet, and the entire Capulet family banish Juliet if she refuses the marriage order. They also threaten to make Juliet's mother, Lady Capulet, and the entire Capulet family financially ruined if she continues to refuse. Additionally, they threaten to have Juliet's cousin, Tybalt, killed, and to make the entire Capulet family pay for the cost of the marriage.",INCORRECT,"The answer invents unrelated threats about banishment, financial ruin, Tybalt, and family costs, while the ground truth says Capulet threatens to drag Juliet to church and then cast her off to beg, starve, and die in the streets.",46917,89,47006,0.0,133151.06296539307,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+33,medium,llama-1b,Which recommendation from the Nurse causes Juliet to treat her as no longer trustworthy?,"The Nurse tells Juliet to marry Paris because Romeo is banished and effectively useless to her, even belittling Romeo beside Paris.","Validate at dump.md L4396-L4409 and L4430-L4449. The Nurse abandons the secret marriage emotionally and politically, and Juliet never trusts her the same way again.
+
+---","[757, 758, 759, 762, 763, 765]","The Nurse's recommendation that causes Juliet to treat her as no longer trustworthy is that she should not be trusted to deliver the poison to Romeo. The Nurse tells Juliet that Romeo is to be buried in a ""dead man's tomb"" and that the poison should be given to him in a ""bitter draught"" that will ""dispatch him straight."" The Nurse also warns Juliet that if she were to deliver the poison, she would be ""drinking it off"" and ""laying it in his mouth,"" which would be a ""sour"" and ""unpleasant"" experience. This recommendation suggests that the Nurse is trying to dissuade Juliet from trusting her, as she is putting herself in a situation where she would be directly involved in the act of killing Romeo.",INCORRECT,"The answer is about poison and killing Romeo, but the ground truth says the Nurse advises Juliet to marry Paris and belittles Romeo, which is why Juliet stops trusting her.",46918,156,47074,0.0,137231.98199272156,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+34,hard,llama-1b,"In the Friar's cell, which responses by Juliet sound compliant to Paris but avoid actual acceptance?","She answers in equivocations: she says she may be a wife only when she may be one, says she loves him without naming Paris, and says even her face is not her own.","Validate at dump.md L4496-L4504 and L4524-L4565. Juliet's replies sound compliant on the surface but remain semantically evasive.
+
+---","[774, 775, 776, 777, 779, 780, 781, 782, 783, 784, 785, 786, 788, 790]","The responses by Juliet that sound compliant to Paris but avoid actual acceptance are those that:
+
+* Avoid directly addressing Romeo's request for her to marry Paris, instead focusing on the idea of being with Paris and living a life of luxury and comfort.
+* Use phrases that suggest a sense of relief and happiness at the prospect of being with Paris, such as ""I am so happy to be with you"" or ""I am so glad to be with you.""
+* Emphasize the benefits of being with Paris, such as ""I'll be with you"" or ""I'll be happy with you.""
+* Avoid any mention of Romeo's marriage to Paris or any mention of the marriage contract.
+* Focus on the idea of being with Paris and living a life of happiness and luxury, rather than any mention of the marriage contract or the idea of being with Romeo.
+
+Examples of such responses include:
+
+* Juliet's ""I am so happy to be with you"" (Act IV, Scene III)
+* Juliet's ""I am so glad to be with you"" (Act IV, Scene III)
+* Juliet's ""I'll be with you"" (Act IV, Scene III)
+* Juliet's ""I'll be happy with you"" (Act IV, Scene III)
+* Juliet's ""I'll be happy with you"" (Act IV, Scene III)
+
+These responses suggest that Juliet is willing to accept Paris as her husband, but is not willing to accept Romeo as her husband.",INCORRECT,"The answer fabricates non-existent lines and contradicts the ground truth, which says Juliet uses evasive equivocations like “That may be, sir, when I may be a wife,” “I will confess to you that I love him,” and “It may be so, for it is not mine own.”",46923,296,47219,0.0,142872.2758293152,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+35,medium,llama-1b,What demonstration by Juliet convinces Friar Laurence she can endure a deathlike deception?,Her willingness to kill herself rather than marry Paris convinces him she has the nerve for a desperate deathlike stratagem.,"Validate at dump.md L4594-L4623. Juliet displays immediate readiness for self-harm, and Friar Laurence responds by offering a plan that imitates death.
+
+---","[796, 797]","The demonstration by Juliet that convinces Friar Laurence she can endure a deathlike deception is her ability to remain calm and composed in the face of death and the prospect of being buried with her beloved Romeo. When Friar Laurence tells her that she will be buried with Romeo, she remains calm and says, ""I'll to my wedding-bed; And death, not Romeo, take my maidenhead!"" This statement shows that she is willing to endure the pain and discomfort of death, and she is not swayed by the prospect of being buried with Romeo. She also says, ""I'll take the measure of an unmade grave,"" which suggests that she is willing to accept the idea of being buried in a simple, unadorned grave, and that she is not concerned with the material comforts of death. This demonstrates her ability to put aside her personal feelings and desires and accept the reality of death, which is a key aspect of the demonstration.",INCORRECT,"The answer invents details about Juliet calmly accepting burial and quotes lines not in the evidence, while the ground truth says Friar Laurence is convinced by her willingness to kill herself rather than marry Paris.",46921,194,47115,0.0,148810.05883216858,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+36,hard,llama-1b,"What are the required steps, actors, and timing constraints in Friar Laurence's potion operation?","She must appear cheerful and consent, sleep alone, drink the vial in bed, seem dead for forty-two hours, be laid in the Capulet vault, and then be recovered by Romeo and the Friar for flight to Mantua.","Validate at dump.md L4642-L4670 and L4681-L4683. Friar Laurence gives a detailed multi-step plan involving deception, timing, burial, communication, and escape.
+
+---","[799, 800, 801]","To answer the question, we need to analyze the dataset to determine the required steps, actors, and timing constraints in Friar Laurence's potion operation.
+
+**Required steps:**
+
+1. Friar Laurence needs to prepare a poison to kill Romeo.
+2. He needs to obtain a poison from a pox-monger.
+3. He needs to mix the poison with a drink.
+4. He needs to deliver the drink to Romeo.
+
+**Actors:**
+
+1. Friar Laurence
+2. Romeo
+3. Romeo's man (who is found in the churchyard)
+4. Romeo's father (Capulet)
+5. Romeo's nurse
+6. Romeo's page
+7. Romeo's master (Montague)
+8. Romeo's master's man (who is found in the churchyard)
+9. Romeo's master's nurse
+10. Romeo's master's page
+11. Romeo's master's father (Capulet)
+12. Romeo's master's wife
+13. Romeo's master's servants
+14. Romeo's master's attendants
+15. Romeo's master's guards
+16. Romeo's master's servants
+17. Romeo's master's attendants
+18. Romeo's master's guards
+19. Romeo's master's servants
+20. Romeo's master's attendants
+21. Romeo's master's guards
+22. Romeo's master's servants
+23. Romeo's master's attendants
+24. Romeo's master's guards
+25. Romeo's master's servants
+26. Romeo's master's attendants
+27. Romeo's master's guards
+28. Romeo's master's servants
+29. Romeo's master's attendants
+30. Romeo's master's guards
+31. Romeo's master's servants
+32. Romeo's master's attendants
+33. Romeo's master's guards
+34. Romeo's master's servants
+35. Romeo's master's attendants
+36. Romeo's master's guards
+37. Romeo's master's servants
+38. Romeo's master's attendants
+39. Romeo's master's guards
+40. Romeo's master's servants
+41. Romeo's master's attendants
+42. Romeo's master's guards
+43. Romeo's master's servants
+44. Romeo's master's attendants
+45. Romeo's master's guards
+46. Romeo's master's servants
+47. Romeo's master's attendants
+48. Romeo's master's guards
+49. Romeo's master's servants
+50. Romeo's master's attendants
+51. Romeo's master's guards
+52. Romeo's master's servants
+53. Romeo's master's attendants
+54. Romeo's master's guards
+55. Romeo's master's servants
+56. Romeo's master's attendants
+57. Romeo's master's guards
+58. Romeo's master's servants
+59. Romeo's master's attendants
+60. Romeo's master's guards
+61. Romeo's master's servants
+62. Romeo's master's attendants
+63. Romeo's master's guards
+64. Romeo's master's servants
+65. Romeo's master's attendants
+66. Romeo's master's guards
+67. Romeo's master's servants
+68. Romeo's master's attendants
+69. Romeo's master's guards
+70. Romeo's master's servants
+71. Romeo's master's attendants
+72. Romeo's master's guards
+73. Romeo's master's servants
+74. Romeo's master's attendants
+75. Romeo's master's guards
+76. Romeo's master's servants
+77. Romeo's master's attendants
+78. Romeo's master's guards
+79. Romeo's master's servants
+80. Romeo's master's attendants
+81. Romeo's master's guards
+82. Romeo's master's servants
+83. Romeo's master's attendants
+84. Romeo's master's guards
+85. Romeo's master's servants
+86. Romeo's master's attendants
+87. Romeo's master's guards
+88. Romeo's master's servants
+89. Romeo's master's attendants
+90. Romeo's master's guards
+91. Romeo's master's servants
+92. Romeo's master's attendants
+93. Romeo's master's guards
+94. Romeo's master's servants
+95. Romeo's master's attendants
+96. Romeo's master's guards
+97. Romeo's master's servants
+98. Romeo's master's attendants
+99. Romeo's master's guards
+100. Romeo's master's servants
+101. Romeo's master's attendants
+102. Romeo's master's guards
+103. Romeo's master's servants
+104. Romeo's master's attendants
+105. Romeo's master's guards
+106. Romeo's master's servants
+107. Romeo's master's attendants
+108. Romeo's master's guards
+109. Romeo's master's servants
+110. Romeo's master's attendants
+111. Romeo's master's guards
+112. Romeo's master's servants
+113. Romeo's master's attendants
+114. Romeo's master's guards
+115. Romeo's master's servants
+116. Romeo's master's attendants
+117. Romeo's master's guards
+118. Romeo's master's servants
+119. Romeo's master's attendants
+120. Romeo's master's guards
+121. Romeo's master's servants
+122. Romeo's master's attendants
+123. Romeo's master's guards
+124. Romeo's master's servants
+125. Romeo's master's attendants
+126. Romeo's master's guards
+127. Romeo's master's servants
+128. Romeo's master's attendants
+129. Romeo's master's guards
+130. Romeo's master's servants
+131. Romeo's master's attendants
+132. Romeo's master's guards
+133. Romeo's master's servants
+134. Romeo's master's attendants
+135. Romeo's master's guards
+136. Romeo's master's servants
+137. Romeo's master's attendants
+138. Romeo's master's guards
+139. Romeo's master's servants
+140. Romeo's master's attendants
+141. Romeo's master's guards
+142. Romeo's master's servants
+143. Romeo's master's attendants
+144. Romeo's master's guards
+145. Romeo's master's servants
+146. Romeo's master's attendants
+147. Romeo's master's guards
+148. Romeo's master's servants
+149. Romeo's master's attendants
+150. Romeo's master's guards
+151. Romeo's master's servants
+152. Romeo's master's attendants
+153. Romeo's master's guards
+154. Romeo's master's servants
+155. Romeo's master's attendants
+156. Romeo's master's guards
+157. Romeo's master's servants
+158. Romeo's master's attendants
+159. Romeo's master's guards
+160. Romeo's master's servants
+161. Romeo's master's attendants
+162. Romeo's master's guards
+163. Romeo's master's servants
+164. Romeo's master's attendants
+165. Romeo's master's guards
+166. Romeo's master's servants
+167. Romeo's master's attendants
+168. Romeo's master's guards
+169. Romeo's master's servants
+170. Romeo's master's attendants
+171. Romeo's master's guards
+172. Romeo's master's servants
+173. Romeo's master's attendants
+174. Romeo's master's guards
+175. Romeo's master's servants
+176. Romeo's master's attendants
+177. Romeo's master's guards
+178. Romeo's master's servants
+179. Romeo's master's attendants
+180. Romeo's master's guards
+181. Romeo's master's servants
+182. Romeo's master's attendants
+183. Romeo's master's guards
+184. Romeo's master's servants
+185. Romeo's master's attendants
+186. Romeo's master's guards
+187. Romeo's master's servants
+188. Romeo's master's attendants
+189. Romeo's master's guards
+190. Romeo's master's servants
+191. Romeo's master's attendants
+192. Romeo's master's guards
+193. Romeo's master's servants
+194. Romeo's master's attendants
+195. Romeo's master's guards
+196. Romeo's master's servants
+197. Romeo's master's attendants
+198. Romeo's master's guards
+199. Romeo's master's servants
+200. Romeo's master's attendants
+201. Romeo's master's guards
+202. Romeo's master's servants
+203. Romeo's master's attendants
+204. Romeo's master's guards
+205. Romeo's master's servants
+206. Romeo's master's attendants
+207. Romeo's master's guards
+208. Romeo's master's servants
+209. Romeo's master's attendants
+210. Romeo's master's guards
+211. Romeo's master's servants
+212. Romeo's master's attendants
+213. Romeo's master's guards
+214. Romeo's master's servants
+215. Romeo's master's attendants
+216. Romeo's master's guards
+217. Romeo's master's servants
+218. Romeo's master's attendants
+219. Romeo's master's guards
+220. Romeo's master's servants
+221. Romeo's master's attendants
+222. Romeo's master's guards
+223. Romeo's master's servants
+224. Romeo's master's attendants
+225. Romeo's master's guards
+226. Romeo's master's servants
+227. Romeo's master's attendants
+228. Romeo's master's guards
+229. Romeo's master's servants
+230. Romeo's master's attendants
+231. Romeo's master's guards
+232. Romeo's master's servants
+233. Romeo's master's attendants
+234. Romeo's master",INCORRECT,"The answer invents a poison-to-kill-Romeo plot and many irrelevant actors, but the ground truth is about Juliet’s potion plan: cheerful consent, sleeping alone, drinking the vial in bed, seeming dead for forty-two hours, burial in the Capulet vault, and Romeo and the Friar recovering her for escape to Mantua.",46923,2048,48971,0.0,175351.2167930603,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+37,medium,llama-1b,"What room-access condition does Juliet create before taking the vial, and why is that condition necessary?",She is following Friar Laurence's instructions so she can secretly take the vial without the Nurse in her chamber.,"Validate at dump.md L4642-L4647 and L4816-L4835. Friar Laurence tells her to lie alone, and Juliet later arranges exactly that condition.
+
+---","[799, 800, 801, 802, 805, 807, 808, 809, 810, 813, 815, 816, 818, 819, 820, 821, 822, 823, 824, 827, 828, 831, 833, 834]","Juliet creates a room-access condition by placing the vial of poison in a sealed box, which is then placed in a sealed box, and finally in a sealed box with a cord. This condition is necessary because the poison is a ""poisonous mixture"" that can be ""dispatched"" through the veins, and the cord is used to ""disperse"" the poison. The condition is necessary to ensure that the poison is delivered to Juliet's lips without anyone else being able to access it.",INCORRECT,"The answer invents sealed boxes and poison-distribution details not in the ground truth, which says Juliet simply arranges to be alone in her chamber without the Nurse so she can take the vial secretly.",46923,102,47025,0.0,178495.56875228882,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+38,hard,llama-1b,What failure scenarios does Juliet model before consuming the potion?,"She fears it may fail, may actually be poison from the Friar, may wake her too early in the vault to suffocate, or may leave her mad among corpses, bones, and Tybalt's ghost.","Validate at dump.md L4846-L4893. Juliet mentally simulates several different failure modes before finally drinking the potion.
+
+---","[837, 839]","Juliet models several failure scenarios before consuming the potion, including:
+
+* Being forced to marry Paris, a man she does not love, against her will, which would mean giving up her freedom and happiness.
+* Being forced to live with Paris, a man she does not love, and having to pretend to be in love with him, which would be a great emotional burden.
+* Being separated from her family and friends, including her parents, and having to navigate the complexities of her arranged marriage to Paris.
+* Being forced to hide her true feelings and emotions, including her love for Romeo, from Paris, which would be a difficult and painful experience.
+* Being forced to live in a state of perpetual mourning, which would be a heavy emotional burden, and potentially lead to her becoming isolated and withdrawn.
+* Being forced to pretend to be in love with Paris, which would be a difficult and potentially damaging experience for her mental and emotional well-being.
+* Being forced to give up her own happiness and freedom for the sake of her family's honor and reputation, which would be a difficult and potentially damaging decision.
+* Being forced to live with the knowledge that her parents' hatred for Romeo would lead to his banishment, which would be a difficult and potentially painful experience for her.
+* Being forced to live in a state of limbo, waiting for Romeo to return and for the feud between the Montagues and Capulets to be resolved, which would be a difficult and potentially long-term experience.
+
+Overall, Juliet's failure scenarios before consuming the potion are centered around her desire for love, freedom, and happiness, and her willingness to sacrifice these things for the sake of her family's honor and reputation.",INCORRECT,"The answer misses Juliet’s actual feared failure modes and instead invents unrelated concerns about Paris and family life, contradicting the ground truth.",46914,341,47255,0.0,185464.38694000244,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+39,medium,llama-1b,"When the Capulet household finds Juliet apparently dead, how does Friar Laurence attempt to reinterpret the event for them?","He says heaven had a share in Juliet and now has her wholly, so she has been advanced to eternal life rather than merely lost.","Validate at dump.md L5127-L5145. Friar Laurence interprets the event in theological terms to calm the household and redirect their grief.
+
+---",[891],"Friar Laurence attempts to reinterpret the event of Juliet's apparent death by attributing it to a natural cause, such as a fever or illness, rather than a murder. He suggests that the Capulet household may have been too hasty in their grief and may have misinterpreted the signs of death, such as the lack of movement and the lack of a pulse. He also implies that the Capulet household may have been too quick to assume the worst and may have been influenced by their own emotions and biases.",INCORRECT,The answer invents a natural-cause explanation and grief commentary that Friar Laurence does not give; he instead says heaven has taken Juliet and she is advanced to eternal life.,46927,104,47031,0.0,188867.05994606015,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+40,easy,llama-1b,Which wedding items does Capulet explicitly relabel as funeral items after Juliet is found dead?,"He says every wedding item turns into its funeral opposite: instruments become bells, feast becomes burial meal, hymns become dirges, and bridal flowers serve a corpse.","Validate at dump.md L5149-L5155. Capulet explicitly lists the symbolic reversals from celebration to mourning.
+
+
+---",[892],"Capulet explicitly relabels the following wedding items as funeral items after Juliet is found dead:
+
+* A mattock (a tool used for digging graves)
+* A spade (a tool used for digging graves)
+* A coffin (a container for the dead)
+* A bier (a coffin or a bed for the dead)
+* A grave (a burial site)
+* A tomb (a burial site)
+* A sepulchre (a burial site)
+* A corpse (the dead body)
+* A corpse's head (the head of the dead body)
+* A dagger (a sharp instrument used for killing)
+* A sword (a sharp instrument used for killing)
+* A mattock and spade (tools used for digging graves)
+* A torch (a light used to light the way for the dead)
+* A lantern (a light used to light the way for the dead)
+* A crow (a bird used to carry the dead to the grave)
+* A coffin lid (a container for the dead)
+* A shroud (a cloth used to wrap the dead body)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse or corpse's head (the head of the dead body)
+* A dagger or sword (sharp instruments used for killing)
+* A mattock or spade (tools used for digging graves)
+* A torch or lantern (lights used to light the way for the dead)
+* A coffin or bier (a container for the dead)
+* A grave or tomb (a burial site)
+* A sepulchre or tomb (a burial site)
+* A corpse",INCORRECT,The response invents many items not in the text and fails to identify the actual wedding items Capulet relabels as funeral items.,46921,2048,48969,0.0,213898.4417915344,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+41,easy,llama-1b,"Who delivers the first report that shapes Romeo's understanding of Juliet's condition in Act V, and what corrective document is missing?","Balthasar tells Romeo Juliet has been laid in the Capulet monument, but he has no letter from Friar Laurence.","Validate at dump.md L5319-L5333 and L5349-L5355. Balthasar reports the burial, and Romeo immediately discovers that the Friar has sent no corrective explanation.
+---","[927, 928, 929, 930, 931, 932]","The first report that shapes Romeo's understanding of Juliet's condition in Act V is delivered by Friar Laurence. He delivers a letter to Romeo, stating that Juliet is dead and that Romeo's efforts to revive her have been unsuccessful. The letter also mentions that the poison was not effective and that the wound is mortal.",INCORRECT,"The answer wrongly says Friar Laurence delivers the first report and a letter with details, whereas Balthasar is the one who first tells Romeo Juliet is in the monument and Romeo has no letter from the friar.",46928,65,46993,0.0,216646.07310295105,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+42,hard,llama-1b,Which broken communication link causes Romeo to act on a false death report?,"Friar Laurence's letter explaining the potion never reaches Romeo because Friar John is quarantined, so Balthasar's report of Juliet's burial goes uncorrected.","Validate at dump.md L5327-L5339 and L5465-L5482. The false picture is created by Balthasar's sincere but incomplete report and confirmed by the failed delivery of the Friar's letter.
+
+---","[928, 929, 930, 931, 932, 933, 935, 937, 938, 939, 940, 941, 942, 943, 944, 947, 949, 950, 951, 952]","The broken communication link that causes Romeo to act on a false death report is the ""torture of misfortune's book"" mentioned in Act III, Scene III, where Friar Laurence says, ""The most you sought was her promotion; For 'twas your heaven she should be advanced: And weep ye now, seeing she is advanced Above the clouds, as high as heaven itself?"" This implies that Friar Laurence is suggesting that the death of Romeo and Juliet is a result of their love, and that the torture of misfortune's book is a punishment for their love.
+
+However, the actual cause of the death is Tybalt's sword thrust to the heart, which kills Romeo, not the torture of misfortune's book.",INCORRECT,"The answer is unrelated and factually wrong, confusing events and causes while failing to identify that Friar Laurence’s undelivered letter via Friar John’s quarantine leaves Balthasar’s false report uncorrected.",46917,153,47070,0.0,221045.4318523407,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+43,medium,llama-1b,Which prior legal ruling and follow-up instruction explain Romeo's presence in Mantua at the start of Act V?,"He is there because he was banished after Tybalt's death, and Friar Laurence told him to stay in Mantua until the marriage could be revealed and reconciliation attempted.","Validate at dump.md L3474-L3475 and L3889-L3894. The earlier sentence and Friar Laurence's instructions explain Romeo's location in Act V.
+
+---","[615, 617, 618, 619, 620, 622, 623, 624, 625, 626, 629, 631, 632, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 649, 650, 652, 654, 657, 660, 661, 662, 665, 666, 667, 669, 670, 671, 672, 674, 675]","Romeo's presence in Mantua at the start of Act V is explained by the fact that Friar Laurence, a friar who is a close friend of Romeo, has sent him to Mantua to find a bare-foot brother to associate with him. The friar had been searching for someone to associate with, and Friar John had found Romeo, who was living in Mantua.",INCORRECT,The answer invents unrelated details and misses the actual reason Romeo is in Mantua: he was banished after killing Tybalt and Friar Laurence told him to stay there until the marriage could be revealed and reconciliation attempted.,46925,81,47006,0.0,223920.5391407013,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+44,medium,llama-1b,What economic vulnerability allows Romeo to obtain poison from the Apothecary despite the law?,"His poverty overrules his will, and Romeo exploits that desperation by paying him.","Validate at dump.md L5408-L5433. The Apothecary names the law, but also admits that poverty drives his decision to violate it.
+
+---","[939, 940, 941, 942, 943]","Romeo obtains poison from the Apothecary due to his poverty. The Apothecary is described as being poor, with ""meagre were his looks, Sharp misery had worn him to the bones"". This suggests that the Apothecary is struggling financially, which makes it difficult for him to afford the expensive poison that Romeo needs.",PARTIALLY_CORRECT,"It correctly identifies the Apothecary’s poverty as the vulnerability Romeo exploits, but it adds unsupported details about expensive poison and misses the key point that Romeo pays him despite the law.",46921,73,46994,0.0,227019.6888446808,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+45,hard,llama-1b,"What cover story does Romeo give Balthasar for entering the tomb, and what later evidence shows it is not his full motive?","He says he mainly needs a ring from Juliet's finger, but later evidence shows he came to die beside Juliet.","Validate at dump.md L5562-L5566 and L6067-L6071. Romeo gives Balthasar a partial explanation, but the Prince later reads a letter that reveals Romeo's real intention.
+
+---","[967, 968, 969, 970, 972, 974, 976, 977, 978, 979, 981, 985, 987, 989, 991, 993, 994, 996, 997, 1000, 1001, 1002, 1003, 1004, 1005, 1008, 1010, 1012, 1014, 1016, 1017, 1019, 1021, 1025, 1027, 1030, 1031, 1034, 1036, 1037, 1039, 1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062]","Romeo gives Balthasar a cover story for entering the tomb by saying he is a ""poor wretch"" who is ""bare of wretchedness"" and ""fearful"" and ""trembles with misadventure"". This is later revealed to be a lie, as the true motive for Romeo's visit to the tomb is to find Juliet's body and deliver a message to Paris, who is supposed to be in Mantua.",INCORRECT,"Romeo does not say those things to Balthasar, and the later evidence shows he came to die beside Juliet, not to deliver a message to Paris.",46929,93,47022,0.0,229896.7809677124,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+46,easy,llama-1b,What observed behavior causes Balthasar to remain nearby instead of fully leaving?,He hides nearby because Romeo looks dangerous and Balthasar distrusts his intentions.,"Validate at dump.md L5581-L5587. Balthasar says directly that he fears Romeo's looks and doubts his intent.
+
+---","[969, 970]","Balthasar remains nearby instead of fully leaving because he is afraid of the watch, which is coming to the churchyard to investigate the deaths. He is also concerned about the suspicion surrounding the deaths, which makes him hesitant to leave. Additionally, he is worried about the potential consequences of his actions, including the possibility of being implicated in the murders.",INCORRECT,"The answer contradicts the ground truth by attributing Balthasar’s lingering to fear of the watch and suspicion, whereas the evidence says he hides nearby because he fears Romeo’s looks and distrusts his intentions.",46918,71,46989,0.0,232789.6749973297,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+47,medium,llama-1b,"At the tomb, what role does Paris assign to himself and what support role does the Page perform?","Paris comes to strew Juliet's grave with flowers and mourn her, while the Page stands watch, signals if anyone approaches, and later summons the watch.","Validate at dump.md L5517-L5525, L5536-L5547, and L6059-L6063. These lines establish both Paris's mourning ritual and the Page's practical role.
+
+---","[959, 960, 962, 964, 967, 968, 969, 970, 972, 974, 976, 977, 978, 979, 981, 985, 987, 989, 991, 993, 994, 996, 997, 1000, 1001, 1002, 1003, 1004, 1005, 1008, 1010, 1012, 1014, 1016, 1017, 1019, 1021, 1025, 1027, 1030, 1031, 1034, 1036, 1037, 1039, 1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061]","Paris assigns himself a role as the ""banish'd haughty Montague"" and the ""villain and he be many miles asunder"" at the tomb. The Page performs a support role, helping to prepare the body of Juliet for burial and assisting in the process of preparing the tomb for the funeral.",INCORRECT,"Paris is not assigning himself as Montague or a burial preparer; he comes to mourn and strew flowers on Juliet’s grave, while the Page’s actual role is to stand watch, signal approaches, and later call the watch.",46923,64,46987,0.0,235536.28587722775,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+48,medium,llama-1b,Which assumptions lead Paris to classify Romeo as a criminal intruder at the tomb?,"Paris thinks Romeo is the banished Montague who killed Tybalt, helped cause Juliet's death, and has now come to dishonor the dead.","Validate at dump.md L5602-L5613. Paris openly states the assumptions that shape his hostile interpretation of Romeo's presence.
+
+---","[974, 976]","Paris classifies Romeo as a criminal intruder at the tomb because he is the one who killed Tybalt, Romeo's kinsman, and is also the one who slew Juliet, Romeo's wife. This is evident from the fact that Paris is described as a ""villainous villain"" and that he is ""murder'd my love's cousin, with which grief, It is supposed, the fair creature died; And here is come to do some villanous shame To the dead bodies: I will apprehend him."" This suggests that Paris is a threat to the peace and order of Verona, and his actions are considered a serious crime.",INCORRECT,"The answer misstates the key assumptions by saying Romeo killed Tybalt and Juliet and wrongly calls them Romeo’s kinsman and wife, whereas Paris assumes Romeo is the banished Montague who killed Tybalt, helped cause Juliet’s death, and came to dishonor the dead.",46919,135,47054,0.0,239109.96198654175,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+49,medium,llama-1b,"Before the duel with Paris, what does Romeo disclose about his mental state and self-directed intent?","He says he is desperate, warns Paris not to provoke him, and admits he came armed against himself.","Validate at dump.md L5617-L5626. Romeo describes himself as desperate and self-destructive before the fight begins.
+
+---",[977],"Romeo discloses that he is ""content, so thou wilt have it so"" and that he is ""content, so thou wilt have it so"" when he says that he will ""say yon grey is not the morning's eye, 'Tis but the pale reflex of Cynthia's brow; Nor that is not the lark, whose notes do beat The vaulty heaven so high above our heads: I have more care to stay than will to go: Come, death, and welcome! Juliet wills it so. How is't, my soul? let's talk; it is not day.""
+
+This indicates that Romeo is in a state of contentment and is willing to accept his fate, suggesting that he is not driven by self-directed intent to harm himself or others.",INCORRECT,"The answer cites irrelevant dialogue and reverses the meaning, since Romeo is actually desperate, warns Paris away, and says he is armed against himself.",46922,160,47082,0.0,243437.70694732663,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+50,medium,llama-1b,"After Paris is wounded, what new identity links does Romeo recognize, and how does that affect his treatment of Paris's body?","Romeo recognizes Paris as Mercutio's kinsman and Juliet's would-be bridegroom, then grants Paris's wish to be laid in the tomb with Juliet.","Validate at dump.md L5651-L5652 and L5658-L5671. Romeo's understanding of Paris changes after the duel, and he responds with burial rather than further contempt.
+
+---","[985, 987]","After Paris is wounded, Romeo recognizes a new identity linked to him as ""a French salutation to your French slop."" This implies that Romeo has come to identify himself with the French, and that he sees himself as a Frenchman. This new identity affects his treatment of Paris's body, as he is now seen as a Frenchman, and therefore, he is treated as such.
+
+Romeo's treatment of Paris's body is also influenced by his new identity. He is more willing to kill Paris, as he sees him as a Frenchman, and therefore, a potential threat to his own identity. This is evident when Romeo says, ""I will not endure him! / Go to; Am I the master here, or you? / Go to. You'll not endure him! God shall mend my soul! / You'll make a mutiny among my guests! You will set cock-a-hoop! you'll be the man!"" This shows Romeo's new identity as a Frenchman and his willingness to take drastic action to protect himself.
+
+Additionally, Romeo's treatment of Paris's body is also influenced by his new identity. He is more willing to kill Paris, as he sees him as a Frenchman, and therefore, a potential threat to his own identity. This is evident when Romeo says, ""I'll take the wall of any man or maid of Montague's. / I will thrust Montague's men from the wall, and thrust his maids to the wall."" This shows Romeo's new identity as a Frenchman and his willingness to take drastic action to protect himself.
+
+Overall, Romeo's new identity as a Frenchman influences his treatment of Paris's body, as he is more willing to kill him and take drastic action to protect himself.",INCORRECT,"The answer fabricates a “Frenchman” identity and unrelated quotations, while the ground truth says Romeo recognizes Paris as Mercutio’s kinsman and Juliet’s would-be bridegroom and then agrees to lay him in the tomb with Juliet.",46928,357,47285,0.0,249340.8889770508,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+51,medium,llama-1b,Which physical observations cause Romeo to doubt that Juliet has fully succumbed to death?,"Her lips and cheeks are still crimson rather than pale, so he thinks death has not yet erased her beauty.","Validate at dump.md L5678-L5694. Romeo's observations show that Juliet's body still appears unusually alive.
+
+---",[989],"Romeo is doubtful that Juliet has fully succumbed to death because of the following physical observations:
+
+* The fact that she is bleeding and warm, but not cold, suggests that she is still alive, as the cold body would be expected to be cold to the touch.
+* The fact that she is still breathing and has a pulse, indicating that she is still alive.
+* The fact that she is still talking and seems to be aware of her surroundings, as evidenced by her asking for Romeo to come to her chamber and her asking him to take her ring.
+* The fact that she is still wearing her wedding dress and seems to be in a state of distress, as evidenced by her asking for Romeo to take her ring and her asking for him to be with her.
+* The fact that she is still holding a torch and seems to be in a state of agitation, as evidenced by her asking Romeo to take her to the churchyard and her asking him to take her to her grave.
+* The fact that she is still trying to strew the churchyard with flowers and seems to be in a state of great emotional distress, as evidenced by her asking Romeo to take her to her grave and her asking him to take her ring.
+
+These physical observations suggest that Romeo is uncertain whether Juliet has fully succumbed to death, and he is trying to determine whether she is still alive or not.",INCORRECT,"The answer invents many details not in the ground truth, while the actual observations are simply that Juliet’s lips and cheeks are still crimson rather than pale.",46919,280,47199,0.0,255425.70185661316,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+52,easy,llama-1b,What exact quarantine conditions prevent Friar John from completing delivery of Friar Laurence's letter?,"He is quarantined with another friar in a suspected plague house, and no messenger will carry the letter for fear of infection.","Validate at dump.md L5465-L5482. Friar John explains both the quarantine and the secondary failure to find another messenger.
+
+---","[950, 951, 952]","The exact quarantine conditions preventing Friar John from delivering Friar Laurence's letter to Romeo are not explicitly stated in the provided dataset. However, it is mentioned that Friar Laurence was ""seal'd up"" in the Capel's monument, which suggests that he was in a state of confinement or quarantine. This quarantine is likely due to the suspicion of infection or disease, which would have made it difficult for Friar Laurence to leave the Capel's monument and deliver the letter to Romeo.",INCORRECT,"The answer misstates the situation by saying the quarantine conditions are not explicit and by placing Friar Laurence in the Capels’ monument, whereas the evidence says Friar John and another friar were sealed in a suspected plague house and no messenger would carry the letter for fear of infection.",46922,103,47025,0.0,258529.6370983124,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+53,hard,llama-1b,"What end-to-end recovery plan did Friar Laurence originally design for Juliet's waking, and which failure point prevents execution?","Romeo was supposed to learn the plan by letter, come to the vault when Juliet awoke, and take her to Mantua, but the undelivered letter leaves him ignorant and the reunion never happens.","Validate at dump.md L4666-L4683 and L5465-L5507. The earlier scene lays out the intended reunion, and the later scene shows the communication breakdown that destroys it.
+
+---","[799, 800, 801, 802, 805, 807, 808, 809, 810, 813, 815, 816, 818, 819, 820, 821, 822, 823, 824, 827, 828, 831, 833, 834, 835, 837, 839, 842, 843, 845, 846, 848, 850, 853, 854, 856, 857, 859, 861, 863, 866, 868, 870, 871, 872, 873, 874, 876, 879, 880, 882, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 895, 896, 898, 904, 906, 907, 908, 909, 911, 912, 913, 914, 915, 917, 918, 919, 921, 922, 925, 927, 928, 929, 930, 931, 932, 933, 935, 937, 938, 939, 940, 941, 942, 943, 944, 947, 949, 950, 951, 952, 953, 956]","Friar Laurence originally designed an end-to-end recovery plan for Juliet's waking, which involved a series of steps to help her recover from the poison that had been administered to her. The plan included:
+
+1. Friar Laurence would give Juliet a vial of distilled liquor to drink, which would induce a cold and drowsy humour, allowing her to sleep for a period of time.
+2. The liquor would be followed by a cordial, which would further induce a state of deep sleep and numbness.
+3. The plan also included a series of prayers and blessings to help Juliet's spirit recover and to calm her mind.
+
+However, the failure point in the plan is that Friar Laurence did not deliver the vial of liquor to Juliet in time, and she did not receive the cordial. As a result, she did not sleep for the full period of time, and her recovery was incomplete.",INCORRECT,"The answer invents extra recovery steps and misses the actual plan that Romeo was to be informed by letter, come to the vault when Juliet awoke, and take her to Mantua, with the failure being the undelivered letter to Romeo.",46928,187,47115,0.0,263092.65398979187,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+54,medium,llama-1b,Which earlier family actions create the coercive environment that pushes Juliet toward the potion plan?,"Lady Capulet announces a Thursday marriage to Paris, and Capulet then forces the issue by threatening to drag Juliet to church or reject her if she refuses.","Validate at dump.md L4216-L4230 and L4276-L4305. These scenes show the social and parental coercion that makes the Friar's dangerous plan seem like Juliet's only escape.
+
+---","[732, 733, 734, 736, 737, 738, 739, 740, 741, 742, 743]","The coercive environment that pushes Juliet toward the potion plan is created by her family's earlier actions, particularly the Capulet family's refusal to allow her to marry Paris, a Montague, and their subsequent attempts to prevent her from marrying Romeo, a Montague. The Capulets' hatred for the Montagues and their refusal to allow Juliet to marry Paris create a sense of isolation and exclusion, making Juliet feel trapped and desperate. This environment of hostility and rejection pushes Juliet to seek an alternative solution, which is the potion plan.",INCORRECT,"The answer invents a refusal to let Juliet marry Paris and claims the Capulets prevent her from marrying Romeo, but the ground truth says Lady Capulet announces the Paris marriage and Capulet coerces Juliet by threatening to drag her to church or disown her.",46920,108,47028,0.0,266346.59600257874,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+55,medium,llama-1b,"Besides Friar Laurence, which named person is explicitly identified as knowing about the secret marriage?",The Nurse.,"Validate at dump.md L6031-L6032. Friar Laurence directly states that Juliet's Nurse is privy to the marriage.
+
+---",[1057],The person explicitly identified as knowing about the secret marriage is Friar Laurence.,INCORRECT,"The ground truth says the named person is the Nurse, but the answer incorrectly names Friar Laurence instead.",46922,17,46939,0.0,268670.2208518982,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+56,medium,llama-1b,"When Juliet regains consciousness in the tomb, what facts does she immediately know and what crucial deaths has she not yet learned?","She remembers where she should be and immediately asks for Romeo, but she does not yet know that Romeo and Paris are dead.","Validate at dump.md L5799-L5801 and L5811-L5812. Juliet wakes with enough context to orient herself, but only then learns the tragic outcome.
+
+---","[1012, 1014]","When Juliet regains consciousness in the tomb, she immediately knows that:
+
+* She is in a tomb, and the location is the Capulet family vault.
+* She is alone in the tomb, and there are no other people present.
+* She is still alive, and she is aware of her own breathing and the sound of her own heartbeat.
+* She is aware of the sound of her own tears and the sound of her own heartbeat.
+* She is aware of the sound of her own breathing and the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she is still alive.
+* She is aware of the sound of her own heartbeat, indicating that she",INCORRECT,"The answer is mostly fabricated and does not match the ground truth, which only says Juliet knows where she is and asks for Romeo, while not yet knowing Romeo and Paris are dead.",46928,2048,48976,0.0,299509.34982299805,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+57,hard,llama-1b,What two factors cause Friar Laurence's extraction attempt to fail after Juliet wakes?,"He hears the watch coming and says their plan has been thwarted, and although he offers to hide Juliet in a nunnery, she refuses and he loses nerve at the approaching noise.","Validate at dump.md L5807-L5825 and L6026-L6030. The immediate danger is the approaching watch, and Friar Laurence later admits that fear and Juliet's refusal ended his effort.
+
+---","[1014, 1016, 1017, 1019, 1021, 1025, 1027, 1030, 1031, 1034, 1036, 1037, 1039, 1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057]","Friar Laurence's extraction attempt to kill Juliet fails because the poison he used to kill her was not potent enough to kill her. The poison was not strong enough to kill her, and she wakes up before the poison's effects can take hold.",INCORRECT,"The answer is about poison potency and killing Juliet, but the ground truth says the attempt fails because the watch’s approaching noise frightens Friar Laurence away and Juliet refuses to leave with him.",46920,51,46971,0.0,302279.091835022,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+58,easy,llama-1b,"What physical evidence leads Juliet to infer poison, and why does she switch to the dagger?","She sees the cup in Romeo's hand and concludes poison killed him, and when kissing him yields no poison for her, she takes his dagger and stabs herself.","Validate at dump.md L5827-L5852. Juliet reasons from the visible cup, tries to join Romeo by poison, fails, and then switches methods.
+
+---","[1019, 1021, 1025, 1027]","Juliet's physical evidence that leads her to infer poison includes the following:
+
+* The presence of blood on her lips and cheeks, which she believes is from the poison.
+* The fact that she is warm and still, indicating that she has been poisoned.
+* The presence of a ring on her finger, which she believes is a sign of her husband's presence.
+* The fact that she is wearing a ring that she gave to Romeo, which she believes is a sign of their marriage.
+
+She switches to the dagger because she believes that the blood on her lips and cheeks is from the poison, and she wants to use the dagger to kill herself to avoid being discovered by her father and the people of Verona.",INCORRECT,"The answer fabricates evidence about blood, rings, and fear of discovery, while the ground truth says Juliet infers poison from the cup in Romeo’s hand and switches to the dagger only after kissing him yields no poison for her.",46921,144,47065,0.0,306076.4968395233,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+59,hard,llama-1b,"In his formal explanation, how does Friar Laurence reconstruct the causal chain from the secret marriage to the final deaths?","He says the secret marriage was followed by Tybalt's death and Romeo's banishment, Juliet then pined and was pushed toward Paris, she threatened suicide and took the sleeping potion, the letter failed, Romeo and Paris died before she awoke, and Juliet then killed herself.","Validate at dump.md L5997-L6035. Friar Laurence gives the play's clearest causal summary, linking private choices, public pressures, failed communication, and the final deaths.
+
+---",[1057],"Friar Laurence reconstructs the causal chain from the secret marriage to the final deaths as follows:
+
+The secret marriage between Romeo and Juliet was facilitated by Friar Laurence, who arranged for Romeo to meet Juliet's family, the Capulets, and persuade them to allow the marriage. The marriage was a ruse, and Friar Laurence's goal was to help Romeo and Juliet escape the hatred and violence between their families. He used a sleeping potion to make Juliet appear dead, and then had Romeo deliver the letter to her father, Capulet, instructing him to marry her to Paris, a member of the Capulets. The letter was intended to be a ruse, but it ultimately led to the tragic deaths of both Romeo and Juliet.
+
+Friar Laurence's actions were motivated by his desire to help the young lovers escape the hatred and violence between their families, and to bring peace to Verona. However, his methods were ultimately unsuccessful, and the tragic deaths of Romeo and Juliet were a result of the consequences of his actions.",INCORRECT,"The answer adds several false details (e.g., Romeo persuading the Capulets and delivering a letter to Capulet) and misses the actual causal sequence involving Tybalt’s death, Romeo’s banishment, Juliet’s forced betrothal to Paris, the failed letter, Paris’s death, and Juliet’s suicide.",46927,213,47140,0.0,310667.22774505615,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini
+60,hard,llama-1b,"After Romeo's letter is read, what findings does the Prince make, and what remedial action do Capulet and Montague take?","He concludes the letter confirms Friar Laurence's account and that the feud has brought this scourge, while he too is punished for tolerating it, and Capulet and Montague reconcile and promise gold statues for Juliet and Romeo.","Validate at dump.md L6067-L6076 and L6080-L6095. The Prince accepts the written evidence, interprets the tragedy as the product of the feud, and the two fathers seal a public reconciliation.","[1062, 1063, 1064, 1065]","After Romeo's letter is read, the Prince makes the following findings:
+
+The Prince realizes that Romeo's letter reveals that Juliet is dead, and that Tybalt, Juliet's cousin, was killed by Romeo in a duel. The Prince also learns that Romeo and Juliet were married in secret, and that their marriage was not consummated until after Tybalt's death. The Prince is shocked and outraged by this revelation, and decides to take action to prevent further harm to the families.
+
+The Prince decides to send a message to Romeo, instructing him to deliver a letter to the Countess of Mantua, informing her of the circumstances surrounding Juliet's death and the circumstances of Romeo's duel with Tybalt. The Prince also instructs Romeo to ensure that the Countess is aware of the danger that Romeo poses to the families and to take steps to prevent any further harm.
+
+Capulet and Montague take the following remedial action:
+
+Capulet and Montague decide to take drastic measures to prevent the marriage between Juliet and Paris. They agree to raise Juliet's dowry to a higher amount, hoping to prevent Paris from marrying her. They also decide to make it clear to Paris that he will not be allowed to marry Juliet, and to make it clear that any attempt to do so will be met with violence.
+
+The Prince, however, takes a more severe approach, ordering Capulet and Montague to raise Juliet's dowry to a higher amount and to make it clear that any attempt to marry her will be met with violence. He also orders them to make it clear that any attempt to harm Juliet will be met with severe punishment.",INCORRECT,"The answer invents several events and actions not in the ground truth, while missing the actual findings that the Prince accepts Friar Laurence’s account and blames the feud, and the fathers reconcile and promise gold statues for Juliet and Romeo.",46930,331,47261,0.0,316536.5529060364,data/romeo_juliet_preprocessed.csv,data/benchmark_questions.csv,openai/gpt-5.4-mini

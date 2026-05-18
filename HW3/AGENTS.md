@@ -49,7 +49,7 @@ Answers CSV ──> verifier LLM ──> evaluated CSV (same file, evaluation co
 ```bash
 source .venv/bin/activate
 
-# Default: baseline (GPT-5.4), existing dataset and questions
+# Default: baseline (GPT-5.4-mini), existing dataset and questions
 python run_benchmark.py --model baseline
 
 # Small model with custom dataset and questions
@@ -66,22 +66,22 @@ python run_benchmark.py --model mistral-7b --filter 1,5,10-15
 # Dry run (no API calls)
 python run_benchmark.py --dry-run --max-questions 5
 
-# Custom output directory
+# Custom output directory (saves to results/my_experiment/llama-3b/answers.csv)
 python run_benchmark.py --model llama-3b --output results/my_experiment
 ```
 
 ### Step 2 — Evaluate answers
 
 ```bash
-# Evaluate with default verifier (GPT-5.4)
-python evaluate_results.py --results-file results/answers.csv
+# Evaluate with default verifier (GPT-5.4-mini)
+python evaluate_results.py --results-file results/llama-3b/answers.csv
 
 # Evaluate with a specific verifier model (shortcut or full ID)
-python evaluate_results.py --results-file results/answers.csv --model gpt-5.4
-python evaluate_results.py --results-file results/answers.csv --model openai/gpt-5.4
+python evaluate_results.py --results-file results/llama-3b/answers.csv --model gpt-5.4-mini
+python evaluate_results.py --results-file results/llama-3b/answers.csv --model openai/gpt-5.4-mini
 
 # Dry run (mock evaluations)
-python evaluate_results.py --dry-run --results-file results/answers.csv
+python evaluate_results.py --dry-run --results-file results/llama-3b/answers.csv
 ```
 
 **Safe to re-run**: `evaluate_results.py` skips rows that already have an evaluation. You can run it multiple times on the same file — only unanswered/empty rows are processed.
@@ -104,14 +104,14 @@ Questions CSV stays the same (`data/benchmark_questions.csv`).
 | `--model` flag | Model ID | Notes |
 |---|---|---|
 | `baseline` | `openai/gpt-5.4` | Frontier performance ceiling |
-| `llama-3b` | `meta-llama/llama-3.2-3b-instruct` | 3B — cheapest, fast |
-| `mistral-7b` | `mistralai/mistral-7b-instruct-v0.1` | 7B — Mistral classic |
-| `ministral-3b` | `mistralai/ministral-3b-2512` | 3B — newest Mistral tiny |
-| `mistral-saba` | `mistralai/mistral-saba` | 24B — regional model |
-| `gemma-3-4b` | `google/gemma-3-4b-it` | 4B — Google edge model |
-| `qwen-2.5-7b` | `qwen/qwen-2.5-7b-instruct` | 7B — best all-rounder |
+| `gemma-3-4b` | `google/gemma-3-4b-it` | 4B — Google edge model, 131K context |
+| `llama-1b` | `meta-llama/llama-3.2-1b-instruct` | 1B — ultra-tiny, 60K context |
+| `llama-3b` | `meta-llama/llama-3.2-3b-instruct` | 3B — cheap, fast, 80K context |
+| `ministral-3b` | `mistralai/ministral-3b-2512` | 3B — newest Mistral tiny, 131K context |
+| `phi-4-mini` | `microsoft/phi-4-mini-instruct` | 3.8B — Microsoft, 128K context |
+| `qwen-3.5-9b` | `qwen/qwen3.5-9b` | 9B — Qwen, 262K context |
 
-Default verifier: `openai/gpt-5.4` (override with `--model` on evaluate command).
+Default verifier: `openai/gpt-5.4-mini` (override with `--model` on evaluate command).
 
 ### Free tier caveats
 
@@ -126,7 +126,7 @@ Free-tier models (`:free` suffix) are **slow** and heavily rate-limited:
 
 ## Output format
 
-`results/answers.csv` (after step 1):
+`results/{model_name}/answers.csv` (after step 1):
 
 | Column | Description |
 |---|---|

@@ -2,8 +2,8 @@ import time
 import pandas as pd
 from pathlib import Path
 from tqdm import tqdm
-from bench.data_loader import load_questions, load_dataset, get_context_rows, format_rows
-from bench.prompts import ANSWER_SYSTEM_PROMPT, ANSWER_USER_TEMPLATE
+from bench.data_loader import load_questions, load_dataset, format_full_dataset
+from bench.prompts import ANSWER_SYSTEM_PROMPT
 from bench.openrouter import OpenRouterClient
 
 
@@ -58,10 +58,12 @@ def run_questions(
             results.append(
                 _dry_result(row, model_name, dataset_path, questions_path)
             )
-        return _save(df_out := pd.DataFrame(results, columns=_RESULT_COLUMNS), output_dir)
+        return _save(df_out := pd.DataFrame(results, columns=_RESULT_COLUMNS), output_dir, model_name)
 
     client = OpenRouterClient(api_key=api_key)
     benchmark_start = time.time()
+
+    dataset_text = format_full_dataset(dataset_df)
 
     for _, row in tqdm(rows, total=len(rows), desc=f"{model_name}"):
         question_num = row["question_number"]
@@ -70,19 +72,29 @@ def run_questions(
         row_indices = row["csv_row_indices"]
 
         try:
-            context_rows = get_context_rows(dataset_df, row_indices)
-            context_text = format_rows(context_rows)
-            user_message = ANSWER_USER_TEMPLATE.format(
-                context=context_text, question=question
-            )
+            messages = [
+                {"role": "system", "content": ANSWER_SYSTEM_PROMPT},
+                {"role": "user", "content": (
+                    f"Here is the complete dataset:\n\n{dataset_text}"
+                )},
+                {"role": "user", "content": (
+                    f"## Question\n\n{question}\n\n"
+                    f"Answer the question based solely on the dataset above.\n\n"
+                    f"Rules reminder:\n"
+                    f"- Answer concisely and precisely, drawing ONLY from the provided dataset.\n"
+                    f"- Do NOT use any outside knowledge, internet searches, training data, or information beyond what is explicitly provided in the dataset.\n"
+                    f"- Do NOT include direct quotes or line references in your answer. Paraphrase and summarize the relevant information in plain prose.\n"
+                    f"- Keep your answer concise, but make sure it is complete: do not cut it off mid-thought or mid-sentence. Write as much as needed to fully answer the question.\n"
+                    f"- If the dataset does not contain enough information to answer, state that honestly."
+                )},
+            ]
 
-            answer = client.chat(
+            question_start = time.time()
+            answer = client.chat_with_history(
                 model=model_id,
-                system_prompt=ANSWER_SYSTEM_PROMPT,
-                user_message=user_message,
+                messages=messages,
             )
-
-            latency_ms = (time.time() - benchmark_start) * 1000
+            latency_ms = (time.time() - question_start) * 1000
 
             results.append({
                 "question_number": question_num,
@@ -110,7 +122,7 @@ def run_questions(
                 _error_result(row, model_name, dataset_path, questions_path, str(exc))
             )
 
-    return _save(pd.DataFrame(results, columns=_RESULT_COLUMNS), output_dir)
+    return _save(pd.DataFrame(results, columns=_RESULT_COLUMNS), output_dir, model_name)
 
 
 def _dry_result(row, model_name: str, dataset_path, questions_path) -> dict:
@@ -157,8 +169,8 @@ def _error_result(row, model_name: str, dataset_path, questions_path, error_msg:
     }
 
 
-def _save(df: pd.DataFrame, output_dir: str | Path) -> pd.DataFrame:
-    out = Path(output_dir)
+def _save(df: pd.DataFrame, output_dir: str | Path, model_name: str) -> pd.DataFrame:
+    out = Path(output_dir) / model_name
     out.mkdir(parents=True, exist_ok=True)
     path = out / "answers.csv"
     df.to_csv(path, index=False)

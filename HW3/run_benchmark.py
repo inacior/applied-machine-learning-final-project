@@ -23,7 +23,7 @@ def main() -> None:
         "--model", "-m",
         type=str,
         default="baseline",
-        choices=["baseline", "llama-3b", "mistral-7b", "ministral-3b", "mistral-saba", "gemma-3-4b", "qwen-2.5-7b"],
+        choices=["baseline", "gemma-3-4b", "llama-1b", "llama-3b", "ministral-3b", "phi-4-mini", "qwen-3.5-9b", "qwen-3.5-27b", "mistral-small-3.2", "qwen3-30b-a3b"],
         help="Model to query (default: baseline = GPT-4o)",
     )
 

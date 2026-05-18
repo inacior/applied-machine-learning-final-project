@@ -33,6 +33,25 @@ def format_rows(rows_df: pd.DataFrame) -> str:
     return "\n".join(lines)
 
 
+def format_full_dataset(dataset_df: pd.DataFrame) -> str:
+    lines = ["line_number | act | scene | character | dialogue"]
+    for _, row in dataset_df.iterrows():
+        line_num_val = row.get("line_number")
+        if pd.notna(line_num_val):
+            try:
+                line_num = str(int(float(line_num_val)))
+            except (ValueError, TypeError):
+                line_num = str(line_num_val)
+        else:
+            line_num = ""
+        act = str(row.get("act", ""))
+        scene = str(row.get("scene", ""))
+        character = str(row.get("character", ""))
+        dialogue = str(row.get("dialogue", ""))
+        lines.append(f"{line_num} | {act} | {scene} | {character} | {dialogue}")
+    return "\n".join(lines)
+
+
 def _safe_parse_list(value):
     if isinstance(value, list):
         return value

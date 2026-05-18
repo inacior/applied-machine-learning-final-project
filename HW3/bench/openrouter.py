@@ -45,7 +45,20 @@ class OpenRouterClient:
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_message},
         ]
+        return self.chat_with_history(
+            model=model,
+            messages=messages,
+            max_tokens=max_tokens,
+            temperature=temperature,
+        )
 
+    def chat_with_history(
+        self,
+        model: str,
+        messages: list[dict],
+        max_tokens: int = MAX_TOKENS_ANSWER,
+        temperature: float = TEMPERATURE,
+    ) -> dict:
         last_error: Optional[Exception] = None
 
         for attempt in range(MAX_RETRIES):
