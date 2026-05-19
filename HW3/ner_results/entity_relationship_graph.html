@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 500px;
+            height: 500px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "ho", "label": "ho", "shape": "dot"}, {"id": "Montague", "label": "Montague", "shape": "dot"}, {"id": "Verona", "label": "Verona", "shape": "dot"}, {"id": "Cast", "label": "Cast", "shape": "dot"}, {"id": "Aurora", "label": "Aurora", "shape": "dot"}, {"id": "Away", "label": "Away", "shape": "dot"}, {"id": "County Anselme", "label": "County Anselme", "shape": "dot"}, {"id": "Mercutio", "label": "Mercutio", "shape": "dot"}, {"id": "Valentine", "label": "Valentine", "shape": "dot"}, {"id": "Livia", "label": "Livia", "shape": "dot"}, {"id": "Lucio", "label": "Lucio", "shape": "dot"}, {"id": "ladybird", "label": "ladybird", "shape": "dot"}, {"id": "God", "label": "God", "shape": "dot"}, {"id": "Juliet", "label": "Juliet", "shape": "dot"}, {"id": "Come Lammas-eve", "label": "Come Lammas-eve", "shape": "dot"}, {"id": "Susan", "label": "Susan", "shape": "dot"}, {"id": "Lammas", "label": "Lammas", "shape": "dot"}, {"id": "Yea", "label": "Yea", "shape": "dot"}, {"id": "Jule", "label": "Jule", "shape": "dot"}, {"id": "cockerel", "label": "cockerel", "shape": "dot"}, {"id": "Marry", "label": "Marry", "shape": "dot"}, {"id": "dun", "label": "dun", "shape": "dot"}, {"id": "Queen Mab", "label": "Queen Mab", "shape": "dot"}, {"id": "Drawn", "label": "Drawn", "shape": "dot"}, {"id": "Athwart", "label": "Athwart", "shape": "dot"}, {"id": "O\u0027er courtiers\u0027", "label": "O\u0027er courtiers\u0027", "shape": "dot"}, {"id": "O\u0027er lawyers\u0027", "label": "O\u0027er lawyers\u0027", "shape": "dot"}, {"id": "O\u0027er ladies \u0027", "label": "O\u0027er ladies \u0027", "shape": "dot"}, {"id": "Mab", "label": "Mab", "shape": "dot"}, {"id": "driveth o\u0027er", "label": "driveth o\u0027er", "shape": "dot"}, {"id": "Shall", "label": "Shall", "shape": "dot"}, {"id": "Petrucio", "label": "Petrucio", "shape": "dot"}, {"id": "Romeo", "label": "Romeo", "shape": "dot"}, {"id": "Appear thou", "label": "Appear thou", "shape": "dot"}, {"id": "Venus", "label": "Venus", "shape": "dot"}, {"id": "nick-name", "label": "nick-name", "shape": "dot"}, {"id": "Young Adam Cupid", "label": "Young Adam Cupid", "shape": "dot"}, {"id": "King Cophetua", "label": "King Cophetua", "shape": "dot"}, {"id": "heareth", "label": "heareth", "shape": "dot"}, {"id": "moveth", "label": "moveth", "shape": "dot"}, {"id": "Arise", "label": "Arise", "shape": "dot"}, {"id": "Thou", "label": "Thou", "shape": "dot"}, {"id": "Jove", "label": "Jove", "shape": "dot"}, {"id": "Holy Saint Francis", "label": "Holy Saint Francis", "shape": "dot"}, {"id": "Jesu Maria", "label": "Jesu Maria", "shape": "dot"}, {"id": "Hath", "label": "Hath", "shape": "dot"}, {"id": "Lo", "label": "Lo", "shape": "dot"}, {"id": "Petrarch", "label": "Petrarch", "shape": "dot"}, {"id": "Laura", "label": "Laura", "shape": "dot"}, {"id": "Cleopatra", "label": "Cleopatra", "shape": "dot"}, {"id": "Helen", "label": "Helen", "shape": "dot"}, {"id": "mar", "label": "mar", "shape": "dot"}, {"id": "Unfold", "label": "Unfold", "shape": "dot"}, {"id": "Benvolio", "label": "Benvolio", "shape": "dot"}, {"id": "Staying", "label": "Staying", "shape": "dot"}, {"id": "Shalt", "label": "Shalt", "shape": "dot"}, {"id": "Gallop", "label": "Gallop", "shape": "dot"}, {"id": "Phaethon", "label": "Phaethon", "shape": "dot"}, {"id": "Romeo Leap", "label": "Romeo Leap", "shape": "dot"}, {"id": "Tybalt", "label": "Tybalt", "shape": "dot"}, {"id": "heartsick groans", "label": "heartsick groans", "shape": "dot"}, {"id": "Mist", "label": "Mist", "shape": "dot"}, {"id": "Unseemly", "label": "Unseemly", "shape": "dot"}, {"id": "Beg", "label": "Beg", "shape": "dot"}, {"id": "Paris", "label": "Paris", "shape": "dot"}, {"id": "Acquaint", "label": "Acquaint", "shape": "dot"}, {"id": "earl", "label": "earl", "shape": "dot"}, {"id": "kinsman", "label": "kinsman", "shape": "dot"}, {"id": "yon grey", "label": "yon grey", "shape": "dot"}, {"id": "Cynthia", "label": "Cynthia", "shape": "dot"}, {"id": "Saint Peter\u0027s Church", "label": "Saint Peter\u0027s Church", "shape": "dot"}, {"id": "Peter", "label": "Peter", "shape": "dot"}, {"id": "Lest", "label": "Lest", "shape": "dot"}, {"id": "place,--", "label": "place,--", "shape": "dot"}, {"id": "Lies", "label": "Lies", "shape": "dot"}, {"id": "resort;-- Alack", "label": "resort;-- Alack", "shape": "dot"}, {"id": "Madam", "label": "Madam", "shape": "dot"}, {"id": "Death", "label": "Death", "shape": "dot"}, {"id": "Romeo Hath", "label": "Romeo Hath", "shape": "dot"}, {"id": "Depart", "label": "Depart", "shape": "dot"}, {"id": "Montagues", "label": "Montagues", "shape": "dot"}, {"id": "Warm", "label": "Warm", "shape": "dot"}, {"id": "Betroth\u0027d", "label": "Betroth\u0027d", "shape": "dot"}, {"id": "Friar John", "label": "Friar John", "shape": "dot"}]);
+        edges = new vis.DataSet([{"from": "ho", "to": "Montague", "value": 2}, {"from": "ho", "to": "Verona", "value": 1}, {"from": "ho", "to": "Cast", "value": 1}, {"from": "ho", "to": "dun", "value": 1}, {"from": "ho", "to": "Juliet", "value": 3}, {"from": "Montague", "to": "Verona", "value": 2}, {"from": "Montague", "to": "Cast", "value": 2}, {"from": "Montague", "to": "Montague", "value": 1}, {"from": "Montague", "to": "Romeo", "value": 1}, {"from": "Montague", "to": "Thou", "value": 2}, {"from": "Montague", "to": "Jove", "value": 1}, {"from": "Montague", "to": "Juliet", "value": 1}, {"from": "Verona", "to": "Cast", "value": 1}, {"from": "Verona", "to": "Thou", "value": 1}, {"from": "Verona", "to": "Juliet", "value": 1}, {"from": "Aurora", "to": "Away", "value": 1}, {"from": "County Anselme", "to": "Mercutio", "value": 1}, {"from": "County Anselme", "to": "Valentine", "value": 1}, {"from": "County Anselme", "to": "Livia", "value": 1}, {"from": "County Anselme", "to": "Lucio", "value": 1}, {"from": "Mercutio", "to": "Valentine", "value": 1}, {"from": "Mercutio", "to": "Livia", "value": 1}, {"from": "Mercutio", "to": "Lucio", "value": 1}, {"from": "Mercutio", "to": "Benvolio", "value": 4}, {"from": "Mercutio", "to": "Mercutio", "value": 2}, {"from": "Mercutio", "to": "Staying", "value": 1}, {"from": "Mercutio", "to": "Romeo", "value": 3}, {"from": "Mercutio", "to": "kinsman", "value": 1}, {"from": "Mercutio", "to": "Juliet", "value": 3}, {"from": "Valentine", "to": "Livia", "value": 1}, {"from": "Valentine", "to": "Lucio", "value": 1}, {"from": "Livia", "to": "Lucio", "value": 1}, {"from": "ladybird", "to": "God", "value": 1}, {"from": "ladybird", "to": "Juliet", "value": 1}, {"from": "God", "to": "Juliet", "value": 1}, {"from": "Juliet", "to": "Marry", "value": 2}, {"from": "Juliet", "to": "Romeo", "value": 3}, {"from": "Juliet", "to": "Arise", "value": 1}, {"from": "Juliet", "to": "Unfold", "value": 1}, {"from": "Juliet", "to": "Hath", "value": 4}, {"from": "Juliet", "to": "Tybalt", "value": 10}, {"from": "Juliet", "to": "Thou", "value": 2}, {"from": "Juliet", "to": "Unseemly", "value": 1}, {"from": "Juliet", "to": "Beg", "value": 1}, {"from": "Juliet", "to": "yon grey", "value": 1}, {"from": "Juliet", "to": "Cynthia", "value": 1}, {"from": "Juliet", "to": "Madam", "value": 1}, {"from": "Juliet", "to": "Romeo Hath", "value": 1}, {"from": "Juliet", "to": "kinsman", "value": 3}, {"from": "Juliet", "to": "Juliet", "value": 4}, {"from": "Juliet", "to": "Depart", "value": 1}, {"from": "Juliet", "to": "Montagues", "value": 1}, {"from": "Juliet", "to": "Warm", "value": 1}, {"from": "Juliet", "to": "Betroth\u0027d", "value": 2}, {"from": "Juliet", "to": "Friar John", "value": 2}, {"from": "Come Lammas-eve", "to": "Susan", "value": 2}, {"from": "Come Lammas-eve", "to": "Lammas", "value": 1}, {"from": "Come Lammas-eve", "to": "Yea", "value": 1}, {"from": "Come Lammas-eve", "to": "Jule", "value": 2}, {"from": "Susan", "to": "Susan", "value": 1}, {"from": "Susan", "to": "Lammas", "value": 2}, {"from": "Susan", "to": "Yea", "value": 2}, {"from": "Susan", "to": "Jule", "value": 4}, {"from": "Lammas", "to": "Yea", "value": 1}, {"from": "Lammas", "to": "Jule", "value": 2}, {"from": "Yea", "to": "Jule", "value": 2}, {"from": "Jule", "to": "Jule", "value": 1}, {"from": "Jule", "to": "cockerel", "value": 1}, {"from": "Marry", "to": "Shall", "value": 2}, {"from": "Marry", "to": "Petrucio", "value": 1}, {"from": "Marry", "to": "Madam", "value": 1}, {"from": "Queen Mab", "to": "Drawn", "value": 1}, {"from": "Queen Mab", "to": "Athwart", "value": 1}, {"from": "Queen Mab", "to": "O\u0027er courtiers\u0027", "value": 1}, {"from": "Queen Mab", "to": "O\u0027er lawyers\u0027", "value": 1}, {"from": "Queen Mab", "to": "O\u0027er ladies \u0027", "value": 1}, {"from": "Queen Mab", "to": "Mab", "value": 2}, {"from": "Queen Mab", "to": "driveth o\u0027er", "value": 1}, {"from": "Drawn", "to": "Athwart", "value": 1}, {"from": "Drawn", "to": "O\u0027er courtiers\u0027", "value": 1}, {"from": "Drawn", "to": "O\u0027er lawyers\u0027", "value": 1}, {"from": "Drawn", "to": "O\u0027er ladies \u0027", "value": 1}, {"from": "Drawn", "to": "Mab", "value": 2}, {"from": "Drawn", "to": "driveth o\u0027er", "value": 1}, {"from": "Athwart", "to": "O\u0027er courtiers\u0027", "value": 1}, {"from": "Athwart", "to": "O\u0027er lawyers\u0027", "value": 1}, {"from": "Athwart", "to": "O\u0027er ladies \u0027", "value": 1}, {"from": "Athwart", "to": "Mab", "value": 2}, {"from": "Athwart", "to": "driveth o\u0027er", "value": 1}, {"from": "O\u0027er courtiers\u0027", "to": "O\u0027er lawyers\u0027", "value": 1}, {"from": "O\u0027er courtiers\u0027", "to": "O\u0027er ladies \u0027", "value": 1}, {"from": "O\u0027er courtiers\u0027", "to": "Mab", "value": 2}, {"from": "O\u0027er courtiers\u0027", "to": "driveth o\u0027er", "value": 1}, {"from": "O\u0027er lawyers\u0027", "to": "O\u0027er ladies \u0027", "value": 1}, {"from": "O\u0027er lawyers\u0027", "to": "Mab", "value": 2}, {"from": "O\u0027er lawyers\u0027", "to": "driveth o\u0027er", "value": 1}, {"from": "O\u0027er ladies \u0027", "to": "Mab", "value": 2}, {"from": "O\u0027er ladies \u0027", "to": "driveth o\u0027er", "value": 1}, {"from": "Mab", "to": "driveth o\u0027er", "value": 2}, {"from": "Mab", "to": "Mab", "value": 1}, {"from": "Shall", "to": "Shall", "value": 2}, {"from": "Romeo", "to": "mar", "value": 1}, {"from": "Romeo", "to": "Benvolio", "value": 1}, {"from": "Romeo", "to": "Tybalt", "value": 4}, {"from": "Romeo", "to": "Hath", "value": 1}, {"from": "Romeo", "to": "Lest", "value": 1}, {"from": "Romeo", "to": "place,--", "value": 1}, {"from": "Romeo", "to": "Lies", "value": 1}, {"from": "Romeo", "to": "resort;-- Alack", "value": 1}, {"from": "Romeo", "to": "Betroth\u0027d", "value": 1}, {"from": "Romeo", "to": "Friar John", "value": 1}, {"from": "Appear thou", "to": "Venus", "value": 1}, {"from": "Appear thou", "to": "nick-name", "value": 1}, {"from": "Appear thou", "to": "Young Adam Cupid", "value": 1}, {"from": "Appear thou", "to": "King Cophetua", "value": 1}, {"from": "Appear thou", "to": "heareth", "value": 1}, {"from": "Appear thou", "to": "moveth", "value": 1}, {"from": "Venus", "to": "nick-name", "value": 1}, {"from": "Venus", "to": "Young Adam Cupid", "value": 1}, {"from": "Venus", "to": "King Cophetua", "value": 1}, {"from": "Venus", "to": "heareth", "value": 1}, {"from": "Venus", "to": "moveth", "value": 1}, {"from": "Venus", "to": "Tybalt", "value": 1}, {"from": "nick-name", "to": "Young Adam Cupid", "value": 1}, {"from": "nick-name", "to": "King Cophetua", "value": 1}, {"from": "nick-name", "to": "heareth", "value": 1}, {"from": "nick-name", "to": "moveth", "value": 1}, {"from": "Young Adam Cupid", "to": "King Cophetua", "value": 1}, {"from": "Young Adam Cupid", "to": "heareth", "value": 1}, {"from": "Young Adam Cupid", "to": "moveth", "value": 1}, {"from": "King Cophetua", "to": "heareth", "value": 1}, {"from": "King Cophetua", "to": "moveth", "value": 1}, {"from": "heareth", "to": "moveth", "value": 1}, {"from": "Thou", "to": "Thou", "value": 1}, {"from": "Thou", "to": "Jove", "value": 2}, {"from": "Thou", "to": "Shalt", "value": 1}, {"from": "Thou", "to": "Gallop", "value": 1}, {"from": "Thou", "to": "Phaethon", "value": 1}, {"from": "Thou", "to": "Romeo Leap", "value": 1}, {"from": "Thou", "to": "Hath", "value": 1}, {"from": "Thou", "to": "Depart", "value": 1}, {"from": "Holy Saint Francis", "to": "Jesu Maria", "value": 1}, {"from": "Holy Saint Francis", "to": "Hath", "value": 1}, {"from": "Holy Saint Francis", "to": "Lo", "value": 1}, {"from": "Jesu Maria", "to": "Hath", "value": 1}, {"from": "Jesu Maria", "to": "Lo", "value": 1}, {"from": "Hath", "to": "Lo", "value": 1}, {"from": "Hath", "to": "Tybalt", "value": 5}, {"from": "Hath", "to": "Depart", "value": 1}, {"from": "Petrarch", "to": "Laura", "value": 1}, {"from": "Petrarch", "to": "Cleopatra", "value": 1}, {"from": "Petrarch", "to": "Helen", "value": 1}, {"from": "Laura", "to": "Cleopatra", "value": 1}, {"from": "Laura", "to": "Helen", "value": 1}, {"from": "Cleopatra", "to": "Helen", "value": 1}, {"from": "Gallop", "to": "Phaethon", "value": 1}, {"from": "Gallop", "to": "Romeo Leap", "value": 1}, {"from": "Phaethon", "to": "Romeo Leap", "value": 1}, {"from": "Tybalt", "to": "Tybalt", "value": 11}, {"from": "Tybalt", "to": "Unseemly", "value": 1}, {"from": "Tybalt", "to": "Beg", "value": 1}, {"from": "Tybalt", "to": "Lest", "value": 1}, {"from": "Tybalt", "to": "place,--", "value": 1}, {"from": "Tybalt", "to": "Lies", "value": 1}, {"from": "Tybalt", "to": "resort;-- Alack", "value": 1}, {"from": "Tybalt", "to": "Betroth\u0027d", "value": 2}, {"from": "Tybalt", "to": "Friar John", "value": 2}, {"from": "heartsick groans", "to": "Mist", "value": 1}, {"from": "Unseemly", "to": "Beg", "value": 1}, {"from": "Paris", "to": "Acquaint", "value": 1}, {"from": "earl", "to": "kinsman", "value": 1}, {"from": "yon grey", "to": "Cynthia", "value": 1}, {"from": "Saint Peter\u0027s Church", "to": "Peter", "value": 1}, {"from": "Lest", "to": "place,--", "value": 1}, {"from": "Lest", "to": "Lies", "value": 1}, {"from": "Lest", "to": "resort;-- Alack", "value": 1}, {"from": "place,--", "to": "Lies", "value": 1}, {"from": "place,--", "to": "resort;-- Alack", "value": 1}, {"from": "Lies", "to": "resort;-- Alack", "value": 1}, {"from": "Death", "to": "Death", "value": 1}, {"from": "Betroth\u0027d", "to": "Friar John", "value": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

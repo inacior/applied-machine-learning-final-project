@@ -9,5 +9,3 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-HW3/ner_results/*
-!HW3/ner_results/README.md

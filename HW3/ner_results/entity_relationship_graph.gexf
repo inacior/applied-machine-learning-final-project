@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-05-18">
+    <creator>NetworkX 3.4.2</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <nodes>
+      <node id="ho" label="ho" />
+      <node id="Montague" label="Montague" />
+      <node id="Verona" label="Verona" />
+      <node id="Cast" label="Cast" />
+      <node id="Aurora" label="Aurora" />
+      <node id="Away" label="Away" />
+      <node id="County Anselme" label="County Anselme" />
+      <node id="Mercutio" label="Mercutio" />
+      <node id="Valentine" label="Valentine" />
+      <node id="Livia" label="Livia" />
+      <node id="Lucio" label="Lucio" />
+      <node id="ladybird" label="ladybird" />
+      <node id="God" label="God" />
+      <node id="Juliet" label="Juliet" />
+      <node id="Come Lammas-eve" label="Come Lammas-eve" />
+      <node id="Susan" label="Susan" />
+      <node id="Lammas" label="Lammas" />
+      <node id="Yea" label="Yea" />
+      <node id="Jule" label="Jule" />
+      <node id="cockerel" label="cockerel" />
+      <node id="Marry" label="Marry" />
+      <node id="dun" label="dun" />
+      <node id="Queen Mab" label="Queen Mab" />
+      <node id="Drawn" label="Drawn" />
+      <node id="Athwart" label="Athwart" />
+      <node id="O'er courtiers'" label="O'er courtiers'" />
+      <node id="O'er lawyers'" label="O'er lawyers'" />
+      <node id="O'er ladies '" label="O'er ladies '" />
+      <node id="Mab" label="Mab" />
+      <node id="driveth o'er" label="driveth o'er" />
+      <node id="Shall" label="Shall" />
+      <node id="Petrucio" label="Petrucio" />
+      <node id="Romeo" label="Romeo" />
+      <node id="Appear thou" label="Appear thou" />
+      <node id="Venus" label="Venus" />
+      <node id="nick-name" label="nick-name" />
+      <node id="Young Adam Cupid" label="Young Adam Cupid" />
+      <node id="King Cophetua" label="King Cophetua" />
+      <node id="heareth" label="heareth" />
+      <node id="moveth" label="moveth" />
+      <node id="Arise" label="Arise" />
+      <node id="Thou" label="Thou" />
+      <node id="Jove" label="Jove" />
+      <node id="Holy Saint Francis" label="Holy Saint Francis" />
+      <node id="Jesu Maria" label="Jesu Maria" />
+      <node id="Hath" label="Hath" />
+      <node id="Lo" label="Lo" />
+      <node id="Petrarch" label="Petrarch" />
+      <node id="Laura" label="Laura" />
+      <node id="Cleopatra" label="Cleopatra" />
+      <node id="Helen" label="Helen" />
+      <node id="mar" label="mar" />
+      <node id="Unfold" label="Unfold" />
+      <node id="Benvolio" label="Benvolio" />
+      <node id="Staying" label="Staying" />
+      <node id="Shalt" label="Shalt" />
+      <node id="Gallop" label="Gallop" />
+      <node id="Phaethon" label="Phaethon" />
+      <node id="Romeo Leap" label="Romeo Leap" />
+      <node id="Tybalt" label="Tybalt" />
+      <node id="heartsick groans" label="heartsick groans" />
+      <node id="Mist" label="Mist" />
+      <node id="Unseemly" label="Unseemly" />
+      <node id="Beg" label="Beg" />
+      <node id="Paris" label="Paris" />
+      <node id="Acquaint" label="Acquaint" />
+      <node id="earl" label="earl" />
+      <node id="kinsman" label="kinsman" />
+      <node id="yon grey" label="yon grey" />
+      <node id="Cynthia" label="Cynthia" />
+      <node id="Saint Peter's Church" label="Saint Peter's Church" />
+      <node id="Peter" label="Peter" />
+      <node id="Lest" label="Lest" />
+      <node id="place,--" label="place,--" />
+      <node id="Lies" label="Lies" />
+      <node id="resort;-- Alack" label="resort;-- Alack" />
+      <node id="Madam" label="Madam" />
+      <node id="Death" label="Death" />
+      <node id="Romeo Hath" label="Romeo Hath" />
+      <node id="Depart" label="Depart" />
+      <node id="Montagues" label="Montagues" />
+      <node id="Warm" label="Warm" />
+      <node id="Betroth'd" label="Betroth'd" />
+      <node id="Friar John" label="Friar John" />
+    </nodes>
+    <edges>
+      <edge source="ho" target="Montague" id="0" weight="2" />
+      <edge source="ho" target="Verona" id="1" weight="1" />
+      <edge source="ho" target="Cast" id="2" weight="1" />
+      <edge source="ho" target="dun" id="3" weight="1" />
+      <edge source="ho" target="Juliet" id="4" weight="3" />
+      <edge source="Montague" target="Verona" id="5" weight="2" />
+      <edge source="Montague" target="Cast" id="6" weight="2" />
+      <edge source="Montague" target="Montague" id="7" weight="1" />
+      <edge source="Montague" target="Romeo" id="8" weight="1" />
+      <edge source="Montague" target="Thou" id="9" weight="2" />
+      <edge source="Montague" target="Jove" id="10" weight="1" />
+      <edge source="Montague" target="Juliet" id="11" weight="1" />
+      <edge source="Verona" target="Cast" id="12" weight="1" />
+      <edge source="Verona" target="Thou" id="13" weight="1" />
+      <edge source="Verona" target="Juliet" id="14" weight="1" />
+      <edge source="Aurora" target="Away" id="15" weight="1" />
+      <edge source="County Anselme" target="Mercutio" id="16" weight="1" />
+      <edge source="County Anselme" target="Valentine" id="17" weight="1" />
+      <edge source="County Anselme" target="Livia" id="18" weight="1" />
+      <edge source="County Anselme" target="Lucio" id="19" weight="1" />
+      <edge source="Mercutio" target="Valentine" id="20" weight="1" />
+      <edge source="Mercutio" target="Livia" id="21" weight="1" />
+      <edge source="Mercutio" target="Lucio" id="22" weight="1" />
+      <edge source="Mercutio" target="Benvolio" id="23" weight="4" />
+      <edge source="Mercutio" target="Mercutio" id="24" weight="2" />
+      <edge source="Mercutio" target="Staying" id="25" weight="1" />
+      <edge source="Mercutio" target="Romeo" id="26" weight="3" />
+      <edge source="Mercutio" target="kinsman" id="27" weight="1" />
+      <edge source="Mercutio" target="Juliet" id="28" weight="3" />
+      <edge source="Valentine" target="Livia" id="29" weight="1" />
+      <edge source="Valentine" target="Lucio" id="30" weight="1" />
+      <edge source="Livia" target="Lucio" id="31" weight="1" />
+      <edge source="ladybird" target="God" id="32" weight="1" />
+      <edge source="ladybird" target="Juliet" id="33" weight="1" />
+      <edge source="God" target="Juliet" id="34" weight="1" />
+      <edge source="Juliet" target="Marry" id="35" weight="2" />
+      <edge source="Juliet" target="Romeo" id="36" weight="3" />
+      <edge source="Juliet" target="Arise" id="37" weight="1" />
+      <edge source="Juliet" target="Unfold" id="38" weight="1" />
+      <edge source="Juliet" target="Hath" id="39" weight="4" />
+      <edge source="Juliet" target="Tybalt" id="40" weight="10" />
+      <edge source="Juliet" target="Thou" id="41" weight="2" />
+      <edge source="Juliet" target="Unseemly" id="42" weight="1" />
+      <edge source="Juliet" target="Beg" id="43" weight="1" />
+      <edge source="Juliet" target="yon grey" id="44" weight="1" />
+      <edge source="Juliet" target="Cynthia" id="45" weight="1" />
+      <edge source="Juliet" target="Madam" id="46" weight="1" />
+      <edge source="Juliet" target="Romeo Hath" id="47" weight="1" />
+      <edge source="Juliet" target="kinsman" id="48" weight="3" />
+      <edge source="Juliet" target="Juliet" id="49" weight="4" />
+      <edge source="Juliet" target="Depart" id="50" weight="1" />
+      <edge source="Juliet" target="Montagues" id="51" weight="1" />
+      <edge source="Juliet" target="Warm" id="52" weight="1" />
+      <edge source="Juliet" target="Betroth'd" id="53" weight="2" />
+      <edge source="Juliet" target="Friar John" id="54" weight="2" />
+      <edge source="Come Lammas-eve" target="Susan" id="55" weight="2" />
+      <edge source="Come Lammas-eve" target="Lammas" id="56" weight="1" />
+      <edge source="Come Lammas-eve" target="Yea" id="57" weight="1" />
+      <edge source="Come Lammas-eve" target="Jule" id="58" weight="2" />
+      <edge source="Susan" target="Susan" id="59" weight="1" />
+      <edge source="Susan" target="Lammas" id="60" weight="2" />
+      <edge source="Susan" target="Yea" id="61" weight="2" />
+      <edge source="Susan" target="Jule" id="62" weight="4" />
+      <edge source="Lammas" target="Yea" id="63" weight="1" />
+      <edge source="Lammas" target="Jule" id="64" weight="2" />
+      <edge source="Yea" target="Jule" id="65" weight="2" />
+      <edge source="Jule" target="Jule" id="66" weight="1" />
+      <edge source="Jule" target="cockerel" id="67" weight="1" />
+      <edge source="Marry" target="Shall" id="68" weight="2" />
+      <edge source="Marry" target="Petrucio" id="69" weight="1" />
+      <edge source="Marry" target="Madam" id="70" weight="1" />
+      <edge source="Queen Mab" target="Drawn" id="71" weight="1" />
+      <edge source="Queen Mab" target="Athwart" id="72" weight="1" />
+      <edge source="Queen Mab" target="O'er courtiers'" id="73" weight="1" />
+      <edge source="Queen Mab" target="O'er lawyers'" id="74" weight="1" />
+      <edge source="Queen Mab" target="O'er ladies '" id="75" weight="1" />
+      <edge source="Queen Mab" target="Mab" id="76" weight="2" />
+      <edge source="Queen Mab" target="driveth o'er" id="77" weight="1" />
+      <edge source="Drawn" target="Athwart" id="78" weight="1" />
+      <edge source="Drawn" target="O'er courtiers'" id="79" weight="1" />
+      <edge source="Drawn" target="O'er lawyers'" id="80" weight="1" />
+      <edge source="Drawn" target="O'er ladies '" id="81" weight="1" />
+      <edge source="Drawn" target="Mab" id="82" weight="2" />
+      <edge source="Drawn" target="driveth o'er" id="83" weight="1" />
+      <edge source="Athwart" target="O'er courtiers'" id="84" weight="1" />
+      <edge source="Athwart" target="O'er lawyers'" id="85" weight="1" />
+      <edge source="Athwart" target="O'er ladies '" id="86" weight="1" />
+      <edge source="Athwart" target="Mab" id="87" weight="2" />
+      <edge source="Athwart" target="driveth o'er" id="88" weight="1" />
+      <edge source="O'er courtiers'" target="O'er lawyers'" id="89" weight="1" />
+      <edge source="O'er courtiers'" target="O'er ladies '" id="90" weight="1" />
+      <edge source="O'er courtiers'" target="Mab" id="91" weight="2" />
+      <edge source="O'er courtiers'" target="driveth o'er" id="92" weight="1" />
+      <edge source="O'er lawyers'" target="O'er ladies '" id="93" weight="1" />
+      <edge source="O'er lawyers'" target="Mab" id="94" weight="2" />
+      <edge source="O'er lawyers'" target="driveth o'er" id="95" weight="1" />
+      <edge source="O'er ladies '" target="Mab" id="96" weight="2" />
+      <edge source="O'er ladies '" target="driveth o'er" id="97" weight="1" />
+      <edge source="Mab" target="driveth o'er" id="98" weight="2" />
+      <edge source="Mab" target="Mab" id="99" weight="1" />
+      <edge source="Shall" target="Shall" id="100" weight="2" />
+      <edge source="Romeo" target="mar" id="101" weight="1" />
+      <edge source="Romeo" target="Benvolio" id="102" weight="1" />
+      <edge source="Romeo" target="Tybalt" id="103" weight="4" />
+      <edge source="Romeo" target="Hath" id="104" weight="1" />
+      <edge source="Romeo" target="Lest" id="105" weight="1" />
+      <edge source="Romeo" target="place,--" id="106" weight="1" />
+      <edge source="Romeo" target="Lies" id="107" weight="1" />
+      <edge source="Romeo" target="resort;-- Alack" id="108" weight="1" />
+      <edge source="Romeo" target="Betroth'd" id="109" weight="1" />
+      <edge source="Romeo" target="Friar John" id="110" weight="1" />
+      <edge source="Appear thou" target="Venus" id="111" weight="1" />
+      <edge source="Appear thou" target="nick-name" id="112" weight="1" />
+      <edge source="Appear thou" target="Young Adam Cupid" id="113" weight="1" />
+      <edge source="Appear thou" target="King Cophetua" id="114" weight="1" />
+      <edge source="Appear thou" target="heareth" id="115" weight="1" />
+      <edge source="Appear thou" target="moveth" id="116" weight="1" />
+      <edge source="Venus" target="nick-name" id="117" weight="1" />
+      <edge source="Venus" target="Young Adam Cupid" id="118" weight="1" />
+      <edge source="Venus" target="King Cophetua" id="119" weight="1" />
+      <edge source="Venus" target="heareth" id="120" weight="1" />
+      <edge source="Venus" target="moveth" id="121" weight="1" />
+      <edge source="Venus" target="Tybalt" id="122" weight="1" />
+      <edge source="nick-name" target="Young Adam Cupid" id="123" weight="1" />
+      <edge source="nick-name" target="King Cophetua" id="124" weight="1" />
+      <edge source="nick-name" target="heareth" id="125" weight="1" />
+      <edge source="nick-name" target="moveth" id="126" weight="1" />
+      <edge source="Young Adam Cupid" target="King Cophetua" id="127" weight="1" />
+      <edge source="Young Adam Cupid" target="heareth" id="128" weight="1" />
+      <edge source="Young Adam Cupid" target="moveth" id="129" weight="1" />
+      <edge source="King Cophetua" target="heareth" id="130" weight="1" />
+      <edge source="King Cophetua" target="moveth" id="131" weight="1" />
+      <edge source="heareth" target="moveth" id="132" weight="1" />
+      <edge source="Thou" target="Thou" id="133" weight="1" />
+      <edge source="Thou" target="Jove" id="134" weight="2" />
+      <edge source="Thou" target="Shalt" id="135" weight="1" />
+      <edge source="Thou" target="Gallop" id="136" weight="1" />
+      <edge source="Thou" target="Phaethon" id="137" weight="1" />
+      <edge source="Thou" target="Romeo Leap" id="138" weight="1" />
+      <edge source="Thou" target="Hath" id="139" weight="1" />
+      <edge source="Thou" target="Depart" id="140" weight="1" />
+      <edge source="Holy Saint Francis" target="Jesu Maria" id="141" weight="1" />
+      <edge source="Holy Saint Francis" target="Hath" id="142" weight="1" />
+      <edge source="Holy Saint Francis" target="Lo" id="143" weight="1" />
+      <edge source="Jesu Maria" target="Hath" id="144" weight="1" />
+      <edge source="Jesu Maria" target="Lo" id="145" weight="1" />
+      <edge source="Hath" target="Lo" id="146" weight="1" />
+      <edge source="Hath" target="Tybalt" id="147" weight="5" />
+      <edge source="Hath" target="Depart" id="148" weight="1" />
+      <edge source="Petrarch" target="Laura" id="149" weight="1" />
+      <edge source="Petrarch" target="Cleopatra" id="150" weight="1" />
+      <edge source="Petrarch" target="Helen" id="151" weight="1" />
+      <edge source="Laura" target="Cleopatra" id="152" weight="1" />
+      <edge source="Laura" target="Helen" id="153" weight="1" />
+      <edge source="Cleopatra" target="Helen" id="154" weight="1" />
+      <edge source="Gallop" target="Phaethon" id="155" weight="1" />
+      <edge source="Gallop" target="Romeo Leap" id="156" weight="1" />
+      <edge source="Phaethon" target="Romeo Leap" id="157" weight="1" />
+      <edge source="Tybalt" target="Tybalt" id="158" weight="11" />
+      <edge source="Tybalt" target="Unseemly" id="159" weight="1" />
+      <edge source="Tybalt" target="Beg" id="160" weight="1" />
+      <edge source="Tybalt" target="Lest" id="161" weight="1" />
+      <edge source="Tybalt" target="place,--" id="162" weight="1" />
+      <edge source="Tybalt" target="Lies" id="163" weight="1" />
+      <edge source="Tybalt" target="resort;-- Alack" id="164" weight="1" />
+      <edge source="Tybalt" target="Betroth'd" id="165" weight="2" />
+      <edge source="Tybalt" target="Friar John" id="166" weight="2" />
+      <edge source="heartsick groans" target="Mist" id="167" weight="1" />
+      <edge source="Unseemly" target="Beg" id="168" weight="1" />
+      <edge source="Paris" target="Acquaint" id="169" weight="1" />
+      <edge source="earl" target="kinsman" id="170" weight="1" />
+      <edge source="yon grey" target="Cynthia" id="171" weight="1" />
+      <edge source="Saint Peter's Church" target="Peter" id="172" weight="1" />
+      <edge source="Lest" target="place,--" id="173" weight="1" />
+      <edge source="Lest" target="Lies" id="174" weight="1" />
+      <edge source="Lest" target="resort;-- Alack" id="175" weight="1" />
+      <edge source="place,--" target="Lies" id="176" weight="1" />
+      <edge source="place,--" target="resort;-- Alack" id="177" weight="1" />
+      <edge source="Lies" target="resort;-- Alack" id="178" weight="1" />
+      <edge source="Death" target="Death" id="179" weight="1" />
+      <edge source="Betroth'd" target="Friar John" id="180" weight="1" />
+    </edges>
+  </graph>
+</gexf>
