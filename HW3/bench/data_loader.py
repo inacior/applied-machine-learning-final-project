@@ -52,6 +52,36 @@ def format_full_dataset(dataset_df: pd.DataFrame) -> str:
     return "\n".join(lines)
 
 
+def format_spacy_dataset(dataset_df: pd.DataFrame) -> str:
+    header = (
+        "line_number | act | scene | character | dialogue | "
+        "participants | normalized_name | ner_entities | ner_labels"
+    )
+    lines = [header]
+    for _, row in dataset_df.iterrows():
+        line_num_val = row.get("line_number")
+        if pd.notna(line_num_val):
+            try:
+                line_num = str(int(float(line_num_val)))
+            except (ValueError, TypeError):
+                line_num = str(line_num_val)
+        else:
+            line_num = ""
+        act = str(row.get("act", ""))
+        scene = str(row.get("scene", ""))
+        character = str(row.get("character", ""))
+        dialogue = str(row.get("dialogue", ""))
+        participants = str(row.get("participants", ""))
+        normalized_name = str(row.get("normalized_name", ""))
+        ner_entities = str(row.get("ner_entities", ""))
+        ner_labels = str(row.get("ner_labels", ""))
+        lines.append(
+            f"{line_num} | {act} | {scene} | {character} | {dialogue} | "
+            f"{participants} | {normalized_name} | {ner_entities} | {ner_labels}"
+        )
+    return "\n".join(lines)
+
+
 def _safe_parse_list(value):
     if isinstance(value, list):
         return value

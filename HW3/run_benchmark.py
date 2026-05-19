@@ -2,7 +2,7 @@
 import argparse
 import sys
 from pathlib import Path
-from bench.config import BASELINE_MODEL, SMALL_MODELS, OPENROUTER_API_KEY, USE_NER_FOR_SMALL_MODELS
+from bench.config import BASELINE_MODEL, SMALL_MODELS, OPENROUTER_API_KEY
 from bench.runner import run_questions
 
 
@@ -76,15 +76,16 @@ def main() -> None:
     )
 
     parser.add_argument(
-        "--use-ner",
-        action="store_true",
-        help="Use NER-extracted structured context instead of raw CSV for small models",
-    )
-
-    parser.add_argument(
-        "--no-ner",
-        action="store_true",
-        help="Force raw CSV context even for small models (override default)",
+        "--method",
+        type=str,
+        default="baseline",
+        choices=["baseline", "langextract", "spacy"],
+        help=(
+            "Method to use for context enrichment:\n"
+            "  baseline    = raw CSV rows (no NER)\n"
+            "  langextract = LangExtract structured overview + raw CSV\n"
+            "  spacy       = spaCy NER annotations appended to each row"
+        ),
     )
 
     args = parser.parse_args()
@@ -132,16 +133,8 @@ def main() -> None:
             else:
                 question_filter.add(int(part))
 
-    use_ner = False
-    if args.use_ner:
-        use_ner = True
-    elif args.no_ner:
-        use_ner = False
-    elif model_name in SMALL_MODELS and USE_NER_FOR_SMALL_MODELS:
-        use_ner = True
-
-    if use_ner:
-        print("Mode:      NER-enhanced context for small models")
+    method = args.method
+    print(f"Method:    {method}")
 
     run_questions(
         model_name=model_name,
@@ -153,7 +146,7 @@ def main() -> None:
         max_questions=args.max_questions,
         dry_run=args.dry_run,
         question_filter=question_filter,
-        use_ner=use_ner,
+        method=method,
     )
 
     print("✅ Done. Run evaluate_results.py to score the answers.")

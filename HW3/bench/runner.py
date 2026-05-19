@@ -1,3 +1,4 @@
+import sys
 import time
 import pandas as pd
 from pathlib import Path
@@ -6,6 +7,7 @@ from bench.data_loader import (
     load_questions,
     load_dataset,
     format_full_dataset,
+    format_spacy_dataset,
 )
 from bench.ner_pipeline import get_ner_context
 from bench.prompts import ANSWER_SYSTEM_PROMPT
@@ -43,10 +45,27 @@ def run_questions(
     max_questions: int | None = None,
     dry_run: bool = False,
     question_filter: set[int] | None = None,
-    use_ner: bool = False,
+    method: str = "baseline",
 ) -> pd.DataFrame:
     questions_df = load_questions(questions_path)
-    dataset_df = load_dataset(dataset_path)
+
+    if method == "spacy":
+        spacy_path = Path("data/thea_ner_augmented.csv")
+        if not spacy_path.exists():
+            print(
+                "❌ Spacy augmented dataset not found: data/thea_ner_augmented.csv\n"
+                "   Run: python ner_spacy.py"
+            )
+            sys.exit(1)
+        dataset_df = load_dataset(spacy_path)
+        dataset_text = format_spacy_dataset(dataset_df)
+        dataset_intro = (
+            "Here is the dataset with spaCy NER annotations:\n\n"
+        )
+    else:
+        dataset_df = load_dataset(dataset_path)
+        dataset_text = format_full_dataset(dataset_df)
+        dataset_intro = "Here is the complete dataset:\n\n"
 
     if max_questions is not None:
         questions_df = questions_df.head(max_questions)
@@ -69,9 +88,7 @@ def run_questions(
     client = OpenRouterClient(api_key=api_key)
     benchmark_start = time.time()
 
-    dataset_text = format_full_dataset(dataset_df)
-
-    if use_ner:
+    if method == "langextract":
         cache_path = Path(output_dir) / "_ner_cache" / "extraction.json"
         ner_summary = get_ner_context(dataset_df, cache_path=cache_path)
         dataset_text = (
@@ -86,8 +103,6 @@ def run_questions(
         dataset_intro = (
             "Here is the dataset with a structured navigation guide:\n\n"
         )
-    else:
-        dataset_intro = "Here is the complete dataset:\n\n"
 
     for _, row in tqdm(rows, total=len(rows), desc=f"{model_name}"):
         question_num = row["question_number"]
