@@ -79,12 +79,13 @@ def main() -> None:
         "--method",
         type=str,
         default="baseline",
-        choices=["baseline", "langextract", "spacy"],
+        choices=["baseline", "langextract", "spacy", "spacy_graph"],
         help=(
             "Method to use for context enrichment:\n"
             "  baseline    = raw CSV rows (no NER)\n"
             "  langextract = LangExtract structured overview + raw CSV\n"
-            "  spacy       = spaCy NER annotations appended to each row"
+            "  spacy       = spaCy NER annotations appended to each row\n"
+            "  spacy_graph = spaCy character profiles + relationship graph + raw CSV"
         ),
     )
 

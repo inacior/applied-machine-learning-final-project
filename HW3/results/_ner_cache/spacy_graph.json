@@ -1,0 +1,1166 @@
+{
+  "profiles": {
+    "Verona": {
+      "mentions": 8,
+      "relationships": {
+        "ho": 1,
+        "Montague": 1,
+        "Cast": 1,
+        "Thou": 1,
+        "Juliet": 1
+      }
+    },
+    "Montague": {
+      "mentions": 17,
+      "relationships": {
+        "ho": 1,
+        "Verona": 1,
+        "Cast": 1,
+        "Romeo": 1,
+        "Thou": 1,
+        "Jove": 1,
+        "Juliet": 1
+      }
+    },
+    "John": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "BENVOLIO": {
+      "mentions": 8,
+      "relationships": {}
+    },
+    "Benvolio": {
+      "mentions": 6,
+      "relationships": {
+        "Mercutio": 2,
+        "Romeo": 1
+      }
+    },
+    "Montagues": {
+      "mentions": 3,
+      "relationships": {
+        "Juliet": 1
+      }
+    },
+    "Citizens": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "ho": {
+      "mentions": 12,
+      "relationships": {
+        "Montague": 1,
+        "Verona": 1,
+        "Cast": 1,
+        "dun": 1,
+        "Juliet": 3
+      }
+    },
+    "Old Montague": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "MONTAGUE": {
+      "mentions": 3,
+      "relationships": {}
+    },
+    "Thou": {
+      "mentions": 10,
+      "relationships": {
+        "Jove": 1,
+        "Montague": 1,
+        "Shalt": 1,
+        "Gallop": 1,
+        "Phaethon": 1,
+        "Romeo Leap": 1,
+        "Verona": 1,
+        "Juliet": 2,
+        "Hath": 1,
+        "Depart": 1
+      }
+    },
+    "PRINCE": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Cast": {
+      "mentions": 1,
+      "relationships": {
+        "ho": 1,
+        "Montague": 1,
+        "Verona": 1
+      }
+    },
+    "Aurora": {
+      "mentions": 1,
+      "relationships": {
+        "Away": 1
+      }
+    },
+    "Away": {
+      "mentions": 1,
+      "relationships": {
+        "Aurora": 1
+      }
+    },
+    "Ere": {
+      "mentions": 2,
+      "relationships": {}
+    },
+    "Out--": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Groan": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Dian": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Inherit": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Romeo": {
+      "mentions": 19,
+      "relationships": {
+        "Juliet": 2,
+        "Montague": 1,
+        "mar": 1,
+        "Mercutio": 2,
+        "Benvolio": 1,
+        "Tybalt": 3,
+        "Hath": 1,
+        "Lest": 1,
+        "place,--": 1,
+        "Lies": 1,
+        "resort;-- Alack": 1,
+        "Betroth'd": 1,
+        "Friar John": 1
+      }
+    },
+    "Shut": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "County Anselme": {
+      "mentions": 1,
+      "relationships": {
+        "Mercutio": 1,
+        "Valentine": 1,
+        "Livia": 1,
+        "Lucio": 1
+      }
+    },
+    "Mercutio": {
+      "mentions": 16,
+      "relationships": {
+        "County Anselme": 1,
+        "Valentine": 1,
+        "Livia": 1,
+        "Lucio": 1,
+        "Benvolio": 2,
+        "Staying": 1,
+        "Romeo": 2,
+        "kinsman": 1,
+        "Juliet": 1
+      }
+    },
+    "Valentine": {
+      "mentions": 1,
+      "relationships": {
+        "County Anselme": 1,
+        "Mercutio": 1,
+        "Livia": 1,
+        "Lucio": 1
+      }
+    },
+    "Livia": {
+      "mentions": 1,
+      "relationships": {
+        "County Anselme": 1,
+        "Mercutio": 1,
+        "Valentine": 1,
+        "Lucio": 1
+      }
+    },
+    "Lucio": {
+      "mentions": 1,
+      "relationships": {
+        "County Anselme": 1,
+        "Mercutio": 1,
+        "Valentine": 1,
+        "Livia": 1
+      }
+    },
+    "ladybird": {
+      "mentions": 1,
+      "relationships": {
+        "God": 1,
+        "Juliet": 1
+      }
+    },
+    "God": {
+      "mentions": 2,
+      "relationships": {
+        "ladybird": 1,
+        "Juliet": 1
+      }
+    },
+    "Juliet": {
+      "mentions": 40,
+      "relationships": {
+        "ladybird": 1,
+        "God": 1,
+        "Marry": 2,
+        "Romeo": 2,
+        "Arise": 1,
+        "Unfold": 1,
+        "Hath": 4,
+        "Tybalt": 3,
+        "Thou": 2,
+        "Unseemly": 1,
+        "Beg": 1,
+        "ho": 3,
+        "yon grey": 1,
+        "Cynthia": 1,
+        "Madam": 1,
+        "Romeo Hath": 1,
+        "Mercutio": 1,
+        "kinsman": 1,
+        "Depart": 1,
+        "Montagues": 1,
+        "Warm": 1,
+        "Betroth'd": 1,
+        "Friar John": 1,
+        "Montague": 1,
+        "Verona": 1
+      }
+    },
+    "JULIET": {
+      "mentions": 12,
+      "relationships": {}
+    },
+    "Lammas": {
+      "mentions": 2,
+      "relationships": {
+        "Come Lammas-eve": 1,
+        "Susan": 1,
+        "Yea": 1,
+        "Jule": 1
+      }
+    },
+    "Come Lammas-eve": {
+      "mentions": 1,
+      "relationships": {
+        "Susan": 1,
+        "Lammas": 1,
+        "Yea": 1,
+        "Jule": 1
+      }
+    },
+    "Susan": {
+      "mentions": 1,
+      "relationships": {
+        "Come Lammas-eve": 1,
+        "Lammas": 1,
+        "Yea": 1,
+        "Jule": 1
+      }
+    },
+    "Yea": {
+      "mentions": 1,
+      "relationships": {
+        "Come Lammas-eve": 1,
+        "Susan": 1,
+        "Lammas": 1,
+        "Jule": 1
+      }
+    },
+    "Jule": {
+      "mentions": 2,
+      "relationships": {
+        "Come Lammas-eve": 1,
+        "Susan": 1,
+        "Lammas": 1,
+        "Yea": 1,
+        "cockerel": 1
+      }
+    },
+    "cockerel": {
+      "mentions": 1,
+      "relationships": {
+        "Jule": 1
+      }
+    },
+    "Marry": {
+      "mentions": 10,
+      "relationships": {
+        "Juliet": 2,
+        "Shall": 2,
+        "Petrucio": 1,
+        "Madam": 1
+      }
+    },
+    "Find": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Exit Servant": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "dun": {
+      "mentions": 1,
+      "relationships": {
+        "ho": 1
+      }
+    },
+    "Queen Mab": {
+      "mentions": 1,
+      "relationships": {
+        "Drawn": 1,
+        "Athwart": 1,
+        "O'er courtiers'": 1,
+        "O'er lawyers'": 1,
+        "O'er ladies '": 1,
+        "Mab": 1,
+        "driveth o'er": 1
+      }
+    },
+    "Drawn": {
+      "mentions": 1,
+      "relationships": {
+        "Queen Mab": 1,
+        "Athwart": 1,
+        "O'er courtiers'": 1,
+        "O'er lawyers'": 1,
+        "O'er ladies '": 1,
+        "Mab": 1,
+        "driveth o'er": 1
+      }
+    },
+    "Athwart": {
+      "mentions": 1,
+      "relationships": {
+        "Queen Mab": 1,
+        "Drawn": 1,
+        "O'er courtiers'": 1,
+        "O'er lawyers'": 1,
+        "O'er ladies '": 1,
+        "Mab": 1,
+        "driveth o'er": 1
+      }
+    },
+    "O'er courtiers'": {
+      "mentions": 1,
+      "relationships": {
+        "Queen Mab": 1,
+        "Drawn": 1,
+        "Athwart": 1,
+        "O'er lawyers'": 1,
+        "O'er ladies '": 1,
+        "Mab": 1,
+        "driveth o'er": 1
+      }
+    },
+    "O'er lawyers'": {
+      "mentions": 1,
+      "relationships": {
+        "Queen Mab": 1,
+        "Drawn": 1,
+        "Athwart": 1,
+        "O'er courtiers'": 1,
+        "O'er ladies '": 1,
+        "Mab": 1,
+        "driveth o'er": 1
+      }
+    },
+    "O'er ladies '": {
+      "mentions": 1,
+      "relationships": {
+        "Queen Mab": 1,
+        "Drawn": 1,
+        "Athwart": 1,
+        "O'er courtiers'": 1,
+        "O'er lawyers'": 1,
+        "Mab": 1,
+        "driveth o'er": 1
+      }
+    },
+    "Mab": {
+      "mentions": 1,
+      "relationships": {
+        "Queen Mab": 1,
+        "Drawn": 1,
+        "Athwart": 1,
+        "O'er courtiers'": 1,
+        "O'er lawyers'": 1,
+        "O'er ladies '": 1,
+        "driveth o'er": 1
+      }
+    },
+    "driveth o'er": {
+      "mentions": 1,
+      "relationships": {
+        "Queen Mab": 1,
+        "Drawn": 1,
+        "Athwart": 1,
+        "O'er courtiers'": 1,
+        "O'er lawyers'": 1,
+        "O'er ladies '": 1,
+        "Mab": 1
+      }
+    },
+    "Begot": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Shall": {
+      "mentions": 6,
+      "relationships": {
+        "Marry": 2
+      }
+    },
+    "Potpan": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Susan Grindstone": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Capulet": {
+      "mentions": 2,
+      "relationships": {}
+    },
+    "kinsman": {
+      "mentions": 3,
+      "relationships": {
+        "earl": 1,
+        "Mercutio": 1,
+        "Juliet": 1
+      }
+    },
+    "marry": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Petrucio": {
+      "mentions": 1,
+      "relationships": {
+        "Marry": 1
+      }
+    },
+    "Appear thou": {
+      "mentions": 1,
+      "relationships": {
+        "Venus": 1,
+        "nick-name": 1,
+        "Young Adam Cupid": 1,
+        "King Cophetua": 1,
+        "heareth": 1,
+        "moveth": 1
+      }
+    },
+    "Venus": {
+      "mentions": 2,
+      "relationships": {
+        "Appear thou": 1,
+        "nick-name": 1,
+        "Young Adam Cupid": 1,
+        "King Cophetua": 1,
+        "heareth": 1,
+        "moveth": 1,
+        "Tybalt": 1
+      }
+    },
+    "nick-name": {
+      "mentions": 1,
+      "relationships": {
+        "Appear thou": 1,
+        "Venus": 1,
+        "Young Adam Cupid": 1,
+        "King Cophetua": 1,
+        "heareth": 1,
+        "moveth": 1
+      }
+    },
+    "Young Adam Cupid": {
+      "mentions": 1,
+      "relationships": {
+        "Appear thou": 1,
+        "Venus": 1,
+        "nick-name": 1,
+        "King Cophetua": 1,
+        "heareth": 1,
+        "moveth": 1
+      }
+    },
+    "King Cophetua": {
+      "mentions": 1,
+      "relationships": {
+        "Appear thou": 1,
+        "Venus": 1,
+        "nick-name": 1,
+        "Young Adam Cupid": 1,
+        "heareth": 1,
+        "moveth": 1
+      }
+    },
+    "heareth": {
+      "mentions": 1,
+      "relationships": {
+        "Appear thou": 1,
+        "Venus": 1,
+        "nick-name": 1,
+        "Young Adam Cupid": 1,
+        "King Cophetua": 1,
+        "moveth": 1
+      }
+    },
+    "moveth": {
+      "mentions": 1,
+      "relationships": {
+        "Appear thou": 1,
+        "Venus": 1,
+        "nick-name": 1,
+        "Young Adam Cupid": 1,
+        "King Cophetua": 1,
+        "heareth": 1
+      }
+    },
+    "Arise": {
+      "mentions": 2,
+      "relationships": {
+        "Juliet": 1
+      }
+    },
+    "Jove": {
+      "mentions": 1,
+      "relationships": {
+        "Thou": 1,
+        "Montague": 1
+      }
+    },
+    "Lest": {
+      "mentions": 2,
+      "relationships": {
+        "place,--": 1,
+        "Lies": 1,
+        "resort;-- Alack": 1,
+        "Tybalt": 1,
+        "Romeo": 1
+      }
+    },
+    "Sweet": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Sweet Montague": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Madam": {
+      "mentions": 5,
+      "relationships": {
+        "Juliet": 1,
+        "Marry": 1
+      }
+    },
+    "Remembering": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Full": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Holy Saint Francis": {
+      "mentions": 1,
+      "relationships": {
+        "Jesu Maria": 1,
+        "Hath": 1,
+        "Lo": 1
+      }
+    },
+    "Jesu Maria": {
+      "mentions": 1,
+      "relationships": {
+        "Holy Saint Francis": 1,
+        "Hath": 1,
+        "Lo": 1
+      }
+    },
+    "Hath": {
+      "mentions": 7,
+      "relationships": {
+        "Holy Saint Francis": 1,
+        "Jesu Maria": 1,
+        "Lo": 1,
+        "Juliet": 4,
+        "Tybalt": 1,
+        "Romeo": 1,
+        "Depart": 1,
+        "Thou": 1
+      }
+    },
+    "Lo": {
+      "mentions": 1,
+      "relationships": {
+        "Holy Saint Francis": 1,
+        "Jesu Maria": 1,
+        "Hath": 1
+      }
+    },
+    "Tybalt": {
+      "mentions": 10,
+      "relationships": {
+        "Romeo": 3,
+        "Hath": 1,
+        "Juliet": 3,
+        "Unseemly": 1,
+        "Beg": 1,
+        "Venus": 1,
+        "Lest": 1,
+        "place,--": 1,
+        "Lies": 1,
+        "resort;-- Alack": 1,
+        "Betroth'd": 1,
+        "Friar John": 1
+      }
+    },
+    "Jesu": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Petrarch": {
+      "mentions": 1,
+      "relationships": {
+        "Laura": 1,
+        "Cleopatra": 1,
+        "Helen": 1
+      }
+    },
+    "Laura": {
+      "mentions": 1,
+      "relationships": {
+        "Petrarch": 1,
+        "Cleopatra": 1,
+        "Helen": 1
+      }
+    },
+    "Cleopatra": {
+      "mentions": 1,
+      "relationships": {
+        "Petrarch": 1,
+        "Laura": 1,
+        "Helen": 1
+      }
+    },
+    "Helen": {
+      "mentions": 1,
+      "relationships": {
+        "Petrarch": 1,
+        "Laura": 1,
+        "Cleopatra": 1
+      }
+    },
+    "Switch": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Peter": {
+      "mentions": 7,
+      "relationships": {
+        "Saint Peter's Church": 1
+      }
+    },
+    "Good Peter": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "mar": {
+      "mentions": 1,
+      "relationships": {
+        "Romeo": 1
+      }
+    },
+    "Jacks": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Farewell": {
+      "mentions": 2,
+      "relationships": {}
+    },
+    "Exit PETER": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Nay": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Henceforward": {
+      "mentions": 2,
+      "relationships": {}
+    },
+    "Unfold": {
+      "mentions": 1,
+      "relationships": {
+        "Juliet": 1
+      }
+    },
+    "MERCUTIO": {
+      "mentions": 2,
+      "relationships": {}
+    },
+    "Jack": {
+      "mentions": 2,
+      "relationships": {}
+    },
+    "Capulet,--which": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Gentle Mercutio": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Staying": {
+      "mentions": 1,
+      "relationships": {
+        "Mercutio": 1
+      }
+    },
+    "Shalt": {
+      "mentions": 1,
+      "relationships": {
+        "Thou": 1
+      }
+    },
+    "Gallop": {
+      "mentions": 1,
+      "relationships": {
+        "Phaethon": 1,
+        "Romeo Leap": 1,
+        "Thou": 1
+      }
+    },
+    "Phaethon": {
+      "mentions": 1,
+      "relationships": {
+        "Gallop": 1,
+        "Romeo Leap": 1,
+        "Thou": 1
+      }
+    },
+    "Romeo Leap": {
+      "mentions": 1,
+      "relationships": {
+        "Gallop": 1,
+        "Phaethon": 1,
+        "Thou": 1
+      }
+    },
+    "heartsick groans": {
+      "mentions": 1,
+      "relationships": {
+        "Mist": 1
+      }
+    },
+    "Mist": {
+      "mentions": 1,
+      "relationships": {
+        "heartsick groans": 1
+      }
+    },
+    "Lady Juliet": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Unseemly": {
+      "mentions": 1,
+      "relationships": {
+        "Juliet": 1,
+        "Tybalt": 1,
+        "Beg": 1
+      }
+    },
+    "Beg": {
+      "mentions": 1,
+      "relationships": {
+        "Unseemly": 1,
+        "Juliet": 1,
+        "Tybalt": 1
+      }
+    },
+    "Paris": {
+      "mentions": 2,
+      "relationships": {
+        "Acquaint": 1
+      }
+    },
+    "Acquaint": {
+      "mentions": 1,
+      "relationships": {
+        "Paris": 1
+      }
+    },
+    "earl": {
+      "mentions": 1,
+      "relationships": {
+        "kinsman": 1
+      }
+    },
+    "yon grey": {
+      "mentions": 1,
+      "relationships": {
+        "Cynthia": 1,
+        "Juliet": 1
+      }
+    },
+    "Cynthia": {
+      "mentions": 1,
+      "relationships": {
+        "yon grey": 1,
+        "Juliet": 1
+      }
+    },
+    "Adieu": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Saint Peter's Church": {
+      "mentions": 1,
+      "relationships": {
+        "Peter": 1
+      }
+    },
+    "Unworthy": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Proud": {
+      "mentions": 2,
+      "relationships": {}
+    },
+    "Graze": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Laurence": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "O'er-cover'd": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Sirrah": {
+      "mentions": 2,
+      "relationships": {}
+    },
+    "place,--": {
+      "mentions": 1,
+      "relationships": {
+        "Lest": 1,
+        "Lies": 1,
+        "resort;-- Alack": 1,
+        "Tybalt": 1,
+        "Romeo": 1
+      }
+    },
+    "Lies": {
+      "mentions": 1,
+      "relationships": {
+        "Lest": 1,
+        "place,--": 1,
+        "resort;-- Alack": 1,
+        "Tybalt": 1,
+        "Romeo": 1
+      }
+    },
+    "resort;-- Alack": {
+      "mentions": 1,
+      "relationships": {
+        "Lest": 1,
+        "place,--": 1,
+        "Lies": 1,
+        "Tybalt": 1,
+        "Romeo": 1
+      }
+    },
+    "Angelica": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Call Peter": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "merry whoreson": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Death": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "PETER": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Heart": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Simon Catling": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "James Soundpost": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Tush": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Mantua": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Contempt": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Suspecting": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Friar John": {
+      "mentions": 2,
+      "relationships": {
+        "Juliet": 1,
+        "Romeo": 1,
+        "Tybalt": 1,
+        "Betroth'd": 1
+      }
+    },
+    "Romeo Hath": {
+      "mentions": 1,
+      "relationships": {
+        "Juliet": 1
+      }
+    },
+    "Depart": {
+      "mentions": 1,
+      "relationships": {
+        "Hath": 1,
+        "Juliet": 1,
+        "Thou": 1
+      }
+    },
+    "Saint Francis": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Bliss": {
+      "mentions": 1,
+      "relationships": {}
+    },
+    "Warm": {
+      "mentions": 1,
+      "relationships": {
+        "Juliet": 1
+      }
+    },
+    "Betroth'd": {
+      "mentions": 1,
+      "relationships": {
+        "Juliet": 1,
+        "Romeo": 1,
+        "Tybalt": 1,
+        "Friar John": 1
+      }
+    }
+  },
+  "edges": {
+    "Montague::ho": 1,
+    "Verona::ho": 1,
+    "Cast::ho": 1,
+    "Montague::Verona": 1,
+    "Cast::Montague": 1,
+    "Cast::Verona": 1,
+    "Aurora::Away": 1,
+    "County Anselme::Mercutio": 1,
+    "County Anselme::Valentine": 1,
+    "County Anselme::Livia": 1,
+    "County Anselme::Lucio": 1,
+    "Mercutio::Valentine": 1,
+    "Livia::Mercutio": 1,
+    "Lucio::Mercutio": 1,
+    "Livia::Valentine": 1,
+    "Lucio::Valentine": 1,
+    "Livia::Lucio": 1,
+    "God::ladybird": 1,
+    "Juliet::ladybird": 1,
+    "God::Juliet": 1,
+    "Come Lammas-eve::Susan": 1,
+    "Come Lammas-eve::Lammas": 1,
+    "Come Lammas-eve::Yea": 1,
+    "Come Lammas-eve::Jule": 1,
+    "Lammas::Susan": 1,
+    "Susan::Yea": 1,
+    "Jule::Susan": 1,
+    "Lammas::Yea": 1,
+    "Jule::Lammas": 1,
+    "Jule::Yea": 1,
+    "Jule::cockerel": 1,
+    "Juliet::Marry": 2,
+    "dun::ho": 1,
+    "Drawn::Queen Mab": 1,
+    "Athwart::Queen Mab": 1,
+    "O'er courtiers'::Queen Mab": 1,
+    "O'er lawyers'::Queen Mab": 1,
+    "O'er ladies '::Queen Mab": 1,
+    "Mab::Queen Mab": 1,
+    "Queen Mab::driveth o'er": 1,
+    "Athwart::Drawn": 1,
+    "Drawn::O'er courtiers'": 1,
+    "Drawn::O'er lawyers'": 1,
+    "Drawn::O'er ladies '": 1,
+    "Drawn::Mab": 1,
+    "Drawn::driveth o'er": 1,
+    "Athwart::O'er courtiers'": 1,
+    "Athwart::O'er lawyers'": 1,
+    "Athwart::O'er ladies '": 1,
+    "Athwart::Mab": 1,
+    "Athwart::driveth o'er": 1,
+    "O'er courtiers'::O'er lawyers'": 1,
+    "O'er courtiers'::O'er ladies '": 1,
+    "Mab::O'er courtiers'": 1,
+    "O'er courtiers'::driveth o'er": 1,
+    "O'er ladies '::O'er lawyers'": 1,
+    "Mab::O'er lawyers'": 1,
+    "O'er lawyers'::driveth o'er": 1,
+    "Mab::O'er ladies '": 1,
+    "O'er ladies '::driveth o'er": 1,
+    "Mab::driveth o'er": 1,
+    "Marry::Shall": 2,
+    "Marry::Petrucio": 1,
+    "Juliet::Romeo": 2,
+    "Appear thou::Venus": 1,
+    "Appear thou::nick-name": 1,
+    "Appear thou::Young Adam Cupid": 1,
+    "Appear thou::King Cophetua": 1,
+    "Appear thou::heareth": 1,
+    "Appear thou::moveth": 1,
+    "Venus::nick-name": 1,
+    "Venus::Young Adam Cupid": 1,
+    "King Cophetua::Venus": 1,
+    "Venus::heareth": 1,
+    "Venus::moveth": 1,
+    "Young Adam Cupid::nick-name": 1,
+    "King Cophetua::nick-name": 1,
+    "heareth::nick-name": 1,
+    "moveth::nick-name": 1,
+    "King Cophetua::Young Adam Cupid": 1,
+    "Young Adam Cupid::heareth": 1,
+    "Young Adam Cupid::moveth": 1,
+    "King Cophetua::heareth": 1,
+    "King Cophetua::moveth": 1,
+    "heareth::moveth": 1,
+    "Arise::Juliet": 1,
+    "Montague::Romeo": 1,
+    "Jove::Thou": 1,
+    "Montague::Thou": 1,
+    "Jove::Montague": 1,
+    "Holy Saint Francis::Jesu Maria": 1,
+    "Hath::Holy Saint Francis": 1,
+    "Holy Saint Francis::Lo": 1,
+    "Hath::Jesu Maria": 1,
+    "Jesu Maria::Lo": 1,
+    "Hath::Lo": 1,
+    "Laura::Petrarch": 1,
+    "Cleopatra::Petrarch": 1,
+    "Helen::Petrarch": 1,
+    "Cleopatra::Laura": 1,
+    "Helen::Laura": 1,
+    "Cleopatra::Helen": 1,
+    "Romeo::mar": 1,
+    "Juliet::Unfold": 1,
+    "Benvolio::Mercutio": 2,
+    "Hath::Juliet": 4,
+    "Mercutio::Staying": 1,
+    "Shalt::Thou": 1,
+    "Mercutio::Romeo": 2,
+    "Benvolio::Romeo": 1,
+    "Gallop::Phaethon": 1,
+    "Gallop::Romeo Leap": 1,
+    "Gallop::Thou": 1,
+    "Phaethon::Romeo Leap": 1,
+    "Phaethon::Thou": 1,
+    "Romeo Leap::Thou": 1,
+    "Romeo::Tybalt": 3,
+    "Hath::Tybalt": 1,
+    "Juliet::Tybalt": 3,
+    "Thou::Verona": 1,
+    "Juliet::Thou": 2,
+    "Mist::heartsick groans": 1,
+    "Juliet::Unseemly": 1,
+    "Tybalt::Unseemly": 1,
+    "Beg::Unseemly": 1,
+    "Beg::Juliet": 1,
+    "Beg::Tybalt": 1,
+    "Acquaint::Paris": 1,
+    "earl::kinsman": 1,
+    "Juliet::ho": 3,
+    "Cynthia::yon grey": 1,
+    "Juliet::yon grey": 1,
+    "Cynthia::Juliet": 1,
+    "Peter::Saint Peter's Church": 1,
+    "Hath::Romeo": 1,
+    "Tybalt::Venus": 1,
+    "Lest::place,--": 1,
+    "Lest::Lies": 1,
+    "Lest::resort;-- Alack": 1,
+    "Lest::Tybalt": 1,
+    "Lest::Romeo": 1,
+    "Lies::place,--": 1,
+    "place,--::resort;-- Alack": 1,
+    "Tybalt::place,--": 1,
+    "Romeo::place,--": 1,
+    "Lies::resort;-- Alack": 1,
+    "Lies::Tybalt": 1,
+    "Lies::Romeo": 1,
+    "Tybalt::resort;-- Alack": 1,
+    "Romeo::resort;-- Alack": 1,
+    "Juliet::Madam": 1,
+    "Madam::Marry": 1,
+    "Juliet::Romeo Hath": 1,
+    "Mercutio::kinsman": 1,
+    "Juliet::Mercutio": 1,
+    "Juliet::kinsman": 1,
+    "Depart::Hath": 1,
+    "Hath::Thou": 1,
+    "Depart::Juliet": 1,
+    "Depart::Thou": 1,
+    "Juliet::Montagues": 1,
+    "Juliet::Warm": 1,
+    "Betroth'd::Juliet": 1,
+    "Friar John::Juliet": 1,
+    "Betroth'd::Romeo": 1,
+    "Friar John::Romeo": 1,
+    "Betroth'd::Tybalt": 1,
+    "Friar John::Tybalt": 1,
+    "Betroth'd::Friar John": 1,
+    "Juliet::Montague": 1,
+    "Juliet::Verona": 1
+  }
+}

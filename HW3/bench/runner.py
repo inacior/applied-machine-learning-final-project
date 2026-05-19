@@ -10,6 +10,7 @@ from bench.data_loader import (
     format_spacy_dataset,
 )
 from bench.ner_pipeline import get_ner_context
+from bench.spacy_graph import get_spacy_graph_context
 from bench.prompts import ANSWER_SYSTEM_PROMPT
 from bench.openrouter import OpenRouterClient
 
@@ -102,6 +103,26 @@ def run_questions(
         )
         dataset_intro = (
             "Here is the dataset with a structured navigation guide:\n\n"
+        )
+
+    if method == "spacy_graph":
+        cache_path = Path(output_dir) / "_ner_cache" / "spacy_graph.json"
+        ner_summary = get_spacy_graph_context(
+            dataset_path=dataset_path,
+            dataset_df=dataset_df,
+            cache_path=cache_path,
+        )
+        dataset_text = (
+            "# Character Entity Overview\n\n"
+            "Use this overview as a navigation guide to help you locate relevant "
+            "characters and relationships in the full dataset below.\n\n"
+            f"{ner_summary}\n"
+            "---\n\n"
+            "# Complete Dataset\n\n"
+            f"{dataset_text}"
+        )
+        dataset_intro = (
+            "Here is the dataset with a character relationship guide:\n\n"
         )
 
     for _, row in tqdm(rows, total=len(rows), desc=f"{model_name}"):
