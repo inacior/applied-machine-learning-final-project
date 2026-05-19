@@ -2,7 +2,12 @@ import time
 import pandas as pd
 from pathlib import Path
 from tqdm import tqdm
-from bench.data_loader import load_questions, load_dataset, format_full_dataset
+from bench.data_loader import (
+    load_questions,
+    load_dataset,
+    format_full_dataset,
+)
+from bench.ner_pipeline import get_ner_context
 from bench.prompts import ANSWER_SYSTEM_PROMPT
 from bench.openrouter import OpenRouterClient
 
@@ -38,6 +43,7 @@ def run_questions(
     max_questions: int | None = None,
     dry_run: bool = False,
     question_filter: set[int] | None = None,
+    use_ner: bool = False,
 ) -> pd.DataFrame:
     questions_df = load_questions(questions_path)
     dataset_df = load_dataset(dataset_path)
@@ -65,6 +71,24 @@ def run_questions(
 
     dataset_text = format_full_dataset(dataset_df)
 
+    if use_ner:
+        cache_path = Path(output_dir) / "_ner_cache" / "extraction.json"
+        ner_summary = get_ner_context(dataset_df, cache_path=cache_path)
+        dataset_text = (
+            "# Structured Dataset Overview\n\n"
+            "Use this overview as a navigation guide to help you locate relevant "
+            "information in the full dataset below.\n\n"
+            f"{ner_summary}\n"
+            "---\n\n"
+            "# Complete Dataset\n\n"
+            f"{dataset_text}"
+        )
+        dataset_intro = (
+            "Here is the dataset with a structured navigation guide:\n\n"
+        )
+    else:
+        dataset_intro = "Here is the complete dataset:\n\n"
+
     for _, row in tqdm(rows, total=len(rows), desc=f"{model_name}"):
         question_num = row["question_number"]
         question = row["question"]
@@ -74,9 +98,7 @@ def run_questions(
         try:
             messages = [
                 {"role": "system", "content": ANSWER_SYSTEM_PROMPT},
-                {"role": "user", "content": (
-                    f"Here is the complete dataset:\n\n{dataset_text}"
-                )},
+                {"role": "user", "content": f"{dataset_intro}{dataset_text}"},
                 {"role": "user", "content": (
                     f"## Question\n\n{question}\n\n"
                     f"Answer the question based solely on the dataset above.\n\n"

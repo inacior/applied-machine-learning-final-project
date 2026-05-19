@@ -2,3 +2,5 @@ openai>=1.0.0
 pandas>=2.0.0
 python-dotenv>=1.0.0
 tqdm>=4.66.0
+langextract>=1.0.0
+langextract-provider-openrouter>=0.1.3

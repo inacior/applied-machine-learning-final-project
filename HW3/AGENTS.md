@@ -124,6 +124,68 @@ Free-tier models (`:free` suffix) are **slow** and heavily rate-limited:
 
 ---
 
+## Use LangExtract NER
+
+The benchmark supports **NER-enhanced context** for small models using Google's `langextract` library. Instead of sending raw CSV lines alone, the model receives a **structured navigation guide** (characters, relationships, events, emotions, locations, objects, themes) followed by the **complete raw dataset**.
+
+### How it works
+
+```
+Dataset CSV  ──> langextract + gemini-2.5-flash ──> Structured NER summary
+                                                             │
+                                                             ▼
+Questions CSV ──> format rows as text ──> [NER Summary + Full Dataset] ──> LLM
+```
+
+The NER summary acts as a **table of contents** — the model can use it to quickly understand who the characters are, what relationships exist, and where key events happen, then scan the full raw text for exact dialogue.
+
+### Enable NER (automatic for small models)
+
+```bash
+# NER is auto-enabled for all SMALL_MODELS
+python run_benchmark.py --model mistral-small-3.2
+
+# Force NER on any model
+python run_benchmark.py --model mistral-small-3.2 --use-ner
+
+# Disable NER and use raw CSV only
+python run_benchmark.py --model mistral-small-3.2 --no-ner
+```
+
+### Pre-run NER to save time/money
+
+By default, each benchmark run re-extracts NER. To extract once and reuse across multiple model benchmarks:
+
+```bash
+# Step 1: Run NER extraction once
+PYTHONPATH=$(pwd) .venv/bin/python test_ner.py
+
+# Step 2: Copy cache to benchmark output directory
+mkdir -p results/mistral-small-3.2/_ner_cache
+cp .ner_test_cache/extraction.json results/mistral-small-3.2/_ner_cache/extraction.json
+
+# Step 3: Run benchmark (loads cache, skips re-extraction)
+python run_benchmark.py --model mistral-small-3.2
+```
+
+### Files involved
+
+| File | Purpose |
+|------|---------|
+| `bench/ner_pipeline.py` | NER extraction + formatting logic |
+| `test_ner.py` | Standalone NER test script |
+| `results/{model}/_ner_cache/extraction.json` | Raw extraction cache |
+| `ner_output.txt` | Formatted NER text preview (from test_ner.py) |
+
+### Implementation details
+
+- **NER Model**: `openrouter/google/gemini-2.5-flash` (fast, cheap via OpenRouter)
+- **Extraction classes**: character, relationship, emotion, event, location, object, theme
+- **Caching**: JSON cache with atomic writes + corruption recovery
+- **Performance**: ~5-10 min for 170K-char dataset, one-time cost per cache
+
+---
+
 ## Output format
 
 `results/{model_name}/answers.csv` (after step 1):

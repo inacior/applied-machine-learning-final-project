@@ -36,8 +36,8 @@ SMALL_MODELS: dict[str, str] = {
     "llama-3b":       "meta-llama/llama-3.2-3b-instruct",
     "ministral-3b":   "mistralai/ministral-3b-2512",
     "phi-4-mini":     "microsoft/phi-4-mini-instruct",
-    "qwen-3.5-9b":    "qwen/qwen3.5-9b",
-    "qwen-3.5-27b":   "qwen/qwen3.5-27b",
+    # "qwen-3.5-9b":    "qwen/qwen3.5-9b",
+    # "qwen-3.5-27b":   "qwen/qwen3.5-27b",
     "mistral-small-3.2": "mistralai/mistral-small-3.2-24b-instruct-2506",
     "qwen3-30b-a3b":  "qwen/qwen3-30b-a3b-instruct-2507",
     # "mistral-7b":     "mistralai/mistral-7b-instruct-v0.1",  # ~3K context — too small for full dataset
@@ -52,6 +52,17 @@ RATE_LIMIT_DELAY = 1.0       # seconds between consecutive API calls
 MAX_RETRIES = 3              # total attempts (1 initial + 2 retries)
 RETRY_BACKOFF = 1.0          # fixed wait between retries (seconds)
 REQUEST_TIMEOUT = 60        # seconds before HTTP timeout
+
+# ---------------------------------------------------------------------------
+# NER Pipeline Configuration
+# ---------------------------------------------------------------------------
+NER_MODEL_ID = "openrouter/deepseek/deepseek-v4-flash"
+NER_EXTRACTION_PASSES = 2
+NER_MAX_WORKERS = 10
+NER_CACHE_DIR = HW3_DIR / ".ner_cache"
+
+# Enable NER for small models by default (can override via CLI)
+USE_NER_FOR_SMALL_MODELS = True
 
 # ---------------------------------------------------------------------------
 # Generation Parameters

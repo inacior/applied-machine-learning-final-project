@@ -2,7 +2,7 @@
 import argparse
 import sys
 from pathlib import Path
-from bench.config import BASELINE_MODEL, SMALL_MODELS, OPENROUTER_API_KEY
+from bench.config import BASELINE_MODEL, SMALL_MODELS, OPENROUTER_API_KEY, USE_NER_FOR_SMALL_MODELS
 from bench.runner import run_questions
 
 
@@ -75,6 +75,18 @@ def main() -> None:
         help="Comma-separated question numbers to run (e.g. '1,5,10-15')",
     )
 
+    parser.add_argument(
+        "--use-ner",
+        action="store_true",
+        help="Use NER-extracted structured context instead of raw CSV for small models",
+    )
+
+    parser.add_argument(
+        "--no-ner",
+        action="store_true",
+        help="Force raw CSV context even for small models (override default)",
+    )
+
     args = parser.parse_args()
 
     model_name, model_id = _resolve_model(args.model)
@@ -120,6 +132,17 @@ def main() -> None:
             else:
                 question_filter.add(int(part))
 
+    use_ner = False
+    if args.use_ner:
+        use_ner = True
+    elif args.no_ner:
+        use_ner = False
+    elif model_name in SMALL_MODELS and USE_NER_FOR_SMALL_MODELS:
+        use_ner = True
+
+    if use_ner:
+        print("Mode:      NER-enhanced context for small models")
+
     run_questions(
         model_name=model_name,
         model_id=model_id,
@@ -130,6 +153,7 @@ def main() -> None:
         max_questions=args.max_questions,
         dry_run=args.dry_run,
         question_filter=question_filter,
+        use_ner=use_ner,
     )
 
     print("✅ Done. Run evaluate_results.py to score the answers.")
