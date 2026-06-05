@@ -192,7 +192,19 @@ There is also a practical lesson here that has nothing to do with literary inter
 
 If this project were extended, the most promising next step would be to combine the best idea from `langextract` with evidence retrieval. A compact entity-and-event overview followed by a question-specific subset of source rows, rather than the full play every time, would likely preserve the value of global guidance while reducing context pressure and widening model compatibility. As the results stand, the message is pretty clear: good structure helps, noisy structure hurts, and concise summaries help more than dense local tags.
 
-## 10. Reproducibility notes
+## 10. Problems and fixes
+
+The clearest failure in the benchmark was `llama-1b` after NER augmentation. Once the prompt included the full dataset plus extra entity-aware context, it crossed the provider's roughly 60K-token limit and stopped before producing an answer. That meant the augmented runs were not usable as normal QA experiments. The obvious fix is to reduce prompt length, retrieve only the rows needed for each question, or move to a model with a larger context window. This was not repaired inside the benchmark itself, so those runs were excluded from the main comparison.
+
+A more subtle problem came from the plain spaCy row-augmentation strategy. It added many local entity tags, but it did not improve the overall structure of the prompt. The result was a wider, noisier input rather than a clearer one. In that sense, the method spent context budget on detail that was technically plausible but not especially helpful. The `langextract` summary and the `spacy_graph` condition effectively address that weakness by giving the model a more compact global view instead of a row-by-row expansion.
+
+The `spacy_graph` condition has its own limitation. Its design is reasonable, but it depends on a general-purpose spaCy extractor that does not handle Shakespeare very well. Names and forms such as `ho` and `Thou` show that the graph can inherit noisy entity detection from the underlying tagger. A domain-tuned extractor or a stricter postprocessing step would help here, but that improvement remains a proposal rather than a finished fix.
+
+There is also a broader design issue in the benchmark itself: the full dataset is sent for every question. That makes the evaluation easy to run, but it also means the model has to absorb the entire play even when only a handful of rows matter. The setup therefore mixes reasoning quality with context-window pressure and prompt tolerance. The most natural extension would be question-specific retrieval or a smaller evidence slice, but that was left for future work.
+
+Finally, the verifier is still a language model. The evaluation is stronger than simple string matching because it sees the gold answer, analyst observations, and evidence rows, but it is still not perfectly deterministic. Small variations in judging are always possible, even with a tight output format. This is a partial limitation rather than a failure, and it is the kind of thing that would only disappear with a fully rule-based evaluator.
+
+## 11. Reproducibility notes
 
 The main scripts involved in the benchmark are `hw3/run_benchmark.py`, `hw3/evaluate_results.py`, `hw3/bench/runner.py`, `hw3/bench/ner_pipeline.py`, `hw3/bench/spacy_graph.py`, and `hw3/ner_spacy.py`. This humanized report was written from those scripts and from the saved result CSVs already present in `hw3/results/`.
 
