@@ -7,6 +7,8 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -22,7 +24,7 @@ inacior.dev@gmail.com}
 \IEEEauthorblockN{Th\'{e}a Louise Sequeira Pessoa}
 \IEEEauthorblockA{\textit{Federal University of Santa Catarina}\\
 Florian\'{o}polis, Brazil \\
-thealouise26@gmail.com}
+theapessoa@gmail.com}
 \and
 \IEEEauthorblockN{Pedro Henrique Cavalcante S\'{a}}
 \IEEEauthorblockA{\textit{Federal University of Santa Catarina}\\
@@ -186,11 +188,41 @@ The workflow proceeds in three stages:
 \item \textbf{Question answering}: Small language models receive the augmented context and answer each benchmark question. A verifier LLM evaluates answers against ground truth.
 \end{enumerate}
 
-\begin{verbatim}
-Dataset CSV -> format as text -> LangExtract -> overview
-                                             |
-Questions CSV -> format prompt -> SLM -> answers -> verifier -> scores
-\end{verbatim}
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=0.45cm and 0.35cm,
+    box/.style={draw, rounded corners=1.5pt, fill=blue!5, text width=1.25cm,
+                align=center, font=\scriptsize, minimum height=0.5cm, inner sep=2pt},
+    arrow/.style={-{Stealth[scale=0.55]}, semithick},
+]
+
+% ── Row 1: Dataset preparation ──
+\node[box, text width=1.05cm] (csv)  {Dataset\\CSV};
+\node[box, right=of csv]      (fmt)  {Format as\\text};
+\node[box, right=of fmt]      (le)   {LangExtract};
+\node[box, right=of le]       (ov)   {Augmented Context};
+
+% ── Row 2: Question answering ──
+\node[box, text width=1.05cm,
+      below=0.75cm of csv]    (qcsv) {Questions\\CSV};
+\node[box, right=of qcsv]     (qfmt) {Format\\prompt};
+\node[box, right=of qfmt]     (slm)  {SLM};
+\node[box, right=of slm]      (ans)  {Answers};
+\node[box, right=of ans]      (ver)  {Verifier};
+
+% ── Horizontal arrows ──
+\foreach \a/\b in {csv/fmt, fmt/le, le/ov, qcsv/qfmt, qfmt/slm, slm/ans, ans/ver}
+  \draw[arrow] (\a) -- (\b);
+
+% ── Vertical: overview feeds into SLM ──
+\draw[arrow] (ov.south) -- ++(0,-0.2) -| (slm);
+
+\end{tikzpicture}
+\caption{Benchmark pipeline architecture. The LangExtract entity overview is
+prepended to the prompt before querying the SLM.}
+\label{fig:pipeline}
+\end{figure}
 
 \subsection{LangExtract Configuration}
 
@@ -379,10 +411,6 @@ The pipeline establishes a practical approach for augmenting small language mode
 \subsection{Future Work}
 
 Several extensions would strengthen this line of research: (1)~question-specific evidence retrieval to reduce context pressure and improve small-model compatibility, (2)~domain-adapted extraction via fine-tuning on literary text, (3)~multi-work testing to assess generalizability beyond a single play, (4)~systematic ablation of extraction classes, passes, and buffer sizes, and (5)~hybrid approaches combining LangExtract's global overview with retrieval-based evidence selection.
-
-\section*{Acknowledgment}
-
-The author thanks Prof. J\^{o}nata Tyska for guidance throughout the Applied Machine Learning course (INE410154, 2024.1) at the Federal University of Santa Catarina. The LangExtract library and OpenRouter API were instrumental in enabling this research.
 
 \begin{thebibliography}{20}
 
