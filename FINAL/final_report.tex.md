@@ -165,9 +165,7 @@ Each question includes a ground-truth answer, analyst observations with line-ran
 
 \subsection{Data Quality Challenges}
 
-Several domain-specific phenomena complicated both preprocessing and entity extraction:
-
-\textbf{Markup artifacts}: The raw text contained line-number anchors (\textit{\{\#1.1.1\}}), speaker metadata tags (\textit{[**SAMPSON**]\{\#speech1\}}), and escape sequences requiring cleanup prior to NLP processing.
+Three domain-specific phenomena complicated both preprocessing and entity extraction:
 
 \textbf{Character aliases}: Romeo appears as ``son of Montague,'' ``my cousin,'' and ``villain Romeo'' at different points. Family affiliations (Capulet versus Montague) are not explicitly tagged in the source.
 
